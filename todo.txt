@@ -1,0 +1,19 @@
+DONE-
+initialize-admin
+admin-login
+admin-logout
+
+NEED IMPROVEMENT-
+Brand preview image not working
+manage PRODUCT( listing and create )
+while editing BRAND image should be pre-filled(For that need to do multer-upload and then fetch from database).
+same as above for - MAINCATEGORY    -----------do first
+same as above for - CATEGORY    -----------do first
+same as above for - SUBCATEGORY -----------do first
+same as above for - PRODUCT-----------do first
+After seller registration it should directly go to seller dashboard and not on seller login
+
+TODO-
+manage TAX SLAB
+edit product
+Inside create product - gallery images

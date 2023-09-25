@@ -1,0 +1,82 @@
+#sidebar-menu ul li a {
+    display: block;
+    padding: .2rem 1rem;
+    color: #7b8190;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    margin: 0 10px;
+    border-radius: 3px;
+}
+.menu-title1{
+    color: #e88421;
+    font-size: 20px;
+    margin-top: 12px;
+    padding: 12px 20px!important;
+    letter-spacing: .05em;
+    pointer-events: none;
+    cursor: default;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.menu-title2{
+    color: #1f628e;
+    font-size: 20px;
+    margin-top: 12px;
+    padding: 12px 20px!important;
+    letter-spacing: .05em;
+    pointer-events: none;
+    cursor: default;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.menu-title3{
+    color: #4caf50;
+    font-size: 20px;
+    margin-top: 12px;
+    padding: 12px 20px!important;
+    letter-spacing: .05em;
+    pointer-events: none;
+    cursor: default;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.navbar-brand-box {
+    padding: .50rem 1.5rem;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+}
+@media (max-width: 374.99px){
+.navbar-brand-box {
+    text-align: left;
+}
+}
+.navbar-brand-box {
+    padding: .60rem .85rem;
+    width:auto;
+}
+/* style='float:left;border:4px solid #303641;padding:5px;margin:5px;' */
+.imageControllerdiv{
+    position: relative;
+    float: left;
+    border: 2px solid #303641;
+    padding: 5px;
+    margin: 10px;
+}
+.removeImage{
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

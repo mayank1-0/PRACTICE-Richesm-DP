@@ -1,0 +1,256 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">
+                            <%= process.env.APP_NAME %>
+                        </h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add Product Category</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <a href="/category/" class="btn btn-warning waves-effect waves-light"><i
+                                            class="fas fa-list me-2"></i>Category List</a>
+                                </div>
+                            </div>
+                            <div class="p-2 mt-4">
+                                <form id="formSubmitHandler" method="POST" enctype="multipart/form-data">
+                                    <!-- <input type="hidden" name="_token" value="KoE2rKTaWNu4WXGvrDRgSRm1CLC5xKhs0j9WGZBS"> -->
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="name">Category Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" value=""
+                                                placeholder="Enter Category Name">
+                                        </div>
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="main_category">Under Main Category</label>
+                                            <select name="main_category" id="main_category" class="form-select">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="slug">Slug</label>
+                                            <input type="text" class="form-control" id="slug" name="slug" value=""
+                                                placeholder="Enter Slug">
+
+                                        </div>
+
+                                        <div class="mb-3 col-sm-6">
+                                            <label class="form-label" for="status1">Status</label>
+                                            <select name="status1" id="status1" class="form-select">
+                                                <option value="1">Active
+                                                </option>
+                                                <option value="0">
+                                                    Inactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-12">
+                                            <label class="form-label" for="meta_title">Meta Title</label>
+                                            <textarea class="form-control" id="meta_title" name="meta_title"
+                                                placeholder="Meta Title" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-12">
+                                            <label class="form-label" for="meta_keywords">Meta Keywords</label>
+                                            <textarea class="form-control" id="meta_keyword" name="meta_keywords"
+                                                placeholder="Meta Keywords" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-12">
+                                            <label class="form-label" for="meta_description">Meta Description</label>
+                                            <textarea class="form-control" id="meta_description" name="meta_description"
+                                                placeholder="Meta Description" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-12">
+                                            <label class="form-label" for="other_meta_tags">Other Meta Tags
+                                                (Optinal)</label>
+                                            <textarea class="form-control" id="other_meta_tags" name="other_meta_tags"
+                                                placeholder="Other Meta Tags" rows="6"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-sm-12">
+                                        <label class="form-label" for="page_content">Page Content</label>
+                                        <textarea class="form-control" name="page_content" rows="6"
+                                            id="page_content"></textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-2">
+                                                <label class="form-label" for="image">Image</label>
+                                                <input type="file" class="form-control" id="image" name="image">
+                                            </div>
+                                            <div class="mb-2">
+                                                <img id="uploadPreview"
+                                                    style="width: 233px; height: 100px; border:1px solid #83888C; background-color: #ffffff;">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mt-3 ">
+                                        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit"
+                                            >Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- end-row -->
+</div> <!-- container-fluid -->
+</div>
+<!-- End Page-content -->
+</div>
+
+
+<script>
+    const token = window.localStorage.getItem('token');
+    $(() => {
+        displayMainCategories()
+    })
+
+    let uploadedImage = {}
+    document.getElementById("image").addEventListener("change",()=>{
+        uploadedImage=document.getElementById("image").files[0]
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    })
+
+    function displayMainCategories() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/main-category/fetchAllMainCategories",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#main_category").append(`<option value="${i.id}">${i.name}</option>`);
+                })
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    }
+    document.getElementById("formSubmitHandler").addEventListener("submit",(e)=>{
+        e.preventDefault()
+        var data = {
+            main_category_id: parseInt($('#main_category').val()),
+            name: $('#name').val(),
+            slug: $('#slug').val(),
+            image: $('#image').val(),
+            status: parseInt($('#status1').val()),
+            meta_title: $('#meta_title').val(),
+            meta_description: $('#meta_description').val(),
+            meta_keyword: $('#meta_keyword').val(),
+            other_meta_tags: $('#other_meta_tags').val(),
+            page_content: $('#page_content').val(),
+        };
+        const formdata = new FormData()
+        formdata.append("main_category_id",data.main_category_id)
+        formdata.append("name",data.name)
+        formdata.append("slug",data.slug)
+        formdata.append("image",data.image)
+        formdata.append("status",data.status)
+        formdata.append("meta_title",data.meta_title)
+        formdata.append("meta_description",data.meta_description)
+        formdata.append("meta_keyword",data.meta_keyword)
+        formdata.append("other_meta_tags",data.other_meta_tags)
+        formdata.append("page_content",data.page_content)
+        formdata.append("image",uploadedImage)
+        $.ajax({
+            type: "POST",
+            url: "/category/",
+            data: formdata,
+            processData: false,
+            contentType: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.alert("added successfully")
+            },
+            error: function error(err) {
+                window.alert("Something went wrong");
+            }
+        });
+    })
+
+</script>
+<!-- <script>
+    $(document).ready(function () {
+
+        tinymce.init({
+            selector: ".texttynimyce",
+            paste_data_images: true,
+            height: 400,
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            toolbar2: "print preview media | forecolor backcolor emoticons",
+            image_advtab: true,
+            file_picker_callback: function (callback, value, meta) {
+                if (meta.filetype == 'image') {
+                    $('#upload').trigger('click');
+                    $('#upload').on('change', function () {
+                        var file = this.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            callback(e.target.result, {
+                                alt: ''
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+            },
+            templates: [{
+                title: 'Test template 1',
+                content: 'Test 1'
+            }, {
+                title: 'Test template 2',
+                content: 'Test 2'
+            }]
+        });
+    });
+</script> -->

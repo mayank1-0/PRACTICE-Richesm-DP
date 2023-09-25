@@ -1,0 +1,1149 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">Add New Product</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a
+                                        href="https://whitelines.co.in/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add New</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <form action="https://whitelines.co.in/admin/manage-products/create" method="post"
+                enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="IR8N9pZgAQpdcSRcmh88i1zQUpxYhusFrnwswGYs">
+                <div class="row mb-3">
+                    <div class="col-xl-8">
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Product Name
+                                            <code>*</code></label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_name" name="pdt_name"
+                                                placeholder="Product Name">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3">
+                                            <label class="col-form-label">Under <code>*</code></label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control select2" id="pdt_subcategory"
+                                                name="pdt_subcategory">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3">
+                                            <label class="col-form-label">Brand</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control select2" id="pdt_brand" name="pdt_brand">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3">
+                                            <label class="col-form-label">Seller</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control select2" id="pdt_seller" name="pdt_seller">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Unit (e.g. KG, Pc etc)</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control select2" id="pdt_unit" name="pdt_unit">
+                                                <!-- <option value="" selected>Select Unit</option>
+                                                        <option value="1">Kilogram</option>
+                                                        <option value="2">Piece</option>
+                                                        <option value="3">Bags</option>
+                                                        <option value="4">Bale</option>
+                                                        <option value="5">Bundles</option>
+                                                        <option value="6">Box</option>
+                                                        <option value="7">Bottles</option>
+                                                        <option value="8">Bunches</option>
+                                                        <option value="9">Cartons</option>
+                                                        <option value="10">Dozen</option>
+                                                        <option value="11">Grams</option>
+                                                        <option value="12">Kiloliter</option>
+                                                        <option value="13">Millilitre</option>
+                                                        <option value="14">Meters</option>
+                                                        <option value="15">Numbers</option>
+                                                        <option value="16">Packs</option>
+                                                        <option value="17">Pairs</option>
+                                                        <option value="18">Rolls</option>
+                                                        <option value="19">Sets</option>
+                                                        <option value="20">Square Feet</option>
+                                                        <option value="21">Square Meters</option>
+                                                        <option value="22">Units</option>
+                                                        <option value="23">Others</option> -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Weight
+                                            <code>(In Kg)</code></label>
+                                        <div class="col-md-8">
+                                            <input type="number" class="form-control" step="0.01" value="0.00"
+                                                id="pdt_weight" name="pdt_weight" placeholder="0.00">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label" title="Minimum Purchase Qty">Min.
+                                            Purchase Qty <code>*</code></label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_min_pur_qty"
+                                                name="pdt_min_pur_qty" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Tags <code>*</code></label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control p-4" value="" name="pdt_tags"
+                                                id="pdt_tags" data-role="tagsinput" />
+                                            <small class="text-muted font-size-11">This is used for search.
+                                                Input those words by which cutomer can find this
+                                                product.</small>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Barcode</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_barcode" name="pdt_barcode"
+                                                placeholder="Barcode">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Product Slug</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="slug" name="slug" class="form-control" value=""
+                                                readonly>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product Images</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="align-items-start pb-3">
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Gallery Images<br />
+                                            <code> (600x600)</code></label>
+                                        <div class="col-md-8">
+                                            <input type="file" multiple class="form-control" id="products"
+                                                name="images[]">
+                                            <small class="text-muted font-size-11">These images are
+                                                visible in product details page gallery.
+                                                Use 600x600 sizes images.</small>
+                                            <br>
+                                            <br>
+                                            <div id="previewgalleryImg"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Thumbnail Images<br />
+                                            <code> (300x300)</code></label>
+                                        <div class="col-md-8">
+                                            <input type="file" id="productThumnailImg" name="product"
+                                                class="form-control">
+                                            <small class="text-muted font-size-11">This image is
+                                                visible in all product box. Use 300x300 sizes image.
+                                                Keep some blank space around main object of your
+                                                image as we had to crop some edge in different
+                                                devices to make it responsive.</small>
+                                            <br>
+                                            <br>
+                                            <div id="previewImg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product Videos</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3">
+                                            <label class="col-form-label" for="category">Video Provider</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-select" id="pdt_video_provider"
+                                                name="pdt_video_provider">
+                                                <option value="" selected>Nothing Selected</option>
+                                                <option value="youtube">Youtube</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Video Link</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" name="pdt_video_link"
+                                                id="pdt_video_link" value="" placeholder="Video Link">
+                                            <small class="text-muted font-size-11">Use proper link
+                                                without extra parameter. Don't use short share
+                                                link/embeded iframe code.</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product Variation</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3 bg-gray">
+                                            <label class="col-form-label" for="Colors">Colors</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="select2 form-control select2-multiple" multiple="multiple"
+                                                data-placeholder="Nothing Selected ..." id="color" name="color[]">
+                                                <!-- <option value="1">Red</option>
+                                                        <option value="2">Green</option>
+                                                        <option value="3">Yellow</option>
+                                                        <option value="4">Black</option>
+                                                        <option value="5">Maroon</option>
+                                                        <option value="7">Pink</option>
+                                                        <option value="8">Blue</option>
+                                                        <option value="9">White</option>
+                                                        <option value="10">Brown</option>
+                                                        <option value="11">Orange</option>
+                                                        <option value="12">Light Brown</option>
+                                                        <option value="13">Sky Bleu</option>
+                                                        <option value="14">Purple</option>
+                                                        <option value="15">Yellowish brown</option>
+                                                        <option value="16">Dark Cream</option>
+                                                        <option value="17">Cream</option>
+                                                        <option value="18">Grey</option>
+                                                        <option value="19">Military Green</option>
+                                                        <option value="20">Stone Grey</option>
+                                                        <option value="21">Steel Grey</option>
+                                                        <option value="22">Royal Mustard</option>
+                                                        <option value="23">Lavender Red</option>
+                                                        <option value="24">Lime White</option>
+                                                        <option value="25">Milky White</option>
+                                                        <option value="26">Royal Blue</option>
+                                                        <option value="27">Smoke Grey</option>
+                                                        <option value="28">Pista Green</option>
+                                                        <option value="29">Z Black</option>
+                                                        <option value="30">Light Orange</option>
+                                                        <option value="31">Denim Bleu</option>
+                                                        <option value="32">Mango Yellow</option>
+                                                        <option value="33">Dark Purple</option>
+                                                        <option value="34">Chiku</option>
+                                                        <option value="35">Light Green</option>
+                                                        <option value="36">Light Pink</option>
+                                                        <option value="37">Dark Blue</option>
+                                                        <option value="38">Dark Red</option>
+                                                        <option value="39">Sea Green</option>
+                                                        <option value="40">Salmon Pink</option>
+                                                        <option value="41">Navy Bleu</option>
+                                                        <option value="42">Light Yellow</option>
+                                                        <option value="43">Dark Green</option>
+                                                        <option value="44">Light Purple</option> -->
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-check form-switch form-switch-md mr-4">
+                                                <input type="checkbox" class="form-check-input" name="is_color_enabled"
+                                                    id="is_color_enabled">
+                                                <label class="form-check-label"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <div class="col-md-3 bg-gray">
+                                            <label class="col-form-label" for="">Attributes</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="select2 form-control select2-multiple" multiple="multiple"
+                                                data-placeholder="Choose Attribute(s)" id="pdt_attribute"
+                                                name="pdt_attribute[]">
+
+                                                <!-- <option value="1">Size</option>
+                                                        <option value="2">Fabric</option>
+                                                        <option value="3">Sleeve</option>
+                                                        <option value="4">Fully Sleeve</option>
+                                                        <option value="5">Net</option> -->
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Choose the attributes of this product and then input values of each
+                                            attribute</p>
+                                    </div>
+                                    <div class="attribute_value_sec">
+
+                                    </div>
+                                    <a href="javascript:void(0);" class="btn btn-outline-success btn-block w-100"
+                                        id="btAddvariant"><i class="mdi mdi-plus me-2"></i> Add</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                        <div class="variantproductsection">
+
+                        </div>
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product price + stock</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Unit Price <code>*</code></label>
+                                        <div class="col-md-8">
+                                            <input type="number" value="0" class="form-control" id="pdt_unit_price"
+                                                name="pdt_unit_price" value="" placeholder="Unit price">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Quantity <code>*</code></label>
+                                        <div class="col-md-8">
+                                            <input type="number" value="" class="form-control" id="pdt_stock_qty"
+                                                name="pdt_stock_qty">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">SKU</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_sku" name="pdt_sku" value=""
+                                                placeholder="SKU">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">HSN</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_hsn" name="pdt_hsn" value=""
+                                                placeholder="HSN Code">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- end card -->
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Product Description</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+
+
+                                    <div class="mb-3 row">
+
+                                        <div class="col-md-12">
+                                            <textarea class="form-control texttynimyce" id="pdt_description"
+                                                name="pdt_description" rows="6"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">Specification</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+
+                                    <div class="mb-3 row">
+
+                                        <div class="col-md-12">
+                                            <textarea class="form-control texttynimyce" id="pdt_specification"
+                                                name="pdt_specification" rows="6"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom ">
+                                <h5 class="font-size-16 mb-0">SEO Meta Tags</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class=" align-items-start pb-3">
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Meta Title</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="pdt_meta_title"
+                                                name="pdt_meta_title" value="" placeholder="Meta Title">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Meta Description</label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="pdt_meta_description"
+                                                name="pdt_meta_description" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Meta Keyword</label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="pdt_meta_keyword" name="pdt_meta_keyword"
+                                                rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-3 col-form-label">Other Meta Tags</label>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="pdt_other_meta_tags"
+                                                name="pdt_other_meta_tags" rows="6"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div>
+
+                    <div class="col-xl-4">
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Shipping Configuration</h5>
+                            </div>
+                            <div class="card-body p-4">
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Free Shipping</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="radio" class="form-check-input" name="shipping_type" value="free"
+                                            id="free-shipping" checked="">
+                                        <label class="form-check-label" for="customSwitchsizemd"></label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Flat Rate</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="radio" class="form-check-input" value="flat" name="shipping_type"
+                                            id="flat_rate">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                                <div class="shippingcostrow">
+                                    <div class="mb-3 row ">
+                                        <label class="col-md-6 col-form-label">Shipping cost</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control" value="" id="pdt_shipping_charge"
+                                                name="pdt_shipping_charge">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-md-6 col-form-label">Is Product Quantity
+                                            Mulitiply</label>
+                                        <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                            <input type="checkbox" class="form-check-input"
+                                                name="is_sh_chrg_pdt_qty_multiply">
+                                            <label class="form-check-label"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Estimate Shipping Time</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Shipping Days</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="pdt_shipping_days"
+                                                name="pdt_shipping_days" value="" placeholder="Shipping Days">
+                                            <div class="input-group-text">Days</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Low Stock Quantity Warning</h5>
+                            </div>
+                            <div class="card-body p-4">
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Quantity</label>
+                                        <input type="number" class="form-control" value=""
+                                            id="pdt_low_stock_warning_limit" name="pdt_low_stock_warning_limit">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Cash On Delivery</h5>
+                            </div>
+                            <div class="card-body p-4">
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_cod_available"
+                                            name="is_cod_available" checked="">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Featured</h5>
+                            </div>
+                            <div class="card-body p-4">
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_featured"
+                                            name="is_featured">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Bestseller</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_bestseller"
+                                            name="is_bestseller">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">New Arrival</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_new_arrival"
+                                            name="is_new_arrival">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Trending</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_trending"
+                                            name="is_trending">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Today's Deal</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_todays_deal"
+                                            name="is_todays_deal">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Discount</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Discount</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="number" value="0" class="form-control" id="pdt_discount"
+                                                    name="pdt_discount" value="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-select" id="pdt_discount_type"
+                                                    name="pdt_discount_type">
+                                                    <option value="" selected>Choose...</option>
+                                                    <option value="%">Percent</option>
+                                                    <option value="RS">Flat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">TAX</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Tax</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" value="" id="pdt_tax_wt"
+                                                    name="pdt_tax_wt" placeholder="tax">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-select" id="pdt_tax_type" name="pdt_tax_type">
+                                                    <option value="" selected>Choose...</option>
+                                                    <option value="%">Percent</option>
+                                                    <option value="RS">Flat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Link Location</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Region</label>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <select name="pdt_region" id="pdt_region" class="form-select">
+                                                    <option value="" selected>Nothing Selected</option>
+                                                    <option value="East" selected>East</option>
+                                                    <option value="West" selected>West</option>
+                                                    <option value="North" selected>North</option>
+                                                    <option value="South" selected>South</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">State</label>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <select class="select2 form-select select2-multiple" multiple="multiple"
+                                                    data-placeholder="Nothing Selected ..." id="pdt_state"
+                                                    name="pdt_state[]">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Ratings</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" for="">Ratings</label>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <select class="form-select" id="pdt_rating" name="pdt_rating">
+                                                    <option value="" selected>Choose...</option>
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Star</option>
+                                                    <option value="3">3 Star</option>
+                                                    <option value="4">4 Star</option>
+                                                    <option value="5">5 Star</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border shadow-none">
+                            <div class="card-header bg-transparent border-bottom py-3 px-4">
+                                <h5 class="font-size-16 mb-0">Published</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="mb-3 row">
+                                    <label class="col-md-6 col-form-label">Status</label>
+                                    <div class="form-check form-switch form-switch-md col-md-6 pl-3">
+                                        <input type="checkbox" class="form-check-input" id="is_active" name="is_active"
+                                            checked="">
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-end">
+
+                        <button type="button" class="btn btn-success ml-5" onclick="add()"><i
+                                class="uil uil-file-alt me-1"></i>
+                            Save & Publish</button>
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- /public/admin-assets/tinymce/js/tinymce/tinymce.min.js -->
+<!-- END layout-wrapper -->
+<script src="/public/admin-assets/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+<script>
+
+     let thumnailImgs=null
+     let uploadedImage=[];
+     const imageShower = [];
+     let resultGalleryImages;
+     let resultThumbnailImage;
+
+
+
+    
+
+     document.getElementById("products").addEventListener("change",()=>{
+         uploadedImage =document.getElementById("products").files
+         // console.log(document.getElementById("thumnailImg").files)
+         const form = new FormData()
+             uploadedImage.forEach(element => {
+                 console.log(element)
+                 form.append("images",element)
+                 // var oFReader = new FileReader();
+                 // oFReader.readAsDataURL(element);
+                 // oFReader.onload = function (oFREvent) {
+                 //     $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+                 // };
+             });
+             // product-gallery-image
+             // formdata.append("thumbnail_images",thumnailImgs)
+             $.ajax({
+                 type: "POST",
+                 url: "/product-gallery-image/",
+                 data: form,
+                 processData: false,
+                 contentType: false, 
+                 beforeSend: function (xhr) {
+                     xhr.setRequestHeader("Authorization", "Bearer " + token);
+                 },
+                 success: function (result) {
+                     window.alert("Added");
+                     // window.location.reload(true);
+                     console.log(result)
+                     resultGalleryImages = result.images;
+                     result.images.map((images)=>{
+                        // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
+                        $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + images+ " ))\">X</span><img height='80' src='" + images +"'></div>")
+                        })
+                        // $("#previewgalleryImg").html(appendImage);
+
+                 },
+                 error: function error(err) {
+                     console.log(err);
+                     window.alert("Something went wrong");
+                 }
+             });
+             
+            })
+            
+            
+            document.getElementById("productThumnailImg").addEventListener("change",()=>{
+                
+                thumnailImgs=document.getElementById("productThumnailImg").files[0]
+                //   console.log(document.getElementById("thumnailImg").files)
+                //      var oFReader = new FileReader();
+                //      oFReader.readAsDataURL(thumnailImgs);
+                //      oFReader.onload = function (oFREvent) {
+                    //          $("#previewImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+                    //      };
+                    const form = new FormData()
+                    form.append("image",thumnailImgs)
+                    $.ajax({
+                        type: "POST",
+                        url: "/product-thumnail-image",
+                        data: form,
+                        processData: false,
+                        contentType: false, 
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("Authorization", "Bearer " + token);
+                        },
+                        success: function (result) {
+                            window.alert("Added");
+                            // window.location.reload(true);
+                            console.log(result)
+                                resultThumbnailImage = result.image;
+                               // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
+                               $("#previewImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image+ " ))\">X</span><img height='80' src='" + result.image +"'></div>")
+                               // $("#previewgalleryImg").html(appendImage);
+        
+                        },
+                        error: function error(err) {
+                            console.log(err);
+                            window.alert("Something went wrong");
+                        }
+                    });
+         })
+
+    $(document).ready(function () {
+
+        tinymce.init({
+            selector: ".texttynimyce",
+            paste_data_images: true,
+            height: 400,
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            toolbar2: "print preview media | forecolor backcolor emoticons",
+            image_advtab: true,
+            file_picker_callback: function (callback, value, meta) {
+                if (meta.filetype == 'image') {
+                    $('#upload').trigger('click');
+                    $('#upload').on('change', function () {
+                        var file = this.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            callback(e.target.result, {
+                                alt: ''
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+            },
+            templates: [{
+                title: 'Test template 1',
+                content: 'Test 1'
+            }, {
+                title: 'Test template 2',
+                content: 'Test 2'
+            }]
+        });
+    });
+
+    $(() => {
+        displaySubCategories();
+        displayBrands();
+        displayUnits();
+        displayColors();
+        displayAttributes();
+        displaySellers();
+        getSlug();
+    })
+    const token = window.localStorage.getItem('token');
+
+    //function to get slug
+    function getSlug() {
+        $('#pdt_name').on('input change', function () {
+            let slug = $('#pdt_name').val().toLowerCase();
+            $('#slug').val(slug);
+        })
+    }
+     function add() {
+        let listing_price_exc_tax;
+        let listing_price_inc_tax;
+        var data = {
+            barcode: $("#pdt_barcode").val(),
+            product_name: $("#pdt_name").val(),
+            sub_category_id: $("#pdt_subcategory").val(),
+            brand_id: $("#pdt_brand").val(),              // in product mode change type to integer !!!!!!!!!!!!!!!!!!!!!!!!!!
+            unit_id: $("#pdt_unit").val(),
+            weight_in_kg: $('#pdt_weight').val(),
+            min_pur_qty: $("#pdt_min_pur_qty").val(),
+            tags: $('#pdt_tags').val(),
+            has_colors: 0,
+            color: $('#color').val(),
+            has_attributes: 0,
+            attributes: "",
+            unit_mrp: $('#pdt_unit_price').val(),
+            discount: $('#pdt_discount').val(),
+            discount_type: $('#pdt_discount_type').val(),
+            tax: $('#pdt_tax_wt').val(),
+            tax_type: $('#pdt_tax_type').val(),
+            stock_quantity: $("#pdt_stock_qty").val(),
+            low_stock_warning_qty: $('#pdt_low_stock_warning_limit').val(),
+            sku: $('#pdt_sku').val(),
+            hsn: $('#pdt_hsn').val(),
+            product_description: $('#pdt_description').text(),
+            product_specification: $("#pdt_specification").text(),
+            meta_title: $("#pdt_meta_title").val(),
+            meta_description: $("#pdt_meta_description").val(),
+            meta_keyword: $("#pdt_meta_keyword").val(),
+            other_meta_tag: $('#pdt_other_meta_tags').val(),
+            product_video_provider: $('#pdt_video_provider').val(),
+            video_link: $('#pdt_video_link').val(),
+            thumbnail_images: resultThumbnailImage,
+            shipping_charge_type: "ddd",
+            shipping_cost: $('#pdt_shipping_charge').val(),
+            shipping_is_product_qty_multiply: 2,
+            shipping_estimate_time_in_days: $('#pdt_shipping_days').val(),
+            product_region: $('#pdt_region').val(),
+            product_state: $('#pdt_state').val(),
+            is_cash_on_delivery_available: 0,
+            is_featured: 0,
+            is_bestseller: 0,
+            is_new_arrival: 0,
+            is_trending: 0,
+            is_todays_deal: 0,
+            is_active: 1,
+            rating_star: $('#pdt_rating').val(),
+            slug: $('#slug').val(),
+        };
+        if (data.discount_type == 'flat' && data.tax_type == 'flat') {
+            listing_price_exc_tax = data.unit_mrp - data.discount;
+            listing_price_inc_tax = data.unit_mrp - data.discount + data.tax;
+        }
+        else if (data.discount_type == 'flat' && data.tax_type == 'percent') {
+            listing_price_exc_tax = 0.00;
+            listing_price_inc_tax = 0.00;
+        }
+        else if (data.discount_type == 'percent' && data.tax_type == 'flat') {
+            listing_price_exc_tax = 0.00;
+            listing_price_inc_tax = 0.00;
+        }
+        else {
+            listing_price_exc_tax = 0.00;
+            listing_price_inc_tax = 0.00;
+        }
+        data.listing_price_exc_tax = listing_price_exc_tax;
+        data.listing_price_inc_tax = listing_price_inc_tax;
+
+        // const formdata = new FormData()
+
+        // for (let key in data) {
+        //     if (data.hasOwnProperty(key)) {
+        //         value = data[key];
+        //         formdata.append(key, value)
+        //     }
+        // }
+        //     console.log(thumnailImgs)
+        //     console.log(uploadedImage)
+        //     formdata.append("thumbnail_images",thumnailImgs)
+        //     formdata.append("files",uploadedImage)
+
+        $.ajax({
+            type: "POST",
+            url: "/product/",
+            data: data,
+            dataType: 'JSON',
+                beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.alert("Added");
+                // window.location.reload(true);
+            },
+            error: function error(err) {
+                console.log(err);
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+    function displaySubCategories() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/sub-category/fetchAllSubCategories",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                console.log('here ', result.data);
+                result = result.data;
+                result.map((i) => {
+                    $("#pdt_subcategory").append(`<option value="${i.id}">${i.name}</option>`);
+                })
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+    function displayBrands() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/brand/fetchAllBrands",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#pdt_brand").append(`<option value="${i.id}">${i.brand}</option>`);
+                })
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+
+    function displaySellers() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/api/seller/fetchAllSellers",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#pdt_seller").append(`<option value="${i.id}">${i.first_name} ${i.last_name}</option>`);
+                })
+            },
+            error: function error(error) {
+                console.log('0000 ');
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+    function displayUnits() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/unit/fetchAllUnits",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#pdt_unit").append(`<option value="${i.id}">${i.unit}</option>`);
+                })
+            },
+            error: function error(error) {
+                console.log('0000 ');
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+    function displayColors() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/color/fetchAllColors",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#color").append(`<option value="${i.id}">${i.color}</option>`);
+                })
+            },
+            error: function error(error) {
+                console.log('0000 ');
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+    function displayAttributes() {
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/attribute/fetchAllAttributes",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                result = result.data;
+                result.map((i) => {
+                    $("#pdt_attribute").append(`<option value="${i.id}">${i.attribute}</option>`);
+                })
+            },
+            error: function error(error) {
+                console.log('0000 ');
+                window.alert("Something went wrong");
+            }
+        });
+    };
+
+</script>

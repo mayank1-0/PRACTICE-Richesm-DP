@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="shortcut icon" href="/public/admin-assets/assets/images/favicon.ico">
+    <link href="/public/admin-assets/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/admin-assets/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+        rel="stylesheet" />
+    <link href="/public/admin-assets/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
+        rel="stylesheet" />
+    <link href="/public/admin-assets/assets/libs/bootstrap-tags-input/bootstrap-tagsinput.css"
+        rel="stylesheet" />
+    <!-- Responsive datatable examples -->  
+    <link
+        href="/public/admin-assets/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+        rel="stylesheet" />
+    <!-- Bootstrap Css -->
+    <link href="/public/admin-assets/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
+    <!-- Icons Css -->
+    <link href="/public/admin-assets/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/public/admin-assets/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.1.95/css/materialdesignicons.min.css">
+    <link href="/public/admin-assets/assets/css/ssestylesheet.css" id="app-style" rel="stylesheet"
+        type="text/css" />
+    @yield('style')
+    <style>
+        .uil-search:before {
+            content: '\e99a';
+            line-height: 2.5;
+        }
+    </style>
+    <style>
+        /* .disabled-link {
+          pointer-events: none;
+        } */
+    </style>
+</head>
+<body>
+    
+    <!-- <body data-layout="horizontal" data-topbar="colored"> -->
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="/public/admin/dashboard" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" height="45">
+                            </span>
+                            <span class="logo-lg">
+                               
+                                <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" width="200">
+                            </span>
+                        </a>
+                    </div>
+                    <button type="button"
+                        class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <form class="app-search d-none d-lg-block ">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="uil-search"></span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-flex">
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                            <div class="px-lg-2">
+                                <div class="row g-0">
+                                    <!-- <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/github.png" alt="Github">
+                                            <span>GitHub</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/bitbucket.png" alt="bitbucket">
+                                            <span>Bitbucket</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/dribbble.png" alt="dribbble">
+                                            <span>Dribbble</span>
+                                        </a>
+                                    </div> -->
+                                </div>
+
+                                <div class="row g-0">
+                                    <!---- <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/dropbox.png" alt="dropbox">
+                                            <span>Dropbox</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                            <span>Mail Chimp</span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="dropdown-icon-item" href="#">
+                                            <img src="assets/images/brands/slack.png" alt="slack">
+                                            <span>Slack</span>
+                                        </a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            data-bs-toggle="fullscreen">
+                            <i class="uil-minus-path"></i>
+                        </button>
+                    </div>
+                    
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="uil-bell"></i>
+                            <span class="badge bg-danger rounded-pill">50</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-notifications-dropdown">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h5 class="m-0 font-size-16"> Notifications </h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="javascript:void" class="small"> Mark all as read</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-simplebar style="max-height: 230px;">
+                              
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar-xs">
+                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                        <i class="mdi mdi-account-circle m-0"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">Enquiry From Prabhat</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">Test Subject</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
+                                                        Aug 24, 2023</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                               
+                                <!-- <a href="#" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs"
+                                                alt="user-pic">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">James Lemire</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">It will seem like simplified English.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar-xs">
+                                                <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="uil-truck"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Your item is shipped</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">If several languages coalesce the grammar</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0 me-3">
+                                            <img src="{{ asset('/profile-dp/'.Auth::user()->image_name) }}" class="rounded-circle avatar-xs"
+                                                alt="user-pic">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Salena Layfield</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a> -->
+                            </div>
+                            <div class="p-2 border-top">
+                                <div class="d-grid">
+                                    <a class="btn btn-sm btn-link font-size-14 text-center"
+                                        href="{{ route('admin.getEnquiryList') }}">
+                                        <i class="uil-arrow-circle-right me-1"></i> View More..
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          
+                                <div class="avatar-xs d-inline-block me-2">
+                                    <div class="avatar-title bg-soft-warning rounded-circle text-warning">
+                                        <i class="mdi mdi-account-circle m-0"></i>
+                                    </div>
+                                </div>
+                         
+                            <span
+                                class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Richesm</span>
+                            <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                    class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span
+                                    class="align-middle">View Profile</span></a>
+                            <!-- <a class="dropdown-item" href="#"><i
+                                    class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">My Wallet</span></a> -->
+                            <a class="dropdown-item d-block" href="javascript:void(0);"><i
+                                    class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">Settings</span> <span
+                                    class="badge bg-soft-success rounded-pill mt-1 ms-2">0</span></a>
+                            <!-- <a class="dropdown-item" href="#"><i
+                                    class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">Lock screen</span></a> -->
+                            <a class="dropdown-item" href="/admin-logout">
+                                <!-- onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">  -->
+                                                     <i
+                                    class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
+                                    class="align-middle">Sign out</span></a>
+                            <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="/public/admin/dashboard" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" height="40" />
+                    </span>
+                    <span class="logo-lg">
+                        <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" width="160" />
+                    </span>
+                </a>
+            </div>
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+            <div data-simplebar class="sidebar-menu-scroll">
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title">Menu</li>
+                        <li>
+                            <a href="/public/admin/dashboard">
+                                <i class="uil-home-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>                       
+                        <li class="menu-title">Master</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Brand</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/brand">Brand List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Units</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/unit">Unit List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Sub Units</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/sub-unit">Sub Unit List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Tax Slab</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/tax-slab">Tax Slab List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Currency</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/currency">Currency List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Main Category</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/main-category">Main Category</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Category</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/category">Category</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Sub Category</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/sub-category">Sub Category</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Attribute</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/size">Size List</a></li> 
+                                <li><a href="/color">Color List</a></li>
+                                <li><a href="/material">Material List</a></li>                                                              
+                            </ul>
+                        </li>
+                        <li class="menu-title">Shop</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-list-ul"></i>
+                                <span>Manage Products </span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/product/">Product List</a></li>
+                                <li><a href="/product/create">Create Product</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-file-alt"></i>
+                                <span>Products Gallery</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('common.pdtGalleryList', ['product_code' => '1']) }}">Product
+                                        Gallery</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Sales</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.getSalesList') }}">Orders List</a></li>
+                            </ul>
+                        </li>
+                       <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Offers & Promotions</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.couponList') }}">Coupons List</a></li>
+                                <li><a href="{{ route('admin.offerList') }}">Offers List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-file-alt"></i>
+                                <span>Referral</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.referraledit') }}">Referral Setting</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Reports</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-file-alt"></i>
+                                <span>Sales Report</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.getSalesList') }}">Sales List</a></li>
+                                 <li><a href="#">Sellers</a></li> 
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-book-alt"></i>
+                                <span>Stock Report</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.stockList') }}">Item Stock Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Users</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-user-circle"></i>
+                                <span>Manage Employee</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.getEmployeeList') }}">Employee List</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-user-circle"></i>
+                                <span>Manage Customers</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.userList') }}">Customers</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-title">Website</li>
+                      	<li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Career</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.jobApplicationList') }}">Job Application</a></li>                                 
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Blog</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.ShowBlogCategoriesList') }}">Blog Category List</a></li>
+                                <li><a href="{{ route('admin.ShowBlogList') }}">Blog List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Review</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.getReviewList') }}">Review List</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Enquires</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.getEnquiryList') }}">Enquiry List</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Testimonials</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.ShowTestimonialList') }}">Testimonials List</a></li>
+                                
+                            </ul>
+                        </li>                        
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage Banners</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.ShowbannerList') }}">Banner List</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="menu-title">Other</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-chart"></i>
+                                <span>Manage SEO & Meta</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.editGoogleAnalytics') }}">Google Analytics Code</a></li>
+                                <li><a href="{{ route('admin.pagesMetaDataList') }}">Meta Data</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Settings</li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-cog"></i>
+                                <span>Application Settings</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.webpageIndex') }}">Frontend Modules</a></li>
+                                <li><a href="{{ route('admin.backendmodulesIndex') }}">Backend Modules</a></li>
+                                <li><a href="{{ route('admin.getUserTypeList') }}">User Types</a></li>
+                                <li><a href="{{ route('admin.permissionIndex') }}">Permission</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <%- body %>
+
+
+        <%- include('../partials/footer.ejs') %>
+    </div>
+    <!-- END layout-wrapper -->
+    <!--Scripts-------------------->
+    <!-- JAVASCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/select2/js/select2.min.js"></script>
+    <!-- apexcharts -->
+    <script src="/public/admin-assets/assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="/public/admin-assets/assets/js/pages/dashboard.init.js"></script>
+    <!-- <script src="/public/admin-assets/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script> -->
+
+        <!--tinymce js-->
+         <script src="/public/admin-assets/assets/libs/tinymce/tinymce.min.js"></script> 
+
+        <!-- init js -->
+        <script src="/public/admin-assets/assets/js/pages/form-editor.init.js"></script>
+    <!-- Required datatable js -->
+    <script src="/public/admin-assets/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="/public/admin-assets/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js">
+    </script>
+    <script src="/public/admin-assets/assets/libs/jszip/jszip.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="/public/admin-assets/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js">
+    </script>
+    <script src="/public/admin-assets/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js">
+    </script>
+    <script src="/public/admin-assets/assets/libs/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
+    <script src="/public/admin-assets/assets/js/sweetalert.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="/public/admin-assets/assets/js/pages/datatables.init.js"></script>
+    <!-- init js -->
+    <script src="/public/admin-assets/assets/js/pages/form-advanced.init.js"></script>
+
+
+
+
+
+
+    <!-- App js -->
+    <script src="/public/admin-assets/assets/js/app.js"></script>
+    <script src="/public/admin-assets/assets/js/sse.js"></script>
+    <!-- <script>
+        ClassicEditor
+        .create( document.querySelector( '#event_description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script> -->
+
+    <%- script %>
+   
+</body>
+
+</html>

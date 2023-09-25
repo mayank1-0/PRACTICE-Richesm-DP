@@ -1,0 +1,164 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0"><%= process.env.APP_NAME %></h4>   
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add Product Sub Unit</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <a href="/sub-unit/" class="btn btn-warning waves-effect waves-light"><i class="fas fa-list me-2"></i>Sub Unit List</a>
+                                </div>
+                            </div>
+                            <div class="p-2 mt-4">
+                              <!--
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-exclamation-octagon me-2"></i>
+                                        <b>Error!</b>
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                          
+                                
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-check me-2"></i>
+                                        <b>Success!</b> {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                            
+                                
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-exclamation-octagon me-2"></i>
+                                        <b>Error!</b> {{ session('danger') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                               
+                                -->
+                                <form method="POST" action="#" enctype="multipart/form-data" >
+                                                                           
+                                    <div class="row">
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="name">Sub Unit Name</label>
+                                            <input type="text" class="form-control" id="sub_unit_name" name="name"
+                                                value="" 
+                                                placeholder="Enter Sub Unit Name">
+                                        </div>
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="slug">Sub Unit Short Char</label>
+                                            <input type="text" class="form-control" id="sub_unit_short_char" name="slug"
+                                                value="" 
+                                                placeholder="Enter Sub Unit's Short Char">
+                                                <span class="slugerror text-danger"></span>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-6">
+                                            <label class="form-label" for="current_status">Sub Unit Of</label>       
+                                            <select placeholder="Choose Unit..." name="current_status" id="sub_unit_of" class="form-select">
+                                            </select>
+                                        </div> 
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="slug">Conversion Factor</label>
+                                            <input type="text" class="form-control" id="conversion_factor" name="slug"
+                                                value="" 
+                                                placeholder="Enter Conversion Factor">
+                                                <span class="slugerror text-danger"></span>
+                                        </div>                                            
+                                    </div>
+                                    <div class="row"></div>
+                                    <div class="mb-3 col-sm-6">
+                                        <label class="form-label" for="current_status">Status</label>       
+                                        <select placeholder="Choose Unit..." name="current_status" id="current_status" class="form-select">
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>                       
+                                        </select>
+                                    </div>                           
+                                    <div class="mt-3 ">
+                                        <button class="btn btn-primary w-sm waves-effect waves-light" type="button" onclick="add()">Add</button>
+                                    </div>            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end-row -->
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->      
+</div>
+
+
+<script>
+    $(()=>{
+        displayUnits()
+    })
+    const token = window.localStorage.getItem('token');
+    function displayUnits(){
+        let result;
+        $.ajax({
+            type: "GET",
+            url: "/unit/fetchAllUnits",
+            beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+        },
+            success: function (result) {
+                result = result.data;
+                result.map((i)=>{
+                $("#sub_unit_of").append(`<option value="${i.id}">${i.unit}</option>`);
+            })
+        },
+            error: function error(error){
+                window.alert("Something went wrong");
+            }
+        });
+    }
+    function add(){
+        var data={
+            sub_unit_name: $('#sub_unit_name').val(),
+            sub_unit_short_char: $('#sub_unit_short_char').val(),
+            unit_id: $('#sub_unit_of').val(),
+            conversion_factor: $('#conversion_factor').val(),
+            status: $('#current_status').val()
+        };
+        $.ajax({
+            type: "POST",
+            url: "/sub-unit/",
+            data: data,
+            dataType: "JSON",
+            beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+        },
+            success: function (result) {
+                window.alert('Success');
+                window.location.reload(true);
+            },
+            error: function error(error){
+                window.alert("Something went wrong");
+            }
+        });
+   };
+</script>

@@ -1,0 +1,200 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">
+                            <%= process.env.APP_NAME %>
+                        </h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard </a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Product List </a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <a href="/product/create" class="btn btn-success waves-effect waves-light "><i
+                                                class="mdi mdi-plus me-2"></i> Create New Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="table-responsive mb-4">
+                                <table id="datatable-buttons"
+                                    class="table table-centered table-nowrap dt-responsive mb-0 dataTable no-footer dtr-inline"
+                                    style="width: 100%;" role="grid" aria-describedby="datatable-buttons_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th scope="col" class="sorting_asc" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 22px;" aria-sort="ascending"
+                                                aria-label="Sn.: activate to sort column descending">Sn.</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 232px;"
+                                                aria-label="Product Name: activate to sort column ascending">Product
+                                                Name</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 107px;"
+                                                aria-label="Listed Under: activate to sort column ascending">Listed
+                                                Under</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 112px;"
+                                                aria-label="Listing Price: activate to sort column ascending">Listing
+                                                Price</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 38px;"
+                                                aria-label="Stock: activate to sort column ascending">Stock</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                style="width: 44px;"
+                                                aria-label="Status: activate to sort column ascending">Status</th>
+                                            <th scope="col" style="width: 62px;" class="sorting" tabindex="0"
+                                                aria-controls="datatable-buttons" rowspan="1" colspan="1"
+                                                aria-label="Action: activate to sort column ascending">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <tr role="row" class="odd" id="tr">
+                                            <!-- <td class="sorting_1 dtr-control">1</td>
+                                            <td><strong>Code : </strong>PC_24 <br>
+
+                                                <div style="overflow: hidden;
+                                                text-overflow: ellipsis;
+                                                display: -webkit-box;
+                                                -webkit-line-clamp: 1; /* number of lines to show */
+                                                        line-clamp: 1; 
+                                                -webkit-box-orient: vertical; width:250px"
+                                                    title="Pathani Suit for Men">Pathani Suit for Men</div><br>
+                                                <div class="product-ribbon badge bg-soft-warning text-warning">
+                                                    Variant Product
+                                                </div>
+
+                                            </td>
+                                            <td>Fashion &gt;&gt;<br>Men's Wear &gt;&gt;<br> Pathani Suit</td>
+
+                                            <td><span class="text-success">₹ </span> 4399.00-4399.00</td>
+                                            <td>
+                                                0
+                                            </td>
+                                            <td>
+
+
+                                                Active
+
+
+                                            </td>
+                                            <td style="">
+                                                <ul class="list-inline mb-0">
+
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-products/edit/24"
+                                                            class="px-2 text-primary"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0);" class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end-row -->
+        </div> <!-- container-fluid -->
+    </div>
+
+</div>
+<!-- end main content-->
+
+<script>
+    $(() => {
+        fetchProducts();
+    });
+    const token = window.localStorage.getItem('token');
+    
+    // fetch 
+    function fetchProducts() {
+        $.ajax({
+            type: "GET",
+            url: "/product/fetchAllProducts",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function success(result) {
+                result = result.data;
+                console.log('result datas ', result);
+                var tr = '';
+                result.map((i, index) => {
+                    tr +=
+                        `<tr>
+                            <td>${index + 1}</td>
+                            <td><strong>Code : </strong>
+                                ${i.product_code}<br>
+                                <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; width:250px" title=${i.product_name}>${i.product_name}</div><br>
+                                <div class="product-ribbon badge bg-soft-warning text-warning"> Variant Product </div>
+                            </td>
+                            <td>${i.main_category.name}>>${i.category.name}<br>
+                                >>${i.sub_category.name}</td>
+                            <td>${i.listing_price_inc_tax}</td>
+                            <td>${i.stock_quantity}</td>
+                            <td>${i.is_active?'Active':'Inactive'}</td>
+                            <td>
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item" titel="Edit">
+                                        <a href="/product/edit/1" class="px-2 text-primary" ><i class="uil uil-pen font-size-18"></i></a>
+                                    </li>
+                                    <li class="list-inline-item" title="Delete">
+                                        <button onclick="deleteProduct(${i.id})" style="border: none; background-color: transparent;" class="px-2 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
+                                    </li>                                                   
+                                </ul>
+                            </td>
+                        </tr>`
+                    });
+                $("#tbody").html(tr);
+            },
+            error: function error(error) {
+                console.log('1', error);
+            }
+        })
+    }
+    
+    // delete product functionality
+    function deleteProduct(id) {
+        $.ajax({
+            type: "DELETE",
+            url: `/product/${id}`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.location.reload(true);
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    }
+</script>

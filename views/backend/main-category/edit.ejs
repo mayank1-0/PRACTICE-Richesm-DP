@@ -1,0 +1,152 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0"><%= process.env.APP_NAME %></h4>   
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Main Category Edit</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <a href="/main-category" class="btn btn-success waves-effect waves-light"><i class="fas fa-list me-2"></i>Main Category List</a>
+                                    <!-- <a href="/main-category/create" class="btn btn-warning waves-effect waves-light"><i class="fas fa-plus me-2"></i> Add New</a> -->
+                                </div>
+                            </div>
+                            <div class="p-2 mt-4">
+                              <!--
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-exclamation-octagon me-2"></i>
+                                        <b>Error!</b>
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                          
+                                
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-check me-2"></i>
+                                        <b>Success!</b> {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                            
+                                
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="uil uil-exclamation-octagon me-2"></i>
+                                        <b>Error!</b> {{ session('danger') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">                                                
+                                        </button>
+                                    </div>
+                               
+                                -->
+                                <form action="#" method="post" enctype="multipart/form-data">
+                                                                           
+                                    <div class="row"> 
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="name">Main Category Name</label>
+                                            <input required type="text" class="form-control" id="main_category_name" name="name"
+                                            value="<%= mainCategory.name %>" 
+                                            placeholder="Enter Main Category Name">         
+                                        </div>
+                                        <div class="mb-2 col-sm-6">
+                                            <label class="form-label" for="slug">Slug</label>
+                                            <input required type="text" class="form-control" id="slug" name="slug"
+                                            value="<%= mainCategory.slug %>" 
+                                            placeholder="Enter Slug">
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="row">                                            
+                                        <div class="mb-3 col-sm-6">
+                                            <label class="form-label" for="status1">Status</label>       
+                                            <select name="status1" id="status1" class="form-select">
+                                                <option value="1" <%= mainCategory.status == 1 ? 'selected' : '' %> >Active</option>
+                                                <option value="0" <%= mainCategory.status == 0 ? 'selected' : '' %>>Inactive</option>                       
+                                            </select>
+                                        </div>
+                                    
+                                    
+                                        <div class="col-sm-6">
+                                            <div class="mb-2">
+                                                <label class="form-label" for="image">Image</label>
+                                                <input required type="file" class="form-control" id="image" name="image" onchange="PreviewImage();">
+                                            </div> 
+                                            <div class="mb-2">
+                                                <img id="uploadPreview" style="width: 233px; height: 100px; border:1px solid #83888C; background-color: #ffffff;">      
+                                            </div> 
+                                                 
+                                        </div>
+                                        
+                                    </div>
+                                                                        
+                                    <div class="mt-3 ">
+                                        <button class="btn btn-primary w-sm waves-effect waves-light" type="button" onclick="update()">Update</button>
+                                    </div>            
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end-row -->
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->      
+</div>
+<input type="hidden" id="id" value=<%= mainCategoryId %>>
+
+<script>
+    function update(){
+        const token = window.localStorage.getItem('token');
+        const mainCategoryId = $('#id').val();
+        var data={
+            name: $('#main_category_name').val(),
+            slug: $('#slug').val(),
+            status: $('#status1').val(),
+            image: $('#image').val()
+        };
+        $.ajax({
+            type: "PUT",
+            url: `/main-category/update/${mainCategoryId}`,
+            data: data,
+            dataType: "JSON",
+            beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+        },
+            success: function (result) {
+                window.alert('Success');
+                window.location.reload(true);
+            },
+            error: function error(error){
+                window.alert("Something went wrong");
+            }
+        });
+   };
+ 
+
+function PreviewImage(){        
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+        oFReader.onload = function(oFREvent) {
+        document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
+};
+</script>

@@ -1,0 +1,122 @@
+<div class="main-content">    
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0"><%= process.env.APP_NAME %></h4>
+                        <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard </a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Product Material </a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End start page title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <a href="/material/create" class="btn btn-success waves-effect waves-light "><i class="mdi mdi-plus me-2"></i> Add New</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->                          
+                            <div class="table-responsive mb-4">
+                                <table id="datatable-buttons" class="table table-centered table-nowrap dt-responsive mb-0 tblbrand" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sn.</th>                                           
+                                            <th scope="col">Material</th>
+                                            <th scope="col">Status</th>                                                                                             
+                                            <th scope="col">Created On</th>                                                
+                                            <th scope="col">Updated On</th>                                                                                           
+                                            <th scope="col" style="width: 200px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tr">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end-row -->
+        </div> <!-- container-fluid -->
+    </div>  
+ 
+</div>
+<!-- end main content-->
+
+<script>
+    var token = '';
+    $(() => {
+      token = window.localStorage.getItem('token');
+      fetchMaterials();
+    });
+
+    // fetch 
+    function fetchMaterials() {
+      $.ajax({
+        type: "GET",
+        url: "/material/fetchAllMaterials",
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+        },
+        success: function success(result) {
+          result = result.data;
+          var tr = '';
+          result.map((i, index) => {
+            let createdOn = moment(i.createdOn).fromNow();
+            let updatedOn = moment(i.updatedOn).fromNow();
+            tr +=
+            `<tr>
+                <td> ${index + 1} </td>
+                <td> ${i.material} </td>
+                <td> ${i.status} </td>
+                <td> ${createdOn} </td>
+                <td> ${updatedOn} </td>
+                <td>
+                <ul class="list-inline mb-0">
+                <li class="list-inline-item" titel="Edit">
+                <a href="/material/edit/${i.id}" class="px-2 text-primary" ><i class="uil uil-pen font-size-18"></i></a>
+                </li>
+                <li class="list-inline-item" title="Delete">
+                <button onclick="deleteMaterial(${i.id})" style="border: none; background-color: transparent;" class="px-2 text-danger"><i class="uil uil-trash-alt font-size-18"></i></button>
+                </li>                                                   
+                </ul>
+                </td>
+            </tr>`;
+          });
+          $("#tr").html(tr);    //.html() is like .innerHTML  
+        },
+        error: function error(error) {
+        }
+      })
+    }
+
+    // delete brand functionality
+    function deleteMaterial(id){
+        $.ajax({
+            type: "DELETE",
+            url: `/material/${id}`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.location.reload(true);
+            },
+            error: function error(error){
+                window.alert("Something went wrong");
+            }
+        });
+   }
+</script>
