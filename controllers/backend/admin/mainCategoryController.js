@@ -46,7 +46,7 @@ const main_category_store = async (req, res) => {
             name,
             slug,
             status,
-            // image:image,
+            image:null,
             created_by:2
         });
         res.status(200).send({ message: "Filled data in main-categories table", data: result, success: true })

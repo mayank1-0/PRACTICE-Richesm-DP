@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         image: {
             type: Sequelize.STRING,
-            allowNull: false,
+            defaultValue: null
         },
         status: {
             type: Sequelize.INTEGER,

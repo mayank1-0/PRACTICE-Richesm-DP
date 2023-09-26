@@ -135,17 +135,17 @@ let uploadedImage = {}
             status: $('#status1').val(),
         };
 
-        const formdata = new FormData()
-        formdata.append("name",data.name)
-        formdata.append("slug",data.slug)
-        formdata.append("status",data.status)
-        formdata.append("image",uploadedImage)
+        // const formdata = new FormData()
+        // formdata.append("name",data.name)
+        // formdata.append("slug",data.slug)
+        // formdata.append("status",data.status)
+        // formdata.append("image",uploadedImage)
         $.ajax({
             type: "POST",
             url: "/main-category/",
-            data: formdata,
-            processData: false,
-            contentType: false,
+            data: data,
+            // processData: false,
+            // contentType: false,
             beforeSend: function (xhr) {
           xhr.setRequestHeader("Authorization", "Bearer " + token);
         },
@@ -163,10 +163,5 @@ let uploadedImage = {}
             }
         });
    });
-
-
-
- 
-
 
 </script>
