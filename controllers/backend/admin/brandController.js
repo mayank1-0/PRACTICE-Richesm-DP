@@ -41,17 +41,17 @@ const brand_store = async (req, res) => {
     try {
         
         const {name,slug,status} = req.body;
-        const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
-        const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
-        const image =await req.file.path?uploadImage:defaultImage
+        // const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
+        // const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
+        // const image = req.file.path?uploadImage:defaultImage
         const result = await db.Brand.create({
             name,
             slug,
             status,
-            image:image,
+            // image:image,
             created_by:2
         });
-        res.status(200).send({ message: "Brand Added ",data:result, success: true });
+        res.status(200).send({ message: "Brand Added ", data:result, success: true });
     } catch (error) {
         res.status(500).send({ message:error, data: error, success: false });
     }
@@ -75,7 +75,7 @@ const brand_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            image: updateData.image
+            // image: updateData.image
         }, {
             where: { id: paramId }
         });

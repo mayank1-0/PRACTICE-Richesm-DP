@@ -65,17 +65,17 @@ const product_store = async (req, res) => {
         tableData.category_id = result1.category_id;
 
         // gallery images store logic
-        let gallery_images = tableData.gallery_images;
-        gallery_images = JSON.stringify(gallery_images);
-        let productGalleryData = {
-            product_code: `PC_${maxProductId+1}`,
-            image: gallery_images
-        }
-        let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
+        // let gallery_images = tableData.gallery_images;
+        // gallery_images = JSON.stringify(gallery_images);
+        // let productGalleryData = {
+        //     product_code: `PC_${maxProductId+1}`,
+        //     image: gallery_images
+        // }
+        // let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
 
         result = await db.Product.create(tableData);
         console.log('Result is' , result);
-        res.status(200).send({ message: "Filled data in product table and gallery-images table", data: [result, resultGalleryImages], success: true});
+        res.status(200).send({ message: "Filled data in product table", data: result, success: true});
     } catch (error) {
         res.status(500).send({ message: "Something went wrong", data: error, success: false });
     }
@@ -101,7 +101,7 @@ const product_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            image: updateData.image
+            // image: updateData.image
         }, {
             where: { id: paramId }
         });

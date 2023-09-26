@@ -41,12 +41,12 @@ const main_category_store = async (req, res) => {
             status,
         } = req.body;
         created_by = 2;
-        const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
+        // const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
         const result = await db.MainCategories.create({
             name,
             slug,
             status,
-            image:image,
+            // image:image,
             created_by:2
         });
         res.status(200).send({ message: "Filled data in main-categories table", data: result, success: true })
@@ -74,7 +74,7 @@ const main_category_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            image: updateData.image
+            // image: updateData.image
         }, {
             where: { id: paramId }
         });

@@ -54,9 +54,9 @@ const category_store = async (req, res) => {
             other_meta_tags,
             page_content,
         } = req.body;
-        const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
-        const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
-        const image =await req.file.path?uploadImage:defaultImage
+        // const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
+        // const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
+        // const image =await req.file.path?uploadImage:defaultImage
 
         
             const result = await db.Categories.create({
@@ -69,7 +69,7 @@ const category_store = async (req, res) => {
                 meta_keyword,
                 other_meta_tags,
                 page_content,
-                image:image,
+                // image:image,
                 created_by:2
             });
             res.status(200).send({ message: "Filled data in category table", data: result, success: true })
@@ -98,7 +98,7 @@ const category_edit_frm = async (req, res) => {
                 main_category_id: updateData.main_category_id,
                 name: updateData.name,
                 slug: updateData.slug,
-                image: updateData.image,
+                // image: updateData.image,
                 status: updateData.status,
                 meta_title: updateData.meta_title,
                 meta_description: updateData.meta_description,
@@ -146,12 +146,12 @@ const category_edit_frm = async (req, res) => {
             const Categories = db.Categories;
             var sampleFile;
             var uploadPath;
-            console.log("234567890", req.file);
+            // console.log("234567890", req.file);
             if (!req.file || Object.keys(req.file).length === 0) {
                 return res.status(400).send("No files were uploaded.");
             } else {
                 sampleFile = req.file.originalname;
-                console.log("qwertu", sampleFile);
+                // console.log("qwertu", sampleFile);
                 uploadPath = __dirname + "\\public\\uploads\\categories\\" + sampleFile;
                 const uploadDocs = await Job_Seeker_Documents.create({
                     job_seeker_id: req.body.job_seeker_id,
