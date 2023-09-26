@@ -16,8 +16,8 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: null
         },
         image: {
-            type: Sequelize.TEXT,
-            defaultValue: null
+            type: Sequelize.JSON,
+            defaultValue: null           
         }
     }
   );
