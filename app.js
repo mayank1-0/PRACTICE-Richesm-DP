@@ -65,7 +65,7 @@ app.use(function (req, res, next) {
     next();
   });
 
-db.sequelize.sync();
+db.sequelize.sync({force: true});
 
 //AuthRoutes
 app.use(authRoutes);
