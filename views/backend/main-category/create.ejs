@@ -115,6 +115,7 @@
 <script>
 
 let uploadedImage = {}
+let uploadedImage1 = {}
     document.getElementById("image").addEventListener("change",()=>{
         uploadedImage=document.getElementById("image").files[0]
         var oFReader = new FileReader();
@@ -135,17 +136,17 @@ let uploadedImage = {}
             status: $('#status1').val(),
         };
 
-        // const formdata = new FormData()
-        // formdata.append("name",data.name)
-        // formdata.append("slug",data.slug)
-        // formdata.append("status",data.status)
-        // formdata.append("image",uploadedImage)
+        const formdata = new FormData()
+        formdata.append("name",data.name)
+        formdata.append("slug",data.slug)
+        formdata.append("status",data.status)
+        formdata.append("image",uploadedImage1)
         $.ajax({
             type: "POST",
             url: "/main-category/",
-            data: data,
-            // processData: false,
-            // contentType: false,
+            data: formdata,
+            processData: false,
+            contentType: false,
             beforeSend: function (xhr) {
           xhr.setRequestHeader("Authorization", "Bearer " + token);
         },

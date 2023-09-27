@@ -1011,7 +1011,38 @@
             },
             success: function (result) {
                 window.alert("Added");
-                // window.location.reload(true);
+                $("#pdt_barcode").val(''),
+                $("#pdt_name").val(''),
+                $("#pdt_subcategory").val(''),
+                $("#pdt_brand").val(''),              // in product mode change type to integer !!!!!!!!!!!!!!!!!!!!!!!!!!
+                $("#pdt_unit").val(''),
+                $('#pdt_weight').val(''),
+                $("#pdt_min_pur_qty").val(''),
+                $('#pdt_tags').val(''),
+                $('#color').val(''),
+                $('#pdt_unit_price').val(''),
+                $('#pdt_discount').val(''),
+                $('#pdt_discount_type').val(''),
+                $('#pdt_tax_wt').val(''),
+                $('#pdt_tax_type').val(''),
+                $("#pdt_stock_qty").val(''),
+                $('#pdt_low_stock_warning_limit').val(''),
+                $('#pdt_sku').val(''),
+                $('#pdt_hsn').val(''),
+                $('#pdt_description').text(''),
+                $("#pdt_specification").text(''),
+                $("#pdt_meta_title").val(''),
+                $("#pdt_meta_description").val(''),
+                $("#pdt_meta_keyword").val(''),
+                $('#pdt_other_meta_tags').val(''),
+                $('#pdt_video_provider').val(''),
+                $('#pdt_video_link').val(''),
+                $('#pdt_shipping_charge').val(''),
+                $('#pdt_shipping_days').val(''),
+                $('#pdt_region').val(''),
+                $('#pdt_state').val(''),
+                $('#pdt_rating').val(''),
+                $('#slug').val('')
             },
             error: function error(err) {
                 console.log(err);

@@ -135,7 +135,8 @@
 
 <script>
     
-    let uploadedImage = {}
+    let uploadedImage = {};
+    let uploadedImage1 = {};
     document.getElementById("image").addEventListener("change",()=>{
      
         uploadedImage=document.getElementById("image").files[0]
@@ -150,10 +151,10 @@
         e.preventDefault()
         const token = window.localStorage.getItem('token');
         const data = new FormData()
-        data.append("name", $('#name').val(),)
-        data.append("slug", $('#slug').val(),)
-        data.append("status", $('#current_status').val(),)
-        data.append("image",uploadedImage)
+        data.append("name", $('#name').val())
+        data.append("slug", $('#slug').val())
+        data.append("status", $('#current_status').val())
+        data.append("image",uploadedImage1)
         $.ajax({
             type: "POST",
             url: "/brand/",

@@ -12,6 +12,7 @@ same as above for - CATEGORY    -----------do first
 same as above for - SUBCATEGORY -----------do first
 same as above for - PRODUCT-----------do first
 After seller registration it should directly go to seller dashboard and not on seller login
+On create-product form.. on creating tags value dosen't get emptied.
 
 TODO-
 manage TAX SLAB
