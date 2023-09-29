@@ -109,11 +109,6 @@ const sub_unit_destroy = async (req, res) => {
     }
 }
 
-//show single
-// const sub_unit_show = (req, res) => {
-
-
-// }
 
 module.exports = {
 
@@ -123,6 +118,5 @@ module.exports = {
     sub_unit_edit_frm,
     sub_unit_edit_update,
     sub_unit_destroy,
-    // sub_unit_show,
     fetchAllSubUnits
 }

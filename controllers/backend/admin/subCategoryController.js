@@ -59,7 +59,7 @@ const sub_category_store = async (req, res) => {
             page_content,
             status,
         } = req.body;
-        // const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
+        const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
         const result = await db.SubCategories.create({
             name,
             slug,
@@ -71,7 +71,7 @@ const sub_category_store = async (req, res) => {
             other_meta_tags,
             page_content,
             status,
-            // image:image,
+            image:image,
             created_by:2
         });
         res.status(200).send({ message: "Filled data in sub-category table", data: result, success: true })
@@ -97,7 +97,7 @@ const sub_category_edit_update = async (req, res) => {
             category_id: updateData.category_id,
             name: updateData.name,
             slug: updateData.slug,
-            // image: updateData.image,
+            image: updateData.image,
             status: updateData.status,
             meta_title: updateData.meta_title,
             meta_description: updateData.meta_description,
@@ -139,12 +139,6 @@ const sub_category_destroy = async (req, res) => {
     }
 }
 
-//show single
-// const sub_category_show = (req, res) => {
-
-
-// }
-
 module.exports = {
 
     sub_category_index,
@@ -153,6 +147,5 @@ module.exports = {
     sub_category_edit_frm,
     sub_category_edit_update,
     sub_category_destroy,
-    // sub_category_show,
     fetchAllSubCategories
 };

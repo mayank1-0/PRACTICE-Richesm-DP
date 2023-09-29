@@ -41,7 +41,7 @@ const main_category_store = async (req, res) => {
             status,
         } = req.body;
         created_by = 2;
-        // const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
+        const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
         const result = await db.MainCategories.create({
             name,
             slug,
@@ -66,7 +66,6 @@ const main_category_edit_frm = async (req, res) => {
 
 const main_category_edit_update = async (req, res) => {
     try {
-        // let tableName = "maincategory";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -74,7 +73,7 @@ const main_category_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            // image: updateData.image
+            image: updateData.image
         }, {
             where: { id: paramId }
         });
@@ -110,11 +109,6 @@ const main_category_destroy = async (req, res) => {
 
 }
 
-//show single
-// const main_category_show = (req, res) => {
-
-
-// }
 
 module.exports = {
 
@@ -125,5 +119,4 @@ module.exports = {
     main_category_edit_frm,
     main_category_edit_update,
     main_category_destroy,
-    // main_category_show
 }

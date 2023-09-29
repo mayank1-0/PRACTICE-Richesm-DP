@@ -55,7 +55,6 @@ const color_edit_frm = async (req, res) => {
 
 const color_edit_update = async (req, res) => {
     try {
-        // let tableName = "color";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -97,12 +96,6 @@ const color_destroy = async (req, res) => {
     }
 }
 
-//show single
-const color_show = (req, res) => {
-
-
-}
-
 module.exports = {
 
     color_index,
@@ -111,6 +104,5 @@ module.exports = {
     color_edit_frm,
     color_edit_update,
     color_destroy,
-    color_show,
     fetchAllColors
 }

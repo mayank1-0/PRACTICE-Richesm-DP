@@ -6,26 +6,11 @@ const attributeController = require('../../controllers/backend/admin/attributeCo
 //express router
 const router = express.Router();
 
-//list || render attribute ejs file
-router.get('/', attributeController.attribute_index);
-
 // fetch attributes from db
 router.get('/fetchAllAttributes', attributeController.fetchAllAttributes);
 
-//create form
-router.get('/create', attributeController.attribute_create_frm );
-
-//save
+//initialize attributes i.e adding size and material in database
 router.post('/', attributeController.attribute_store);
-
-//show edit form
-router.get('/edit/:id', attributeController.attribute_edit_frm );
-
-//edit-attribute
-router.post('/update/:id',attributeController.attribute_edit_update);
-
-//delete
-router.delete('/ :id', attributeController.attribute_destroy);
 
 //exporting router
 

@@ -55,7 +55,6 @@ const material_edit_frm = async (req, res) => {
 
 const material_edit_update = async (req, res) => {
     try {
-        // let tableName = "material";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -97,12 +96,6 @@ const material_destroy = async (req, res) => {
     }
 }
 
-//show single
-const material_show = (req, res) => {
-
-
-}
-
 module.exports = {
 
     material_index,
@@ -111,6 +104,5 @@ module.exports = {
     material_edit_frm,
     material_edit_update,
     material_destroy,
-    material_show,
     fetchAllMaterials
 }

@@ -5,7 +5,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-0"><%= process.env.APP_NAME %></h4>   
+                        <h4 class="mb-0">
+                            <%= process.env.APP_NAME %>
+                        </h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
@@ -22,11 +24,12 @@
                         <div class="card-body">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <a href="/main-category" class="btn btn-success waves-effect waves-light"><i class="fas fa-list me-2"></i>Main Category List</a>
+                                    <a href="/main-category" class="btn btn-success waves-effect waves-light"><i
+                                            class="fas fa-list me-2"></i>Main Category List</a>
                                 </div>
                             </div>
                             <div class="p-2 mt-4">
-                              <!--
+                                <!--
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <i class="uil uil-exclamation-octagon me-2"></i>
                                         <b>Error!</b>
@@ -56,49 +59,49 @@
                                     </div>
                                
                                 -->
-                                <form id="formSubmitHandler" method="POST" enctype="multipart/form-data" >
-                                                                           
-                                    <div class="row"> 
+                                <form id="formSubmitHandler" method="POST" enctype="multipart/form-data">
+
+                                    <div class="row">
                                         <div class="mb-2 col-sm-6">
                                             <label class="form-label" for="name">Main Category Name</label>
-                                            <input type="text" class="form-control" id="name" name="name"
-                                            value="" 
-                                            placeholder="Enter Main Category Name">         
+                                            <input type="text" class="form-control" id="name" name="name" value=""
+                                                placeholder="Enter Main Category Name">
                                         </div>
                                         <div class="mb-2 col-sm-6">
                                             <label class="form-label" for="slug">Slug</label>
-                                            <input type="text" class="form-control" id="slug" name="slug"
-                                            value="" 
-                                            placeholder="Enter Slug">
-                                          
+                                            <input type="text" class="form-control" id="slug" name="slug" value=""
+                                                placeholder="Enter Slug">
+
                                         </div>
                                     </div>
-                                    <div class="row">                                            
+                                    <div class="row">
                                         <div class="mb-3 col-sm-6">
-                                            <label class="form-label" for="status1">Status</label>       
+                                            <label class="form-label" for="status1">Status</label>
                                             <select name="status1" id="status1" class="form-select">
-                                                <option value="1" >Active</option>
-                                                <option value="0" >Inactive</option>                       
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
                                             </select>
                                         </div>
-                                    
-                                    
+
+
                                         <div class="col-sm-6">
                                             <div class="mb-2">
                                                 <label class="form-label" for="image">Image</label>
-                                                <input type="file" class="form-control" id="image" name="image" >
-                                            </div> 
+                                                <input type="file" class="form-control" id="image" name="image">
+                                            </div>
                                             <div class="mb-2">
-                                                <img id="uploadPreview" style="width: 233px; height: 100px; border:1px solid #83888C; background-color: #ffffff;">      
-                                            </div> 
-                                                 
+                                                <img id="uploadPreview"
+                                                    style="width: 233px; height: 100px; border:1px solid #83888C; background-color: #ffffff;">
+                                            </div>
+
                                         </div>
-                                        
+
                                     </div>
-                                                                        
+
                                     <div class="mt-3 ">
-                                        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit" >Add</button>
-                                    </div>            
+                                        <button class="btn btn-primary w-sm waves-effect waves-light"
+                                            type="submit">Add</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -108,16 +111,27 @@
             <!-- end-row -->
         </div> <!-- container-fluid -->
     </div>
-    <!-- End Page-content -->      
+    <!-- End Page-content -->
 </div>
 
 
 <script>
+    $(() => {
+        getSlug();
+    })
 
-let uploadedImage = {}
-let uploadedImage1 = {}
-    document.getElementById("image").addEventListener("change",()=>{
-        uploadedImage=document.getElementById("image").files[0]
+    //function to get slug
+    function getSlug() {
+        $('#name').on('input change', function () {
+            let slug = $('#name').val().toLowerCase();
+            $('#slug').val(slug);
+        })
+    };
+
+    let uploadedImage = {}
+    let uploadedImage1 = {}
+    document.getElementById("image").addEventListener("change", () => {
+        uploadedImage = document.getElementById("image").files[0]
         var oFReader = new FileReader();
         oFReader.readAsDataURL(document.getElementById("image").files[0]);
         oFReader.onload = function (oFREvent) {
@@ -126,21 +140,21 @@ let uploadedImage1 = {}
     })
 
 
-   document.getElementById("formSubmitHandler").addEventListener("submit",(e)=>{
+    document.getElementById("formSubmitHandler").addEventListener("submit", (e) => {
         e.preventDefault()
         const token = window.localStorage.getItem('token');
 
-        var data={
+        var data = {
             name: $('#name').val(),
             slug: $('#slug').val(),
             status: $('#status1').val(),
         };
 
         const formdata = new FormData()
-        formdata.append("name",data.name)
-        formdata.append("slug",data.slug)
-        formdata.append("status",data.status)
-        formdata.append("image",uploadedImage1)
+        formdata.append("name", data.name)
+        formdata.append("slug", data.slug)
+        formdata.append("status", data.status)
+        formdata.append("image", uploadedImage1)
         $.ajax({
             type: "POST",
             url: "/main-category/",
@@ -148,8 +162,8 @@ let uploadedImage1 = {}
             processData: false,
             contentType: false,
             beforeSend: function (xhr) {
-          xhr.setRequestHeader("Authorization", "Bearer " + token);
-        },
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
             success: function (result) {
                 window.alert("Success");
                 $('#name').val("")
@@ -158,11 +172,11 @@ let uploadedImage1 = {}
                 $('#image').val("")
                 document.getElementById("uploadPreview").src = '';
             },
-            error: function error(error){
+            error: function error(error) {
                 window.alert('Something went wrong');
                 console.log(error);
             }
         });
-   });
+    });
 
 </script>

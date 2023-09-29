@@ -54,7 +54,6 @@ const unit_edit_frm = async (req, res) => {
 
 const unit_edit_update = async (req, res) => {
     try {
-        // let tableName = "unit";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -62,7 +61,7 @@ const unit_edit_update = async (req, res) => {
             unit_name: updateData.unit_name,
             short_char: updateData.short_char,
             status: updateData.status,
-            // image: updateData.image
+            image: updateData.image
         }, {
             where: { id: paramId }
         });
@@ -98,12 +97,6 @@ const unit_destroy = async (req, res) => {
     }
 }
 
-//show single
-// const unit_show = (req, res) => {
-
-
-// }
-
 module.exports = {
 
     unit_index,
@@ -112,6 +105,5 @@ module.exports = {
     unit_edit_frm,
     unit_edit_update,
     unit_destroy,
-    // unit_show,
     fetchAllUnits
 }

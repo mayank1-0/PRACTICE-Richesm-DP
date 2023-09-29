@@ -41,14 +41,14 @@ const brand_store = async (req, res) => {
     try {
         
         const {name,slug,status} = req.body;
-        // const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
-        // const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
-        // const image = req.file.path?uploadImage:defaultImage
+        const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
+        const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
+        const image = req.file.path?uploadImage:defaultImage
         const result = await db.Brand.create({
             name,
             slug,
             status,
-            // image:image,
+            image:image,
             created_by:2
         });
         res.status(200).send({ message: "Brand Added ", data:result, success: true });
@@ -67,7 +67,6 @@ const brand_edit_frm = async (req, res) => {
 
 const brand_edit_update = async (req, res) => {
     try {
-        // let tableName = "brand";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -75,7 +74,7 @@ const brand_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            // image: updateData.image
+            image: updateData.image
         }, {
             where: { id: paramId }
         });
@@ -118,6 +117,5 @@ module.exports = {
     brand_edit_frm,
     brand_edit_update,
     brand_destroy,
-    // brand_show,
     fetchAllBrands
 }

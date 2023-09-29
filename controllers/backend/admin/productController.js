@@ -48,7 +48,6 @@ const product_store = async (req, res) => {
         const productData = await db.Product.findOne({
             raw: true,
             order: [
-                // Will escape title and validate DESC against a list of valid direction parameters
                 ['id', 'DESC'],
             ],
             limit: 1,
@@ -65,13 +64,13 @@ const product_store = async (req, res) => {
         tableData.category_id = result1.category_id;
 
         // gallery images store logic
-        // let gallery_images = tableData.gallery_images;
-        // gallery_images = JSON.stringify(gallery_images);
-        // let productGalleryData = {
-        //     product_code: `PC_${maxProductId+1}`,
-        //     image: gallery_images
-        // }
-        // let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
+        let gallery_images = tableData.gallery_images;
+        gallery_images = JSON.stringify(gallery_images);
+        let productGalleryData = {
+            product_code: `PC_${maxProductId+1}`,
+            image: gallery_images
+        }
+        let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
 
         result = await db.Product.create(tableData);
         console.log('Result is' , result);
@@ -93,7 +92,6 @@ const product_edit_frm = async (req, res) => {
 
 const product_edit_update = async (req, res) => {
     try {
-        // let tableName = "product";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -101,7 +99,7 @@ const product_edit_update = async (req, res) => {
             name: updateData.name,
             slug: updateData.slug,
             status: updateData.status,
-            // image: updateData.image
+            image: updateData.image
         }, {
             where: { id: paramId }
         });

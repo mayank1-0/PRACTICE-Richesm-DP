@@ -136,8 +136,17 @@
 <script>
     const token = window.localStorage.getItem('token');
     $(() => {
-        displayMainCategories()
+        displayMainCategories();
+        getSlug();
     })
+
+    //function to get slug
+    function getSlug() {
+        $('#name').on('input change', function () {
+            let slug = $('#name').val().toLowerCase();
+            $('#slug').val(slug);
+        })
+    };
 
     let uploadedImage = {}
     let uploadedImage1 = {}

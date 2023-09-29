@@ -32,13 +32,6 @@ router.put('/update/:id', auth, mainCategoryController.main_category_edit_update
 //delete
 router.delete('/:id', auth, mainCategoryController.main_category_destroy);
 
-// upload file
-// router.post(
-//     "/uploadFile",
-//     upload.single("myFile"),
-//     mainCategoryController.uploadFile
-//   );
-
 //exporting router
 
 module.exports = router; 

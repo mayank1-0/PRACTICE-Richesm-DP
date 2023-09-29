@@ -20,9 +20,6 @@ router.get('/create', authGuard, materialController.material_create_frm );
 //save
 router.post('/', auth, materialController.material_store);
 
-//single blog
-// router.get('/:id', materialController.material_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, materialController.material_edit_frm );
 

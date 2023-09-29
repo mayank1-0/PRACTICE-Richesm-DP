@@ -53,7 +53,6 @@ const size_edit_frm = async (req, res) => {
 
 const size_edit_update = async (req, res) => {
     try {
-        // let tableName = "size";
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
@@ -95,12 +94,6 @@ const size_destroy = async (req, res) => {
     }
 }
 
-//show single
-const size_show = (req, res) => {
-
-
-}
-
 module.exports = {
 
     size_index,
@@ -109,6 +102,5 @@ module.exports = {
     size_edit_frm,
     size_edit_update,
     size_destroy,
-    size_show,
     fetchAllSizes
 }

@@ -20,9 +20,6 @@ router.get('/create', authGuard, sizeController.size_create_frm );
 //save
 router.post('/', auth, sizeController.size_store);
 
-//single blog
-// router.get('/:id', sizeController.size_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, sizeController.size_edit_frm );
 
