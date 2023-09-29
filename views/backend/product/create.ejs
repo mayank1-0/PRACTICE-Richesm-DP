@@ -177,7 +177,7 @@
                                                 devices to make it responsive.</small>
                                             <br>
                                             <br>
-                                            <div id="previewImg"></div>
+                                            <div id="previewThumbnailImg"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -759,8 +759,8 @@
 </div>
 <!-- /public/admin-assets/tinymce/js/tinymce/tinymce.min.js -->
 <!-- END layout-wrapper -->
+<script src="/public/admin-assets/assets/js/product_custom_sandbox.js"></script>
 <script src="/public/admin-assets/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-
 
 <script>
 
@@ -819,12 +819,12 @@
             
             document.getElementById("productThumnailImg").addEventListener("change",()=>{
                 
-                thumnailImgs=document.getElementById("productThumnailImg").files[0]
-                  console.log(document.getElementById("thumnailImg").files)
+                thumnailImgs=document.getElementById("productThumnailImg").file
+                  console.log(document.getElementById("thumnailImg").file)
                      var oFReader = new FileReader();
                      oFReader.readAsDataURL(thumnailImgs);
                      oFReader.onload = function (oFREvent) {
-                             $("#previewImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+                             $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
                          };
                     const form = new FormData()
                     form.append("image",thumnailImgs)
@@ -842,8 +842,8 @@
                             console.log(result)
                                 resultThumbnailImage = result.image;
                                // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
-                               $("#previewImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image+ " ))\">X</span><img height='80' src='" + result.image +"'></div>")
-                               $("#previewgalleryImg").html(appendImage);
+                               $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image+ " ))\">X</span><img height='80' src='" + result.image +"'></div>")
+                               $("#previewThumbnailImg").html(appendImage);
                         },
                         error: function error(err) {
                             console.log(err);

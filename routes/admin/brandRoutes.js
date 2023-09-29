@@ -18,10 +18,7 @@ router.get('/fetchAllBrands', auth, brandController.fetchAllBrands);
 router.get('/create', authGuard, brandController.brand_create_frm );
 
 //save
-router.post('/',upload.single("image"), auth,brandController.brand_store);
-
-//single blog
-// router.get('/:id', brandController.brand_show );
+router.post('/',upload.single("image"), auth, brandController.brand_store);
 
 //show edit form
 router.get('/edit/:id', authGuard, brandController.brand_edit_frm );

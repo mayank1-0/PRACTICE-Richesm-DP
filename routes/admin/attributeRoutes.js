@@ -1,4 +1,5 @@
 const express = require('express');
+const auth = require('../../middleware/auth');
 
 //importing controller
 const attributeController = require('../../controllers/backend/admin/attributeController');
@@ -7,9 +8,9 @@ const attributeController = require('../../controllers/backend/admin/attributeCo
 const router = express.Router();
 
 // fetch attributes from db
-router.get('/fetchAllAttributes', attributeController.fetchAllAttributes);
+router.get('/fetchAllAttributes', auth, attributeController.fetchAllAttributes);
 
-//initialize attributes i.e adding size and material in database
+//initialize attributes i.e adding Size and Material in database
 router.post('/', attributeController.attribute_store);
 
 //exporting router

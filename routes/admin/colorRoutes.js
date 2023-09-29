@@ -20,9 +20,6 @@ router.get('/create', authGuard, colorController.color_create_frm );
 //save
 router.post('/', auth, colorController.color_store);
 
-//single blog
-// router.get('/:id', colorController.color_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, colorController.color_edit_frm );
 

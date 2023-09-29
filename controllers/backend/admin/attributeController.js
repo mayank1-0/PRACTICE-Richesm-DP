@@ -32,6 +32,9 @@ const attribute_store = async (req, res) => {
         }
         else{
         let result;
+        await db.Attribute.destroy({
+            truncate: true
+        });
         let tableData = [
             {
                 attribute_name: 'Size',

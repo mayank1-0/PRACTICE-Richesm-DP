@@ -9,7 +9,7 @@ exports.addImages = async(req,res)=>{
         })
         res.send({success:true,message:"Images Added ",images:images})
     } catch (error) {
-        res.status(400).send({success:false,message:error.message})
+        res.status(500).send({success:false,message:error.message})
     }
 }
 

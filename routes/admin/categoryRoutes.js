@@ -4,7 +4,6 @@ const authGuard = require('../../middleware/authGuard');
 const auth = require('../../middleware/auth');
 const upload= require("../../utils/addcategoryImageUploader")
 
-
 const categoryController = require('../../controllers/backend/admin/categoryController');
 
 //express router
@@ -25,9 +24,6 @@ router.post('/',upload.single("image"), auth,  categoryController.category_store
 //
 router.post('/update/:id', auth, categoryController.category_edit_update);
 
-//single blog
-// router.get('/:id', categoryController.category_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, categoryController.category_edit_frm );
 
@@ -36,11 +32,11 @@ router.get('/edit/:id', authGuard, categoryController.category_edit_frm );
 router.delete('/:id', auth, categoryController.category_destroy);
 
 // upload file
-// router.post(
-//     "/uploadFile",
-//     upload.single("myFile"),
-//     categoryController.uploadFile
-//   );
+router.post(
+    "/uploadFile",
+    upload.single("myFile"), auth,
+    categoryController.uploadFile
+  );
 
 //exporting router
 

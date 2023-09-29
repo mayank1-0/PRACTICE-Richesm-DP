@@ -20,9 +20,6 @@ router.get('/create', authGuard, mainCategoryController.main_category_create_frm
 //save
 router.post('/',  upload.single("image"), auth, mainCategoryController.main_category_store);
 
-//single blog
-// router.get('/:id', mainCategoryController.main_category_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, mainCategoryController.main_category_edit_frm );
 
