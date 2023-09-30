@@ -146,7 +146,6 @@
     };
 
     let uploadedImage = {};
-    let uploadedImage1 = {};
     document.getElementById("image").addEventListener("change", () => {
 
         uploadedImage = document.getElementById("image").files[0]
@@ -164,7 +163,7 @@
         data.append("name", $('#name').val())
         data.append("slug", $('#slug').val())
         data.append("status", $('#current_status').val())
-        data.append("image", uploadedImage1)
+        data.append("image", uploadedImage)
         $.ajax({
             type: "POST",
             url: "/brand/",
@@ -189,7 +188,5 @@
         });
 
     })
-
-
 
 </script>

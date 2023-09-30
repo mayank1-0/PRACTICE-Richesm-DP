@@ -37,7 +37,6 @@ $(document).ready(function () {
         
     });
 
-
     //show hide shipping charge
     $('input[name="shipping_type"]').change(function (e) { 
         e.preventDefault();
@@ -78,9 +77,9 @@ $(document).ready(function () {
 
             $('.attribute_value_sec').show(); 
             var attributes = $('#pdt_attribute').select2("val");
-           // bind_product_Attribute(attributes)
+            console.log('1111 ', attributes);
+            // bind_product_Attribute(attributes)
            
-
         }else{
 
             $('.attribute_value_sec').hide(); 
@@ -97,7 +96,7 @@ $(document).ready(function () {
             var selected_text = $('#pdt_attribute').select2("data");
             var attribute_id = value;
             var attribute_name = selected_text[index].text;          
-            bind_attribute_values(attribute_id,attribute_name);
+            // bind_attribute_values(attribute_id,attribute_name);
         });
     }
 
@@ -137,16 +136,16 @@ $(document).ready(function () {
         });
     }
 
-    $('#btAddvariant').click(function (e) { 
+    $('#btAddvariant').click(function (e) {
         e.preventDefault();
         if($('#pdt_attribute').val().length<=0){
             alert('Please select at least one attribute first');
             return;
         }
         $('.variantproductsection').show();
-        
+        console.log('Before increment ', vRowCount);
         ++vRowCount;
-
+        console.log('After increment ', vRowCount);
         var variantGrid=`
         <div class="card border shadow-none variant_grid_card_`+vRowCount+`">
             <div class="card-body">
@@ -222,10 +221,10 @@ $(document).ready(function () {
         $('.variantproductsection').append(variantGrid);  
         var attributes = $('#pdt_attribute').select2("val");
         $.each( attributes, function( index, value ) {
-            var selected_text = $('#pdt_attribute').select2("data");
+            var selected_text = $('#pdt_attribute').select2("data"); 
             var attribute_id = value;
             var attribute_name = selected_text[index].text; 
-
+            
             var template = ` <div class="mb-3 row">                                                                                                                                            
                 <div class="col-md-3 bg-gray">
                     <label class="col-form-label" for="">`+attribute_name+`</label>
@@ -242,25 +241,24 @@ $(document).ready(function () {
             $('.item-row'+vRowCount).append(template);
             $('.item-row'+vRowCount+' #attribute_'+attribute_id).select2();  
             //bind attribute value     
-            $.ajax({
-                type: "post",
-                url: urlgetattributes,
-                data: {'_token' : token , attribute_id : attribute_id },
-                dataType: "json",
-                success: function (response) {
+            // $.ajax({
+            //     type: "post",
+            //     url: urlgetattributes,
+            //     data: {'_token' : token , attribute_id : attribute_id },
+            //     dataType: "json",
+            //     success: function (response) {
 
-                    var jsontext =  JSON.stringify(response.data);
-                    var collection =  JSON.parse(jsontext); 
+            //         var jsontext =  JSON.stringify(response.data);
+            //         var collection =  JSON.parse(jsontext); 
                             
-                    $.each(collection, function (indexInArray, valueOfElement) {
-                        var select_value =  valueOfElement.id;
-                        var select_text = valueOfElement.attribute_value;
-                        $('.item-row'+vRowCount+' #attribute_'+attribute_id).append(new Option(select_text, select_value));
-                    });
+            //         $.each(collection, function (indexInArray, valueOfElement) {
+            //             var select_value =  valueOfElement.id;
+            //             var select_text = valueOfElement.attribute_value;
+            //             $('.item-row'+vRowCount+' #attribute_'+attribute_id).append(new Option(select_text, select_value));
+            //         });
                     
-                }
-            });
-
+            //     }
+            // });
         });
          //bind color for variant
          $('#pdt_v_color_'+vRowCount).select2(); 

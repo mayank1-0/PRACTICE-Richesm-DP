@@ -40,15 +40,22 @@ const main_category_store = async (req, res) => {
             slug,
             status,
         } = req.body;
-        created_by = 2;
-        const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
+        let image ;
+        console.log('2222 ', req.file);
+        if(req.file){
+         image = `${process.env.IMAGE_URL}/${req.file.path}`
+        }
+
+
+        // const image = req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
         const result = await db.MainCategories.create({
-            name,
-            slug,
-            status,
-            image:null,
-            created_by:2
+            name: name,
+            slug: slug,
+            image: image,
+            status: status,
+            created_by: 2
         });
+        console.log(result)
         res.status(200).send({ message: "Filled data in main-categories table", data: result, success: true })
     } catch (error) {
         res.status(500).send({ message: "Something went wrong", data: error, success: false });

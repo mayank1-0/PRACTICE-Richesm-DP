@@ -149,7 +149,6 @@
     };
 
     let uploadedImage = {}
-    let uploadedImage1 = {}
     document.getElementById("image").addEventListener("change",()=>{
         uploadedImage=document.getElementById("image").files[0]
         var oFReader = new FileReader();
@@ -203,7 +202,7 @@
         formdata.append("meta_keyword",data.meta_keyword)
         formdata.append("other_meta_tags",data.other_meta_tags)
         formdata.append("page_content",data.page_content)
-        formdata.append("image",uploadedImage1)
+        formdata.append("image",uploadedImage)
         $.ajax({
             type: "POST",
             url: "/category/",
