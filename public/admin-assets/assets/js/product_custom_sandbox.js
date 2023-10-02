@@ -229,7 +229,7 @@ $(document).ready(function () {
                 <div class="col-md-3 bg-gray">
                     <label class="col-form-label" for="">`+attribute_name+`</label>
                 </div>
-                <div class="col-md-8"> 
+                <div class="col-md-8">
                     <select class="form-control select2" 
                     data-placeholder="Choose `+attribute_name+`" 
                     id="attribute_`+attribute_id+`"  name="attribute_`+attribute_id+`[]">

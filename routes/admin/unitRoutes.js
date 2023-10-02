@@ -20,9 +20,6 @@ router.get('/create', authGuard, unitController.unit_create_frm );
 //save
 router.post('/', auth, unitController.unit_store);
 
-//single blog
-// router.get('/:id', unitController.unit_show );
-
 //show edit form
 router.get('/edit/:id', authGuard, unitController.unit_edit_frm );
 
