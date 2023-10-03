@@ -15,6 +15,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+// For Admin
 const User = require("../models/user")(sequelize, Sequelize);
 const Categories = require("../models/admin/categories")(sequelize, Sequelize);
 const MainCategories = require("../models/admin/main_categories")(sequelize, Sequelize);
@@ -47,11 +48,19 @@ Categories.hasMany(Product, {
 
 // P.K - F.K. 3
 SubCategories.hasMany(Product, {
-    foreignKey: "sub_category_id"
+    foreignKey: "sub_category_id",
   });
   Product.belongsTo(SubCategories, {
     foreignKey: "sub_category_id",
   });
+
+// P.K - F.K. 4
+User.hasMany(Product, {
+  foreignKey: "seller_id",
+});
+Product.belongsTo(User, {
+  foreignKey: "seller_id",
+});
 
 db.User = User;
 db.Categories = Categories;

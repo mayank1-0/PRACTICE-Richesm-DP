@@ -25,6 +25,7 @@ const productRoutes = require('./routes/admin/productRoutes');
 
 // seller routes
 const sellerAuthRoutes = require('./routes/seller/authRoutes');
+const sellerProductRoutes = require('./routes/seller/productRoutes');
 const productImageGallery = require('./routes/admin/productGalleryUpload');
 const productThumnail = require('./routes/admin/addthumnailmg');
 
@@ -100,9 +101,14 @@ app.use('/material', materialRoutes);
 //Product
 app.use('/product', productRoutes);
 
-//seller
-app.use('/api/seller',sellerAuthRoutes);
+// ------------------------------------------------------------------------------------------------
 
+//Seller
+
+//auth
+app.use('/api/seller/auth',sellerAuthRoutes);
+//product
+app.use('/api/seller/product', sellerProductRoutes);
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {

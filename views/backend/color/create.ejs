@@ -113,30 +113,19 @@
     </div>
     <!-- End Page-content -->
 </div>
-<script>
-    // $(document).on('input change', '#name', function(){
-    //     var title=$('#name').val().toLowerCase();
-    //    var slug=title.replace(/\s+/g, '-');
-    //     $('#slug').val(slug);
-    //     var data={
-    //         '_token' : $('#token').val(),
-    //         'schema' : 'pdt_colors',
-    //         'title' : title,
-    //     };
-        // $.ajax({
-        //     type: "get",
-        //     url: "https://whitelines.co.in/get-slugs",
-        //     data: data,
-        //     dataType: "json",
-        //     success: function (response) {
-        //         $('#slug').val(response.slug);
-        //     }
-        // });
- //  });
-</script>
-
 
 <script>
+    $(() => {
+        getSlug();
+    })
+
+    //function to get slug
+    function getSlug() {
+        $('#name').on('input change', function () {
+            let slug = $('#name').val().toLowerCase();
+            $('#slug').val(slug);
+        })
+    };
     function add() {
         const token = window.localStorage.getItem('token');
         var data = {
@@ -163,12 +152,4 @@
         });
     };
 
-
-    // function PreviewImage() {
-    //     var oFReader = new FileReader();
-    //     oFReader.readAsDataURL(document.getElementById("image").files[0]);
-    //     oFReader.onload = function (oFREvent) {
-    //         document.getElementById("uploadPreview").src = oFREvent.target.result;
-    //     };
-    // };
 </script>

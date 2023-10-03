@@ -8,6 +8,7 @@ const config = require('../../../config.json');
 const sellerSignup = async (req, res) => {
   try {
     let postData = req.body;
+    console.log(' req.bosy is:', postData);
     postData.userID = `${moment().unix()}-${randomstring.generate({
       length: 6,
       readable: true,
