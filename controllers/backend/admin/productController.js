@@ -11,17 +11,17 @@ const fetchAllProducts = async (req, res) => {
         const Categories = db.Categories;
         const SubCategories = db.SubCategories;
         let productData = await db.Product.findAll({
-            attributes: [
-                "id",
-                "product_code",
-                "product_name",
-                "main_category_id",
-                "category_id",
-                "sub_category_id",
-                "listing_price_inc_tax",
-                "stock_quantity",
-                "is_active",
-            ],
+            // attributes: [
+            //     "id",
+            //     "product_code",
+            //     "product_name",
+            //     "main_category_id",
+            //     "category_id",
+            //     "sub_category_id",
+            //     "listing_price_inc_tax",
+            //     "stock_quantity",
+            //     "is_active",
+            // ],
             include: [MainCategories, Categories, SubCategories],
         });
         console.log('Eager loading ', productData);
@@ -87,19 +87,57 @@ const product_edit_frm = async (req, res) => {
             id: productId
         }
     })
-    res.render('./backend/product/edit', { title: 'Create a New Product', productId: productId, product });
+    res.render('./backend/product/edit', { title: 'Edit Product', productId: productId, product });
 }
 
 const fetchProductDetailsById = async (req, res) => {
     try {
         const productId = req.params.id;
-        const productDetails = await db.Product.findOne({
+        let productDetails = await db.Product.findOne({
             where: {
                 id: productId
             }
         });
         console.log('1111 ', productDetails);
-        res.status(200).send({ success: true, message: "ProductDetails of the given id fetched successfully", data: productDetails });
+        let subCategoryId = productDetails.sub_category_id
+        const subCategoryData = await db.SubCategories.findOne({
+            raw: true,
+            attributes: ["name", "category_id", "main_category_id"],
+            where: {
+                id: subCategoryId
+            }
+        });
+        let mainCategoryId = subCategoryData.main_category_id;
+        let categoryId = subCategoryData.category_id;
+        const categoryData = await db.Categories.findOne({
+            raw: true,
+            attributes: ["name"],
+            where: {
+                id: categoryId
+            }
+        });
+        const mainCategoryData = await db.MainCategories.findOne({
+            raw: true,
+            attributes: ["name"],
+            where: {
+                id: mainCategoryId
+            }
+        });
+        let subCategoryName = subCategoryData.name;
+        let categoryName = categoryData.name;
+        let mainCategoryName = mainCategoryData.name;
+        const galleryImagesProduct = await db.ProductGallery.findOne({
+            where: {
+                product_code: productDetails.product_code,
+            }
+        });
+        let names = {};
+        names.subCategoryName = subCategoryName;
+        names.categoryName = categoryName;
+        names.mainCategoryName = mainCategoryName;
+        console.log('***** ', names);
+        console.log('2222 ', galleryImagesProduct);
+        res.status(200).send({ success: true, message: "ProductDetails of the given id fetched successfully", data: productDetails, galleryImages: galleryImagesProduct, names: names });
     } catch (error) {
         res.status(500).send({ success: false, message: 'Something went wrong', error: error });
     }
