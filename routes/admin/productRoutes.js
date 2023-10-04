@@ -1,8 +1,6 @@
 const express = require('express');
 const authGuard = require('../../middleware/authGuard');
 const auth = require('../../middleware/auth');
-const uploads = require("../../utils/addProductGalleryImage")
-const upload = require("../../utils/productThumnailUploader")
 
 //importing controlleras
 const productController = require('../../controllers/backend/admin/productController');
@@ -20,10 +18,13 @@ router.get('/fetchAllProducts', auth, productController.fetchAllProducts);
 router.get('/create', authGuard, productController.product_create_frm );
 
 //save
-router.post('/',uploads.array("files"),upload.single("thumbnail_images"), auth, productController.product_store);
+router.post('/', auth, productController.product_store);
 
 //show edit form
 router.get('/edit/:id', authGuard, productController.product_edit_frm );
+
+// fetch single product details
+router.get('/fetchProduct/:id', auth, productController.fetchProductDetailsById );
 
 //edit-product
 router.post('/update/:id', auth, productController.product_edit_update);

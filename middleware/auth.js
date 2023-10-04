@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     if (req.session.user && req.session.token && req.session.token === token) {
-      const decodedToken = jwt.verify(token, config.jwtSecret);
+      const decodedToken = jwt.verify(token, config.jwtSecret); 
       const tokenStatus = decodedToken.isActive;
       if (tokenStatus) {
         next();

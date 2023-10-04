@@ -9,7 +9,7 @@ const product_store = async (req, res) => {
         // couldn't test after this as this will give error in POSTMAN
         console.log('0000 ', userEmail);
         let sellerData = await db.User.findOne({
-            attributes: ['id','first_name','last_name','status'],
+            attributes: ['id', 'first_name', 'last_name', 'status'],
             where: { email: userEmail }
         });
         console.log(`1111 ${sellerData}`);
@@ -24,12 +24,12 @@ const product_store = async (req, res) => {
             attributes: ['id'],
         });
 
-        const maxProductId = productData===null?0:productData.id;
-        tableData.product_code = `PC_${maxProductId+1}`;
+        const maxProductId = productData === null ? 0 : productData.id;
+        tableData.product_code = `PC_${maxProductId + 1}`;
         console.log('3333 ');
         //saving main_category_id and category_id
         let result1 = await db.SubCategories.findOne({
-            where: {id: tableData.sub_category_id }
+            where: { id: tableData.sub_category_id }
         });
         tableData.main_category_id = result1.main_category_id;
         tableData.category_id = result1.category_id;
@@ -38,15 +38,15 @@ const product_store = async (req, res) => {
         let gallery_images = tableData.gallery_images;
         gallery_images = JSON.stringify(gallery_images);
         let productGalleryData = {
-            product_code: `PC_${maxProductId+1}`,
+            product_code: `PC_${maxProductId + 1}`,
             image: gallery_images
         }
         console.log('5555 ');
         let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
         console.log('6666 ');
         result = await db.Product.create(tableData);
-        console.log('Result is' , result);
-        res.status(200).send({ message: "Filled data in product table", data: result, success: true});
+        console.log('Result is', result);
+        res.status(200).send({ message: "Filled data in product table", data: result, success: true });
     } catch (error) {
         res.status(500).send({ message: "Something went wrong", data: error, success: false });
     }
@@ -62,7 +62,7 @@ const fetchAllProducts = async (req, res) => {
         // couldn't test after this as this will give error in POSTMAN
         console.log('0000 ', userEmail);
         let sellerData = await db.User.findOne({
-            attributes: ['id','first_name','last_name','status'],
+            attributes: ['id', 'first_name', 'last_name', 'status'],
             where: { email: userEmail }
         });
         console.log(`1111 ${sellerData}`);
@@ -80,7 +80,10 @@ const fetchAllProducts = async (req, res) => {
                 "stock_quantity",
                 "is_active",
             ],
-            include: [MainCategories, Categories, SubCategories],
+            where: {
+                seller_id: sellerData.id
+            },
+            include: [MainCategories, Categories, SubCategories]
         });
         console.log('Eager loading ', productData);
         if (!productData) {
@@ -95,7 +98,78 @@ const fetchAllProducts = async (req, res) => {
     }
 };
 
+const product_edit_update = async (req, res) => {
+    try {
+        let paramId = req.params.id;
+        let result;
+
+        // let userEmail = req.session.user.email;
+        // // couldn't test after this as this will give error in POSTMAN
+        // console.log('0000 ', userEmail);
+        // let sellerData = await db.User.findOne({
+        //     attributes: ['id', 'first_name', 'last_name', 'status'],
+        //     where: { email: userEmail }
+        // });
+        let updateData = req.body;
+
+        //updating main_category_id and category_id
+        let result1 = await db.SubCategories.findOne({
+            where: {id: updateData.sub_category_id }
+        });
+        tableData.main_category_id = result1.main_category_id;
+        tableData.category_id = result1.category_id;
+
+        result = await db.Product.update({
+            product_name: updateData.name,
+            slug: updateData.slug,
+            status: updateData.status,
+            image: updateData.image
+        }, {
+            where: { id: paramId, seller_id: sellerData.id }
+        });
+        if (result == 0) {
+            res.status(404).send({ message: "No product with given id or of the desired seller exists", data: result, success: false });
+
+        } else {
+            res.status(200).send({ message: "Updated data in product table", data: result, success: true });
+
+        }
+
+    } catch (error) {
+        res.status(500).send({ message: "Something went wrong. Please try again", err: error, success: false });
+    }
+}
+
+const product_destroy = async (req, res) => {
+    try {
+        let result;
+        const paramId = req.params.id;
+        let userEmail = req.session.user.email;
+        // couldn't test after this as this will give error in POSTMAN
+        console.log('0000 ', userEmail);
+        let sellerData = await db.User.findOne({
+            attributes: ['id', 'first_name', 'last_name', 'status'],
+            where: { email: userEmail }
+        });
+        result = await db.Product.destroy({
+            where: {
+                id: paramId,
+                seller_id: sellerData.id
+            }
+        });
+        if (!result) {
+            res.status(404).send({ message: "Product with given id does not exist", success: false, status: 404 });
+        } else {
+            res.status(200).send({ message: "Data from product table deleted", success: true });
+        }
+    } catch (error) {
+        res.status(500).send({ message: "SOmething went wrong", data: error.message, success: false });
+    }
+};
+
 module.exports = {
-    product_store,
-    fetchAllProducts
+    product_store,           // C
+    fetchAllProducts,        // R
+    product_edit_update,     // U
+    product_destroy          // D
 }

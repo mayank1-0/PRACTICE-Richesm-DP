@@ -2,8 +2,8 @@ const express = require('express');
 //express router
 const router = express.Router();
 const authGuard = require('../../middleware/authGuard');
-const { addThumnailImages } = require('../../controllers/backend/admin/addThumnailImg');
 const upload = require("../../utils/productThumnailUploader")
+const {addThumnailImages} = require("../../controllers/backend/admin/addThumnailImg")
 
 
 //index

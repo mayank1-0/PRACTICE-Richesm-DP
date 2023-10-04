@@ -168,7 +168,7 @@
                                         <label class="col-md-3 col-form-label">Thumbnail Images<br />
                                             <code> (300x300)</code></label>
                                         <div class="col-md-8">
-                                            <input type="file" id="productThumnailImg" name="product"
+                                            <input type="file" id="productThumnailImg" name="image"
                                                 class="form-control">
                                             <small class="text-muted font-size-11">This image is
                                                 visible in all product box. Use 300x300 sizes image.
@@ -781,14 +781,14 @@
              uploadedImage.forEach(element => {
                  console.log(element)
                  form.append("images",element)
-                 var oFReader = new FileReader();
-                 oFReader.readAsDataURL(element);
-                 oFReader.onload = function (oFREvent) {
-                     $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
-                 };
+                //  var oFReader = new FileReader();
+                //  oFReader.readAsDataURL(element);
+                //  oFReader.onload = function (oFREvent) {
+                //      $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+                //  };
              });
              // product-gallery-image
-             formdata.append("thumbnail_images",thumnailImgs)
+            //  formdata.append("thumbnail_images",thumnailImgs)
              $.ajax({
                  type: "POST",
                  url: "/product-gallery-image/",
@@ -805,7 +805,7 @@
                      result.images.map((images)=>{
                         $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + images+ " ))\">X</span><img height='80' src='" + images +"'></div>")
                         })
-                        $("#previewgalleryImg").html(appendImage);
+                        // $("#previewgalleryImg").html(appendImage);
 
                  },
                  error: function error(err) {
@@ -819,13 +819,13 @@
             
             document.getElementById("productThumnailImg").addEventListener("change",()=>{
                 
-                thumnailImgs=document.getElementById("productThumnailImg").file
-                  console.log(document.getElementById("thumnailImg").file)
-                     var oFReader = new FileReader();
-                     oFReader.readAsDataURL(thumnailImgs);
-                     oFReader.onload = function (oFREvent) {
-                             $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
-                         };
+                thumnailImgs=document.getElementById("productThumnailImg").files[0]
+                console.log(thumnailImgs)
+                    //  var oFReader = new FileReader();
+                    //  oFReader.readAsDataURL(thumnailImgs);
+                    //  oFReader.onload = function (oFREvent) {
+                    //          $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+                    //      };
                     const form = new FormData()
                     form.append("image",thumnailImgs)
                     $.ajax({
@@ -843,7 +843,7 @@
                                 resultThumbnailImage = result.image;
                                // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
                                $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image+ " ))\">X</span><img height='80' src='" + result.image +"'></div>")
-                               $("#previewThumbnailImg").html(appendImage);
+                            //    $("#previewThumbnailImg").html(appendImage);
                         },
                         error: function error(err) {
                             console.log(err);

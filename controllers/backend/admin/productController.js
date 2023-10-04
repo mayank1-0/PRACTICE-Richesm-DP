@@ -90,6 +90,21 @@ const product_edit_frm = async (req, res) => {
     res.render('./backend/product/edit', { title: 'Create a New Product', productId: productId, product });
 }
 
+const fetchProductDetailsById = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const productDetails = await db.Product.findOne({
+            where: {
+                id: productId
+            }
+        });
+        console.log('1111 ', productDetails);
+        res.status(200).send({ success: true, message: "ProductDetails of the given id fetched successfully", data: productDetails });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'Something went wrong', error: error });
+    }
+}
+
 const product_edit_update = async (req, res) => {
     try {
         let paramId = req.params.id;
@@ -142,6 +157,7 @@ module.exports = {
     product_create_frm,
     product_store,
     product_edit_frm,
+    fetchProductDetailsById,
     product_edit_update,
     product_destroy,
     fetchAllProducts,
