@@ -917,9 +917,35 @@
             },
             success: function success(result) {
                 resultNames = result.names;
+                let images = result?.galleryImages?.image;
+                let thumbnailImage = result?.data?.thumbnail_images;
+                images = JSON.parse(images);
+
                 result = result.data;
-                console.log('result datas ', result);
-                console.log('result names ', resultNames);
+                for (let i = 0; i < images?.length; i++) {
+                    let currentImage =
+                        `<div class="claimedimagegrid" style="float:left;border:4px solid #303641;padding:5px;margin:8px; position:relative">
+                        <div style="position: absolute; top: -16px; right: -15px; background: #fff; border: 2px solid #000; border-radius: 100px; width: 36px; line-height: 32px; height: 36px; text-align: center; padding: 0px;" >
+                            <a href="javascript:void(0);" data-productcode="PC_24" data-imagename="56093724820230619184216.jpg" class="px-2 text-danger deleteGalleryImage">
+                                <i class="uil uil-trash-alt font-size-18"></i>
+                            </a>
+                        </div>
+                        <img height="80" width="80" src=${images[i]} title="Currently Uploaded Pic" />
+                    </div>`;
+                    $("#previewgalleryImg").append(currentImage);
+                }
+
+                let thumbnailImageHtml = `<div class="claimedimagegrid" style="float:left;border:4px solid #303641;padding:5px;margin:8px; position:relative">
+                        <div style="position: absolute; top: -16px; right: -15px; background: #fff; border: 2px solid #000; border-radius: 100px; width: 36px; line-height: 32px; height: 36px; text-align: center; padding: 0px;" >
+                            <a href="javascript:void(0);" data-productcode="PC_24" data-imagename="56093724820230619184216.jpg" class="px-2 text-danger deleteGalleryImage">
+                                <i class="uil uil-trash-alt font-size-18"></i>
+                            </a>
+                        </div>
+                        <img height="80" width="80" src=${thumbnailImage} title="Currently Uploaded Pic" />
+                    </div>`;
+                console.log(thumbnailImage, '+++++++++++++');
+                $("#previewThumbnailImg").append(thumbnailImageHtml);
+
                 $("#pdt_barcode").val(result.barcode),
                     $("#pdt_name").val(result.product_name),
                     $("#pdt_subcategory").val(resultNames.subCategoryName),

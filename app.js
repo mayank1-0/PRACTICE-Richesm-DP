@@ -31,57 +31,59 @@ const productThumnail = require('./routes/admin/addthumnailmg');
 
 const app = express();
 app.use(cors({
-  origin:process.env.FRONTEND,
-  methods:["POST","GET","PUT","DELETE"],
-  credentials:true
+  origin: process.env.FRONTEND,
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
 }))
 
 app.use(
-    session({
-      resave: true,
-      saveUninitialized: true,
-      secret: "XCR3rsasa%RDHHH",
-      cookie: {},
-    })
-  );
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: "XCR3rsasa%RDHHH",
+    cookie: {},
+  })
+);
 
-app.listen(process.env.PORT,(err)=>{
-    if(err){
-        console.log("OOPS, Server Error!");
-    }else{
-        console.log("Server Strated...");        
-    }
+app.listen(process.env.PORT, (err) => {
+  if (err) {
+    console.log("OOPS, Server Error!");
+  } else {
+    console.log("Server Strated...");
+  }
 });
 
-app.use("/public",express.static('public'));
+app.use("/public", express.static('public'));
+app.use("/product", express.static('public/uploads/product'));
+app.use("/thumbnailImages", express.static('public/uploads/thumbnailImages'));
 app.use(expressLayouts);
 app.set('layout', './layouts/backendlayout');
 app.set("layout extractScripts", true)
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended :true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(function (req, res, next) {
-    res.set("Cache-Control", "private, no-cache, no-store, must-revalidate"); //means browser will not store data in cache(history) i.e when we press back or forward button in browser, it will not take us to previous page.
-    next();
-  });
+  res.set("Cache-Control", "private, no-cache, no-store, must-revalidate"); //means browser will not store data in cache(history) i.e when we press back or forward button in browser, it will not take us to previous page.
+  next();
+});
 
 db.sequelize.sync();
 
 //AuthRoutes
 app.use(authRoutes);
 //AttributeRoutes
-app.use('/attribute' , attributeRoutes);
+app.use('/attribute', attributeRoutes);
 
 //add image uploader for productGallery
-app.use('/product-gallery-image' , productImageGallery);
+app.use('/product-gallery-image', productImageGallery);
 
 //add image uploader for product thumnai
-app.use('/product-thumnail-image' , productThumnail);
+app.use('/product-thumnail-image', productThumnail);
 //BackendRoutes
-app.use('/admin' , backendRoutes);
+app.use('/admin', backendRoutes);
 //Brands
-app.use('/brand' , brandRoutes);
+app.use('/brand', brandRoutes);
 //Unit
 app.use('/unit', unitRoutes);
 //Main category
@@ -106,7 +108,7 @@ app.use('/product', productRoutes);
 //Seller
 
 //auth
-app.use('/api/seller/auth',sellerAuthRoutes);
+app.use('/api/seller/auth', sellerAuthRoutes);
 //product
 app.use('/api/seller/product', sellerProductRoutes);
 
