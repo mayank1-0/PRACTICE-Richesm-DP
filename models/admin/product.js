@@ -44,6 +44,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             defaultValue: 1,
         },
+        tags: {
+            type: Sequelize.TEXT,
+            defaultValue: null,
+        },
         has_colors: {
             type: Sequelize.INTEGER,
             defaultValue: 0,
@@ -61,11 +65,11 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: null,
         },
         unit_price: {
-            type: Sequelize.DECIMAL(10,2),
+            type: Sequelize.DECIMAL(10, 2),
             defaultValue: 0.00,
         },
         discount: {
-            type: Sequelize.DECIMAL(10,2),
+            type: Sequelize.DECIMAL(10, 2),
             defaultValue: 0.00,
         },
         discount_type: {
@@ -73,11 +77,11 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: null,
         },
         rate_exc_tax: {
-            type: Sequelize.DECIMAL(10,2),
+            type: Sequelize.DECIMAL(10, 2),
             defaultValue: 0.00,
         },
         tax: {
-            type: Sequelize.DECIMAL(10,2),
+            type: Sequelize.DECIMAL(10, 2),
             defaultValue: 0.00,
         },
         tax_type: {
@@ -141,7 +145,7 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: null
         },
         shipping_cost: {
-            type: Sequelize.DECIMAL(10,2),
+            type: Sequelize.DECIMAL(10, 2),
             defaultValue: 0.00,
         },
         shipping_is_product_qty_multiply: {
@@ -187,11 +191,15 @@ module.exports = (sequelize, Sequelize) => {
         is_active: {
             type: Sequelize.INTEGER,
             defaultValue: 1
-        },   
+        },
+        rating_star: {
+            type: Sequelize.DECIMAL(2, 1),
+            defaultValue: 3.0
+        },
         slug: {
             type: Sequelize.TEXT,
             defaultValue: null
-        },     
+        },
     }
     );
     return productModel;

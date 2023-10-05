@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 var session = require("express-session");
 dotenv.config();
 const db = require("./dbconfig/connection");
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
 
 // admin routes
 const attributeRoutes = require('./routes/admin/attributeRoutes');
@@ -88,7 +88,7 @@ app.use('/attribute', attributeRoutes);
 app.use('/product-gallery-image', productImageGallery);
 
 //add image uploader for product thumnai
-app.use('/product-thumnail-image', productThumnail);
+app.use('/product-thumbnail-image', productThumnail);
 //BackendRoutes
 app.use('/admin', backendRoutes);
 //Brands

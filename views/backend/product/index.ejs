@@ -134,7 +134,7 @@
         fetchProducts();
     });
     const token = window.localStorage.getItem('token');
-    
+
     // fetch 
     function fetchProducts() {
         $.ajax({
@@ -145,7 +145,7 @@
             },
             success: function success(result) {
                 result = result.data;
-                console.log('result datas ', result);
+                // console.log('result datas ', result);
                 var tr = '';
                 result.map((i, index) => {
                     tr +=
@@ -158,9 +158,9 @@
                             </td>
                             <td>${i.main_category.name}>>${i.category.name}<br>
                                 >>${i.sub_category.name}</td>
-                            <td>${i.listing_price_inc_tax}</td>
+                            <td>${i.rate_exc_tax}</td>
                             <td>${i.stock_quantity}</td>
-                            <td>${i.is_active?'Active':'Inactive'}</td>
+                            <td>${i.is_active ? 'Active' : 'Inactive'}</td>
                             <td>
                                 <ul class="list-inline mb-0">
                                     <li class="list-inline-item" titel="Edit">
@@ -172,7 +172,7 @@
                                 </ul>
                             </td>
                         </tr>`
-                    });
+                });
                 $("#tbody").html(tr);
             },
             error: function error(error) {
@@ -180,7 +180,7 @@
             }
         })
     }
-    
+
     // delete product functionality
     function deleteProduct(id) {
         $.ajax({

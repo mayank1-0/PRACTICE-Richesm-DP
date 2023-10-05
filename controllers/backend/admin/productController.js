@@ -24,7 +24,6 @@ const fetchAllProducts = async (req, res) => {
             // ],
             include: [MainCategories, Categories, SubCategories],
         });
-        console.log('Eager loading ', productData);
         if (!productData) {
             res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
         } else {
@@ -54,11 +53,11 @@ const product_store = async (req, res) => {
             attributes: ['id'],
         });
 
-        const maxProductId = productData===null?0:productData.id;
-        tableData.product_code = `PC_${maxProductId+1}`;
+        const maxProductId = productData === null ? 0 : productData.id;
+        tableData.product_code = `PC_${maxProductId + 1}`;
         //saving main_category_id and category_id
         let result1 = await db.SubCategories.findOne({
-            where: {id: tableData.sub_category_id }
+            where: { id: tableData.sub_category_id }
         });
         tableData.main_category_id = result1.main_category_id;
         tableData.category_id = result1.category_id;
@@ -67,14 +66,13 @@ const product_store = async (req, res) => {
         let gallery_images = tableData.gallery_images;
         gallery_images = JSON.stringify(gallery_images);
         let productGalleryData = {
-            product_code: `PC_${maxProductId+1}`,
+            product_code: `PC_${maxProductId + 1}`,
             image: gallery_images
         }
         let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
 
         result = await db.Product.create(tableData);
-        console.log('Result is' , result);
-        res.status(200).send({ message: "Filled data in product table", data: result, success: true});
+        res.status(200).send({ message: "Filled data in product table", data: result, success: true });
     } catch (error) {
         res.status(500).send({ message: "Something went wrong", data: error, success: false });
     }

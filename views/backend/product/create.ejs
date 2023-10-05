@@ -168,7 +168,7 @@
                                         <label class="col-md-3 col-form-label">Thumbnail Images<br />
                                             <code> (300x300)</code></label>
                                         <div class="col-md-8">
-                                            <input type="file" id="productThumnailImg" name="image"
+                                            <input type="file" id="productThumbnailImg" name="image"
                                                 class="form-control">
                                             <small class="text-muted font-size-11">This image is
                                                 visible in all product box. Use 300x300 sizes image.
@@ -296,7 +296,7 @@
                                             <select class="select2 form-control select2-multiple" multiple="multiple"
                                                 data-placeholder="Choose Attribute(s)" id="pdt_attribute"
                                                 name="pdt_attribute[]">
-                                                    <!-- <option value="1">Size</option>
+                                                <!-- <option value="1">Size</option>
                                                     <option value="2">Material</option> -->
                                             </select>
                                         </div>
@@ -764,93 +764,93 @@
 
 <script>
 
-     let thumnailImgs=null
-     let uploadedImage=[];
-     const imageShower = [];
-     let resultGalleryImages;
-     let resultThumbnailImage;
+    let thumbnailImgs = null
+    let uploadedImage = [];
+    const imageShower = [];
+    let resultGalleryImages;
+    let resultThumbnailImage;
 
 
 
-    
 
-     document.getElementById("products").addEventListener("change",()=>{
-         uploadedImage =document.getElementById("products").files
-         // console.log(document.getElementById("thumnailImg").files)
-         const form = new FormData()
-             uploadedImage.forEach(element => {
-                 console.log(element)
-                 form.append("images",element)
-                //  var oFReader = new FileReader();
-                //  oFReader.readAsDataURL(element);
-                //  oFReader.onload = function (oFREvent) {
-                //      $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
-                //  };
-             });
-             // product-gallery-image
-            //  formdata.append("thumbnail_images",thumnailImgs)
-             $.ajax({
-                 type: "POST",
-                 url: "/product-gallery-image/",
-                 data: form,
-                 processData: false,
-                 contentType: false, 
-                 beforeSend: function (xhr) {
-                     xhr.setRequestHeader("Authorization", "Bearer " + token);
-                 },
-                 success: function (result) {
-                     window.alert("Added");
-                     console.log(result)
-                     resultGalleryImages = result.images;
-                     result.images.map((images)=>{
-                        $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + images+ " ))\">X</span><img height='80' src='" + images +"'></div>")
-                        })
-                        // $("#previewgalleryImg").html(appendImage);
 
-                 },
-                 error: function error(err) {
-                     console.log(err);
-                     window.alert("Something went wrong");
-                 }
-             });
-             
-            })
-            
-            
-            document.getElementById("productThumnailImg").addEventListener("change",()=>{
-                
-                thumnailImgs=document.getElementById("productThumnailImg").files[0]
-                console.log(thumnailImgs)
-                    //  var oFReader = new FileReader();
-                    //  oFReader.readAsDataURL(thumnailImgs);
-                    //  oFReader.onload = function (oFREvent) {
-                    //          $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
-                    //      };
-                    const form = new FormData()
-                    form.append("image",thumnailImgs)
-                    $.ajax({
-                        type: "POST",
-                        url: "/product-thumnail-image",
-                        data: form,
-                        processData: false,
-                        contentType: false, 
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("Authorization", "Bearer " + token);
-                        },
-                        success: function (result) {
-                            window.alert("Added");
-                            console.log(result)
-                                resultThumbnailImage = result.image;
-                               // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
-                               $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image+ " ))\">X</span><img height='80' src='" + result.image +"'></div>")
-                            //    $("#previewThumbnailImg").html(appendImage);
-                        },
-                        error: function error(err) {
-                            console.log(err);
-                            window.alert("Something went wrong");
-                        }
-                    });
-         })
+    document.getElementById("products").addEventListener("change", () => {
+        uploadedImage = document.getElementById("products").files
+        // console.log(document.getElementById("thumnailImg").files)
+        const form = new FormData()
+        uploadedImage.forEach(element => {
+            console.log(element)
+            form.append("images", element)
+            //  var oFReader = new FileReader();
+            //  oFReader.readAsDataURL(element);
+            //  oFReader.onload = function (oFREvent) {
+            //      $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+            //  };
+        });
+        // product-gallery-image
+        //  formdata.append("thumbnail_images",thumbnailImgs)
+        $.ajax({
+            type: "POST",
+            url: "/product-gallery-image/",
+            data: form,
+            processData: false,
+            contentType: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.alert("Added");
+                console.log(result)
+                resultGalleryImages = result.images;
+                result.images.map((images) => {
+                    $("#previewgalleryImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + images + " ))\">X</span><img height='80' src='" + images + "'></div>")
+                })
+                // $("#previewgalleryImg").html(appendImage);
+
+            },
+            error: function error(err) {
+                console.log(err);
+                window.alert("Something went wrong");
+            }
+        });
+
+    })
+
+
+    document.getElementById("productThumbnailImg").addEventListener("change", () => {
+
+        thumbnailImgs = document.getElementById("productThumbnailImg").files[0]
+        console.log(thumbnailImgs)
+        //  var oFReader = new FileReader();
+        //  oFReader.readAsDataURL(thumbnailImgs);
+        //  oFReader.onload = function (oFREvent) {
+        //          $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage'>X</span><img height='80' src='" +  oFREvent.target.result + "'></div>");
+        //      };
+        const form = new FormData()
+        form.append("image", thumbnailImgs)
+        $.ajax({
+            type: "POST",
+            url: "/product-thumbnail-image",
+            data: form,
+            processData: false,
+            contentType: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.alert("Added");
+                console.log(result)
+                resultThumbnailImage = result.image;
+                // onclick=\"(canLaunch('" + v.LibraryItemId + " '))\"
+                $("#previewThumbnailImg").append("<div class='imageControllerdiv' ><span class='removeImage' onclick=\"(removeHandle(" + result.image + " ))\">X</span><img height='80' src='" + result.image + "'></div>")
+                //    $("#previewThumbnailImg").html(appendImage);
+            },
+            error: function error(err) {
+                console.log(err);
+                window.alert("Something went wrong");
+            }
+        });
+    })
 
     $(document).ready(function () {
 
@@ -910,8 +910,8 @@
             $('#slug').val(slug);
         })
     };
-    
-     function add() {
+
+    function add() {
         let listing_price_exc_tax;
         let listing_price_inc_tax;
         var data = {
@@ -923,11 +923,11 @@
             weight_in_kg: $('#pdt_weight').val(),
             min_pur_qty: $("#pdt_min_pur_qty").val(),
             tags: $('#pdt_tags').val(),
-            has_colors: $('#is_color_enabled').is(':checked')?1:0,
-            color: $('#color').val(),
+            has_colors: $('#is_color_enabled').is(':checked') ? 1 : 0,
+            colors: $('#color').val(),
             has_attributes: 0,
             attributes: "",
-            unit_mrp: $('#pdt_unit_price').val(),
+            unit_price: $('#pdt_unit_price').val(),
             discount: $('#pdt_discount').val(),
             discount_type: $('#pdt_discount_type').val(),
             tax: $('#pdt_tax_wt').val(),
@@ -946,39 +946,40 @@
             video_link: $('#pdt_video_link').val(),
             gallery_images: resultGalleryImages,
             thumbnail_images: resultThumbnailImage,
-            shipping_charge_type: $('#free-shipping').is(':checked')?'Free shipping':"Flat Rate",
+            shipping_charge_type: $('#free-shipping').is(':checked') ? 'Free shipping' : "Flat Rate",
             shipping_cost: $('#pdt_shipping_charge').val(),
-            shipping_is_product_qty_multiply: $('#is_sh_chrg_pdt_qty_multiply').is(':checked')?1:0,
+            shipping_is_product_qty_multiply: $('#is_sh_chrg_pdt_qty_multiply').is(':checked') ? 1 : 0,
             shipping_estimate_time_in_days: $('#pdt_shipping_days').val(),
             product_region: $('#pdt_region').val(),
             product_state: $('#pdt_state').val(),
-            is_cash_on_delivery_available: $('#is_cod_available').is(':checked')?1:0,
-            is_featured: $('#is_featured').is(':checked')?1:0,
-            is_bestseller: $('#is_bestseller').is(':checked')?1:0,
-            is_new_arrival: $('#is_new_arrival').is(':checked')?1:0,
-            is_trending: $('#is_trending').is(':checked')?1:0,
-            is_todays_deal: $('#is_todays_deal').is(':checked')?1:0,
-            is_active: $('#is_active').is(':checked')?1:0,
+            is_cash_on_delivery_available: $('#is_cod_available').is(':checked') ? 1 : 0,
+            is_featured: $('#is_featured').is(':checked') ? 1 : 0,
+            is_bestseller: $('#is_bestseller').is(':checked') ? 1 : 0,
+            is_new_arrival: $('#is_new_arrival').is(':checked') ? 1 : 0,
+            is_trending: $('#is_trending').is(':checked') ? 1 : 0,
+            is_todays_deal: $('#is_todays_deal').is(':checked') ? 1 : 0,
+            is_active: $('#is_active').is(':checked') ? 1 : 0,
             rating_star: $('#pdt_rating').val(),
             slug: $('#slug').val(),
         };
         if (data.discount_type == 'flat' && data.tax_type == 'flat') {
-            listing_price_exc_tax = data.unit_mrp - data.discount;
+            listing_price_exc_tax = data.unit_price - data.discount;
             listing_price_inc_tax = listing_price_exc_tax + data.tax;
         }
         else if (data.discount_type == 'flat' && data.tax_type == 'percent') {
-            listing_price_exc_tax = data.unit_mrp - data.discount;
-            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax*data.tax)/100;
+            listing_price_exc_tax = data.unit_price - data.discount;
+            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
         }
         else if (data.discount_type == 'percent' && data.tax_type == 'flat') {
-            listing_price_exc_tax = data.unit_mrp - (data.unit_mrp*data.discount)/100;
+            listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
             listing_price_inc_tax = listing_price_exc_tax + data.tax;
         }
         else {
-            listing_price_exc_tax = data.unit_mrp - (data.unit_mrp*data.discount)/100;
-            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax*data.tax)/100;
+            listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
+            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
         }
-        data.listing_price_exc_tax = listing_price_exc_tax;
+        console.log('33333 ', listing_price_exc_tax);
+        data.rate_exc_tax = listing_price_exc_tax;
         data.listing_price_inc_tax = listing_price_inc_tax;
 
         const formdata = new FormData()
@@ -989,53 +990,53 @@
                 formdata.append(key, value)
             }
         }
-            console.log(thumnailImgs)
-            console.log(uploadedImage)
-            formdata.append("thumbnail_images",thumnailImgs)
-            formdata.append("files",uploadedImage)
+        console.log(thumbnailImgs)
+        console.log(uploadedImage)
+        formdata.append("thumbnail_images", thumbnailImgs)
+        formdata.append("files", uploadedImage)
 
         $.ajax({
             type: "POST",
             url: "/product/",
             data: data,
             dataType: 'JSON',
-                beforeSend: function (xhr) {
+            beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
             success: function (result) {
                 window.alert("Added");
                 $("#pdt_barcode").val(''),
-                $("#pdt_name").val(''),
-                $("#pdt_subcategory").val(''),
-                $("#pdt_brand").val(''),              
-                $("#pdt_unit").val(''),
-                $('#pdt_weight').val(''),
-                $("#pdt_min_pur_qty").val(''),
-                $('#pdt_tags').val(''),
-                $('#color').val(''),
-                $('#pdt_unit_price').val(''),
-                $('#pdt_discount').val(''),
-                $('#pdt_discount_type').val(''),
-                $('#pdt_tax_wt').val(''),
-                $('#pdt_tax_type').val(''),
-                $("#pdt_stock_qty").val(''),
-                $('#pdt_low_stock_warning_limit').val(''),
-                $('#pdt_sku').val(''),
-                $('#pdt_hsn').val(''),
-                $('#pdt_description').text(''),
-                $("#pdt_specification").text(''),
-                $("#pdt_meta_title").val(''),
-                $("#pdt_meta_description").val(''),
-                $("#pdt_meta_keyword").val(''),
-                $('#pdt_other_meta_tags').val(''),
-                $('#pdt_video_provider').val(''),
-                $('#pdt_video_link').val(''),
-                $('#pdt_shipping_charge').val(''),
-                $('#pdt_shipping_days').val(''),
-                $('#pdt_region').val(''),
-                $('#pdt_state').val(''),
-                $('#pdt_rating').val(''),
-                $('#slug').val('')
+                    $("#pdt_name").val(''),
+                    $("#pdt_subcategory").val(''),
+                    $("#pdt_brand").val(''),
+                    $("#pdt_unit").val(''),
+                    $('#pdt_weight').val(''),
+                    $("#pdt_min_pur_qty").val(''),
+                    $('#pdt_tags').val(''),
+                    $('#color').val(''),
+                    $('#pdt_unit_price').val(''),
+                    $('#pdt_discount').val(''),
+                    $('#pdt_discount_type').val(''),
+                    $('#pdt_tax_wt').val(''),
+                    $('#pdt_tax_type').val(''),
+                    $("#pdt_stock_qty").val(''),
+                    $('#pdt_low_stock_warning_limit').val(''),
+                    $('#pdt_sku').val(''),
+                    $('#pdt_hsn').val(''),
+                    $('#pdt_description').text(''),
+                    $("#pdt_specification").text(''),
+                    $("#pdt_meta_title").val(''),
+                    $("#pdt_meta_description").val(''),
+                    $("#pdt_meta_keyword").val(''),
+                    $('#pdt_other_meta_tags').val(''),
+                    $('#pdt_video_provider').val(''),
+                    $('#pdt_video_link').val(''),
+                    $('#pdt_shipping_charge').val(''),
+                    $('#pdt_shipping_days').val(''),
+                    $('#pdt_region').val(''),
+                    $('#pdt_state').val(''),
+                    $('#pdt_rating').val(''),
+                    $('#slug').val('')
             },
             error: function error(err) {
                 console.log(err);
