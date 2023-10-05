@@ -12,19 +12,19 @@ const fetchAllBrands = async (req, res) => {
     try {
         const brandData = await db.Brand.findAll({
             attributes: [
-            "id",
-            ["name", "brand"],
-            "slug",
-            "status",
-            ["createdAt", "createdOn"],
-            ["updatedAt", "updatedOn"],
-        ],
-    }); 
-        if( !brandData ){
-            res.status(404).send({ success: false, status: 404, message: "No brands are there in the database"});
+                "id",
+                ["name", "brand"],
+                "slug",
+                "status",
+                ["createdAt", "createdOn"],
+                ["updatedAt", "updatedOn"],
+            ],
+        });
+        if (!brandData) {
+            res.status(404).send({ success: false, status: 404, message: "No brands are there in the database" });
         }
-        else{
-        res.status(200).send({ status: 200, message: " Fetched All Brands", data: brandData });
+        else {
+            res.status(200).send({ status: 200, message: " Fetched All Brands", data: brandData });
         }
     }
     catch (error) {
@@ -39,30 +39,33 @@ const brand_create_frm = (req, res) => {
 
 const brand_store = async (req, res) => {
     try {
-        
-        const {name,slug,status} = req.body;
-        const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
+
+        const { name, slug, status } = req.body;
+        const uploadImage = `${process.env.IMAGE_URL}/${req?.file?.path}`
         const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
-        const image = req.file.path?uploadImage:defaultImage
+        const image = req.file.path ? uploadImage : defaultImage
         const result = await db.Brand.create({
             name,
             slug,
             status,
-            image:image,
-            created_by:2
+            image: image,
+            created_by: 2
         });
-        res.status(200).send({ message: "Brand Added ", data:result, success: true });
+        res.status(200).send({ message: "Brand Added ", data: result, success: true });
     } catch (error) {
-        res.status(500).send({ message:error, data: error, success: false });
+        console.log(error, '++++');
+        res.status(500).send({ message: error, data: error, success: false });
     }
 }
 
 const brand_edit_frm = async (req, res) => {
-    const brandId= req.params.id;
-    const brand = await db.Brand.findOne({ where: {
-        id: brandId
-    }})
-    res.render('./backend/brand/edit', { title: 'Create a New Brand', brandId :brandId, brand });
+    const brandId = req.params.id;
+    const brand = await db.Brand.findOne({
+        where: {
+            id: brandId
+        }
+    })
+    res.render('./backend/brand/edit', { title: 'Create a New Brand', brandId: brandId, brand });
 }
 
 const brand_edit_update = async (req, res) => {
@@ -99,8 +102,8 @@ const brand_destroy = async (req, res) => {
                 id: paramId
             }
         });
-        if ( !result ) {
-            res.status(404).send({message: "Brand with given id does not exist", success: false, status: 404});
+        if (!result) {
+            res.status(404).send({ message: "Brand with given id does not exist", success: false, status: 404 });
         } else {
             res.status(200).send({ message: "Data from brand table deleted", success: true });
         }

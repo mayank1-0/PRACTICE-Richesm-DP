@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 var session = require("express-session");
 dotenv.config();
 const db = require("./dbconfig/connection");
+var cookieParser = require('cookie-parser')
 
 // admin routes
 const attributeRoutes = require('./routes/admin/attributeRoutes');
@@ -29,7 +30,11 @@ const sellerProductRoutes = require('./routes/seller/productRoutes');
 const productImageGallery = require('./routes/admin/productGalleryUpload');
 const productThumnail = require('./routes/admin/addthumnailmg');
 
+//customer routes
+const customerAuthRoutes = require('./routes/customer/authRoutes');
+
 const app = express();
+app.use(cookieParser());
 app.use(cors({
   origin: process.env.FRONTEND,
   methods: ["POST", "GET", "PUT", "DELETE"],
@@ -69,6 +74,10 @@ app.use(function (req, res, next) {
 });
 
 db.sequelize.sync();
+
+// -----------------------------------------------------------------------------------------------
+
+// Admin
 
 //AuthRoutes
 app.use(authRoutes);
@@ -111,6 +120,13 @@ app.use('/product', productRoutes);
 app.use('/api/seller/auth', sellerAuthRoutes);
 //product
 app.use('/api/seller/product', sellerProductRoutes);
+
+// -------------------------------------------------------------------------------------------------
+
+// Customer
+
+//auth
+app.use('/api/customer', customerAuthRoutes);
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
