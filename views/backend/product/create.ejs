@@ -947,7 +947,7 @@
             gallery_images: resultGalleryImages,
             thumbnail_images: resultThumbnailImage,
             shipping_charge_type: $('#free-shipping').is(':checked') ? 'Free shipping' : "Flat Rate",
-            shipping_cost: $('#pdt_shipping_charge').val(),
+            shipping_cost: $('#pdt_shipping_charge').val() == "" ? parseFloat(0.00).toFixed(2) : parseFloat($('#pdt_shipping_charge').val()).toFixed(2),
             shipping_is_product_qty_multiply: $('#is_sh_chrg_pdt_qty_multiply').is(':checked') ? 1 : 0,
             shipping_estimate_time_in_days: $('#pdt_shipping_days').val(),
             product_region: $('#pdt_region').val(),
@@ -978,6 +978,7 @@
             listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
             listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
         }
+        console.log('2222 ', data.shipping_cost);
         console.log('33333 ', listing_price_exc_tax);
         data.rate_exc_tax = listing_price_exc_tax;
         data.listing_price_inc_tax = listing_price_inc_tax;

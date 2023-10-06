@@ -36,6 +36,7 @@ const customerSignup = async (req, res) => {
 
         res.status(201).cookie('token', token, options).send({
             status: 200,
+            token: token,
             data: userData,
             message: "Customer created successfully",
         })
