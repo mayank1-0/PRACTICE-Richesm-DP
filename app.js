@@ -38,11 +38,11 @@ const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
 
 const app = express();
 app.use(cookieParser());
-// app.use(cors({
-//   origin: process.env.FRONTEND,
-//   methods: ["POST", "GET", "PUT", "DELETE"],
-//   credentials: true
-// }))
+app.use(cors({
+  origin: process.env.FRONTEND,
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
+}))
 
 app.use(
   session({
