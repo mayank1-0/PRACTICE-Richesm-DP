@@ -1010,8 +1010,9 @@
         $.ajax({
             type: "POST",
             url: "/product/",
-            data: data,
-            dataType: 'JSON',
+            data: formdata,
+            processData: false,
+            contentType: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
