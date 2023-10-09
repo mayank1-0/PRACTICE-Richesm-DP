@@ -2,14 +2,14 @@ const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
-    process.env.DB_DATABASE, 
-    process.env.DB_USERNAME, 
-    process.env.DB_PASSWORD, 
-    {
-        host: process.env.DB_HOST,
-        dialect: 'mysql', /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
-        port: process.env.DB_PORT
-});
+  process.env.DB_DATABASE,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: 'mysql', /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+    port: process.env.DB_PORT
+  });
 
 const db = {};
 
@@ -31,29 +31,37 @@ const Product = require("../models/admin/product")(sequelize, Sequelize);
 const Attribute = require("../models/admin/attribute")(sequelize, Sequelize);
 const ProductGallery = require("../models/admin/product_gallery")(sequelize, Sequelize);
 
+// P.K - F.K. 0. Foreign key vala baad mein i.e Product
+Brand.hasMany(Product, {
+  foreignKey: "brand_id"
+});
+Product.belongsTo(Brand, {
+  foreignKey: "brand_id",
+});
+
 // P.K - F.K. 1. Foreign key vala baad mein i.e Product
 MainCategories.hasMany(Product, {
-    foreignKey: "main_category_id"  
-  });
-  Product.belongsTo(MainCategories, {
-    foreignKey: "main_category_id",
-  });
+  foreignKey: "main_category_id"
+});
+Product.belongsTo(MainCategories, {
+  foreignKey: "main_category_id",
+});
 
 // P.K - F.K. 2
 Categories.hasMany(Product, {
-    foreignKey: "category_id"
-  });
-  Product.belongsTo(Categories, {
-    foreignKey: "category_id",
-  });
+  foreignKey: "category_id"
+});
+Product.belongsTo(Categories, {
+  foreignKey: "category_id",
+});
 
 // P.K - F.K. 3
 SubCategories.hasMany(Product, {
-    foreignKey: "sub_category_id",
-  });
-  Product.belongsTo(SubCategories, {
-    foreignKey: "sub_category_id",
-  });
+  foreignKey: "sub_category_id",
+});
+Product.belongsTo(SubCategories, {
+  foreignKey: "sub_category_id",
+});
 
 // P.K - F.K. 4
 User.hasMany(Product, {

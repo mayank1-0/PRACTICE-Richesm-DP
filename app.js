@@ -33,13 +33,16 @@ const productThumnail = require('./routes/admin/addthumnailmg');
 //customer routes
 const customerAuthRoutes = require('./routes/customer/authRoutes');
 
+//home-page routes
+const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
+
 const app = express();
 app.use(cookieParser());
-app.use(cors({
-  origin: process.env.FRONTEND,
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true
-}))
+// app.use(cors({
+//   origin: process.env.FRONTEND,
+//   methods: ["POST", "GET", "PUT", "DELETE"],
+//   credentials: true
+// }))
 
 app.use(
   session({
@@ -128,6 +131,10 @@ app.use('/api/seller/product', sellerProductRoutes);
 //auth
 app.use('/api/customer', customerAuthRoutes);
 
+// Home Page
+
+//fetch products
+app.use('/api/home-page', homePageRoutes);
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
 //     next(createError(404));

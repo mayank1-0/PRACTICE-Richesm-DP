@@ -63,11 +63,12 @@ const product_store = async (req, res) => {
         tableData.category_id = result1.category_id;
 
         // gallery images store logic
-        let gallery_images = tableData.gallery_images;
-        gallery_images = JSON.stringify(gallery_images);
+        // let gallery_images = tableData.gallery_images;
+        // gallery_images = JSON.stringify(gallery_images);
         let productGalleryData = {
             product_code: `PC_${maxProductId + 1}`,
-            image: gallery_images
+            image: null
+            // gallery_images
         }
         let resultGalleryImages = await db.ProductGallery.create(productGalleryData);
 

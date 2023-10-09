@@ -40,19 +40,20 @@ const main_category_store = async (req, res) => {
             slug,
             status,
         } = req.body;
-        let image ;
-        console.log('2222 ', req.file);
-        if(req.file){
-         image = `${process.env.IMAGE_URL}/${req.file.path}`
-        }
+        // let image ;
+        // console.log('2222 ', req.file);
+        // if(req.file){
+        //  image = `${process.env.IMAGE_URL}/${req.file.path}`
+        // }
 
 
         // const image = req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
         const result = await db.MainCategories.create({
             name: name,
             slug: slug,
-            image: image,
+            // image,
             status: status,
+            image: null,
             created_by: 2
         });
         console.log(result)

@@ -131,4 +131,19 @@ const customerLogout = async (req, res) => {
     }
 };
 
-module.exports = { customerSignup, customerLogin, customerLogout };
+const customerDetail = async (req, res) => {
+    try {
+        const user = req.user
+        console.log()
+        res.status(200).json({
+            success: true,
+            user,
+        });
+    } catch (err) {
+        res
+            .status(500)
+            .send({ error: err, message: "error" });
+    }
+};
+
+module.exports = { customerSignup, customerLogin, customerLogout, customerDetail };

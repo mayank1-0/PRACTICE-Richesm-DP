@@ -88,6 +88,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             defaultValue: null,
         },
+        listing_price_inc_tax: {
+            type: Sequelize.DECIMAL(10, 2),
+            defaultValue: 0.00,
+        },
         stock_quantity: {
             type: Sequelize.INTEGER,
             defaultValue: 0,

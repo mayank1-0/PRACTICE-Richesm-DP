@@ -154,13 +154,14 @@
         formdata.append("name", data.name)
         formdata.append("slug", data.slug)
         formdata.append("status", data.status)
-        formdata.append("image", uploadedImage)
+        // formdata.append("image", uploadedImage)
         $.ajax({
             type: "POST",
             url: "/main-category/",
-            data: formdata,
-            processData: false,
-            contentType: false,
+            data: data,
+            dataType: "JSON",
+            // processData: false,
+            // contentType: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },

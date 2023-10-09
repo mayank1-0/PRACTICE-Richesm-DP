@@ -962,24 +962,35 @@
             rating_star: $('#pdt_rating').val(),
             slug: $('#slug').val(),
         };
-        if (data.discount_type == 'flat' && data.tax_type == 'flat') {
-            listing_price_exc_tax = data.unit_price - data.discount;
-            listing_price_inc_tax = listing_price_exc_tax + data.tax;
+        if (!data.product_name) {
+            window.alert("Please enter product name");
         }
-        else if (data.discount_type == 'flat' && data.tax_type == 'percent') {
+        if (!data.unit_price) {
+            window.alert("Please enter product unit price");
+        }
+        if (!data.stock_quantity) {
+            window.alert("Please enter quantity");
+        }
+        if (data.discount_type == 'RS' && data.tax_type == 'RS') {
+            listing_price_exc_tax = data.unit_price - data.discount;
+            listing_price_inc_tax = listing_price_exc_tax + parseFloat(data.tax);
+        }
+        else if (data.discount_type == 'RS' && data.tax_type == '%') {
             listing_price_exc_tax = data.unit_price - data.discount;
             listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
         }
-        else if (data.discount_type == 'percent' && data.tax_type == 'flat') {
+        else if (data.discount_type == '%' && data.tax_type == 'RS') {
             listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
             listing_price_inc_tax = listing_price_exc_tax + data.tax;
+        }
+        else if (data.discount_type == '%' && data.tax_type == '%') {
+            listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
+            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
         }
         else {
-            listing_price_exc_tax = data.unit_price - (data.unit_price * data.discount) / 100;
-            listing_price_inc_tax = listing_price_exc_tax + (listing_price_exc_tax * data.tax) / 100;
+            window.alert("Invalid tax or discount type");
+            return "Invalid tax or discount type";
         }
-        console.log('2222 ', data.shipping_cost);
-        console.log('33333 ', listing_price_exc_tax);
         data.rate_exc_tax = listing_price_exc_tax;
         data.listing_price_inc_tax = listing_price_inc_tax;
 
