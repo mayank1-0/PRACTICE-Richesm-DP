@@ -207,12 +207,37 @@ const featuredProducts = async (req, res) => {
 //     }
 // };
 
+const fetchAllMainCategories = async (req, res) => {
+    try {
+        const mainCategoriesData = await db.MainCategories.findAll({
+            attributes: [
+                "id",
+                "name",
+                "slug",
+                "image",
+                "status",
+                ["createdAt", "createdOn"],
+                ["updatedAt", "updatedOn"],
+            ],
+        });
+        if (!mainCategoriesData) {
+            res.status(404).send({ success: false, message: "No main-categories are there in the database" });
+        } else {
+            res.status(200).send({ status: 200, message: " Fetched All Main Categories", data: mainCategoriesData });
+        }
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: "Something went wrong", error: error })
+    }
+};
+
 module.exports = {
     fetchAllProducts,
     newArrivalProducts,
     bestSellerProducts,
     todaysDealProducts,
     trendingProducts,
-    featuredProducts
-    //fetchAllProductsByMainCategories
+    featuredProducts,
+    fetchAllMainCategories,
+    // fetchAllProductsByMainCategories
 }
