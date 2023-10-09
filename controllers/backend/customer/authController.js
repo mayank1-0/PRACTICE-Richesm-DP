@@ -65,6 +65,7 @@ const customerLogin = async (req, res) => {
     try {
         let customerData = req.body;
         const User = db.User;
+        if(!customerData.email) return res.status(404).send({success:false,message:"Email is required"})
         let customerCredentials = await User.findOne({
             plain: true,
             where: { email: customerData.email },
