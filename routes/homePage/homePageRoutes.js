@@ -16,6 +16,6 @@ router.get('/todays-deal', homePageController.todaysDealProducts);
 router.get('/trending', homePageController.trendingProducts);
 router.get('/featured', homePageController.featuredProducts);
 // router.get('/main-categories', homePageController.fetchAllProductsByMainCategories);
-router.get('/categories', homePageController.fetchAllMainCategories)
+router.get('/main-categories', homePageController.fetchAllMainCategories)
 
 module.exports = router;
