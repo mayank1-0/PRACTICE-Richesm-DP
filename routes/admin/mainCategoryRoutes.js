@@ -19,7 +19,7 @@ router.get('/create', authGuard, mainCategoryController.main_category_create_frm
 
 //save
 router.post('/',
-// upload.single("image"),
+upload.single("image"),
 auth, mainCategoryController.main_category_store);
 
 //show edit form
