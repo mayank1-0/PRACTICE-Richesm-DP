@@ -1,6 +1,7 @@
 const express = require('express');
 const authGuard = require('../../middleware/authGuard');
 const auth = require('../../middleware/auth');
+const upload = require("../../utils/addcategoryImageUploader")
 
 //importing controlleras
 const productController = require('../../controllers/backend/admin/productController');
@@ -15,16 +16,16 @@ router.get('/', authGuard, productController.product_index);
 router.get('/fetchAllProducts', auth, productController.fetchAllProducts);
 
 //create form
-router.get('/create', authGuard, productController.product_create_frm );
+router.get('/create', authGuard, productController.product_create_frm);
 
 //save
-router.post('/', auth, productController.product_store);
+router.post('/', upload.single("image"), auth, productController.product_store);
 
 //show edit form
-router.get('/edit/:id', authGuard, productController.product_edit_frm );
+router.get('/edit/:id', authGuard, productController.product_edit_frm);
 
 // fetch single product details
-router.get('/fetchProduct/:id', auth, productController.fetchProductDetailsById );
+router.get('/fetchProduct/:id', auth, productController.fetchProductDetailsById);
 
 //edit-product
 router.post('/update/:id', auth, productController.product_edit_update);

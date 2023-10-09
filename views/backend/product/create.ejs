@@ -1004,9 +1004,8 @@
         }
         console.log(thumbnailImgs)
         console.log(uploadedImage)
-        formdata.append("thumbnail_images", thumbnailImgs)
-        formdata.append("files", uploadedImage)
-
+        // formdata.append("thumbnail_images", thumbnailImgs)
+        // formdata.append("files", uploadedImage)
         $.ajax({
             type: "POST",
             url: "/product/",
@@ -1074,6 +1073,7 @@
                 })
             },
             error: function error(error) {
+                console.log(error, '+++++++++++++++');
                 window.alert("Something went wrong");
             }
         });

@@ -112,8 +112,8 @@
                                     </div>
 
                                     <div class="mt-3 ">
-                                        <button class="btn btn-primary w-sm waves-effect waves-light" type="submit"
-                                            >Add</button>
+                                        <button class="btn btn-primary w-sm waves-effect waves-light"
+                                            type="submit">Add</button>
                                     </div>
                                 </form>
                             </div>
@@ -149,8 +149,8 @@
     };
 
     let uploadedImage = {}
-    document.getElementById("image").addEventListener("change",()=>{
-        uploadedImage=document.getElementById("image").files[0]
+    document.getElementById("image").addEventListener("change", () => {
+        uploadedImage = document.getElementById("image").files[0]
         var oFReader = new FileReader();
         oFReader.readAsDataURL(document.getElementById("image").files[0]);
         oFReader.onload = function (oFREvent) {
@@ -177,7 +177,7 @@
             }
         });
     }
-    document.getElementById("formSubmitHandler").addEventListener("submit",(e)=>{
+    document.getElementById("formSubmitHandler").addEventListener("submit", (e) => {
         e.preventDefault()
         var data = {
             main_category_id: parseInt($('#main_category').val()),
@@ -192,17 +192,17 @@
             page_content: $('#page_content').val(),
         };
         const formdata = new FormData()
-        formdata.append("main_category_id",data.main_category_id)
-        formdata.append("name",data.name)
-        formdata.append("slug",data.slug)
-        formdata.append("image",data.image)
-        formdata.append("status",data.status)
-        formdata.append("meta_title",data.meta_title)
-        formdata.append("meta_description",data.meta_description)
-        formdata.append("meta_keyword",data.meta_keyword)
-        formdata.append("other_meta_tags",data.other_meta_tags)
-        formdata.append("page_content",data.page_content)
-        formdata.append("image",uploadedImage)
+        formdata.append("main_category_id", data.main_category_id)
+        formdata.append("name", data.name)
+        formdata.append("slug", data.slug)
+        formdata.append("image", data.image)
+        formdata.append("status", data.status)
+        formdata.append("meta_title", data.meta_title)
+        formdata.append("meta_description", data.meta_description)
+        formdata.append("meta_keyword", data.meta_keyword)
+        formdata.append("other_meta_tags", data.other_meta_tags)
+        formdata.append("page_content", data.page_content)
+        formdata.append("image", uploadedImage)
         $.ajax({
             type: "POST",
             url: "/category/",
