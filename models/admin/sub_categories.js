@@ -4,6 +4,7 @@ module.exports = (sequelize, Sequelize) => {
     const subCategoriesModel = sequelize.define("sub_categories", {
         name: {
             type: Sequelize.STRING,
+            unique: true,
             allowNull: false,
         },
         category_id: {

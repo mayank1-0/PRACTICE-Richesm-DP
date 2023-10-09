@@ -29,7 +29,7 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: null,
         },
         brand_id: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             defaultValue: null,
         },
         unit_id: {

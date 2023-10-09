@@ -71,6 +71,30 @@ Product.belongsTo(User, {
   foreignKey: "seller_id",
 });
 
+// P.K - F.K. 5
+MainCategories.hasMany(Categories, {
+  foreignKey: "main_category_id",
+});
+Categories.belongsTo(MainCategories, {
+  foreignKey: "main_category_id",
+});
+
+// P.K - F.K. 6
+Categories.hasMany(SubCategories, {
+  foreignKey: "category_id",
+});
+SubCategories.belongsTo(Categories, {
+  foreignKey: "category_id",
+});
+
+// P.K - F.K. 7
+MainCategories.hasMany(SubCategories, {
+  foreignKey: "main_category_id",
+});
+SubCategories.belongsTo(MainCategories, {
+  foreignKey: "main_category_id",
+});
+
 db.User = User;
 db.Categories = Categories;
 db.MainCategories = MainCategories;

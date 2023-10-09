@@ -218,12 +218,66 @@ const fetchAllMainCategories = async (req, res) => {
                 "status",
                 ["createdAt", "createdOn"],
                 ["updatedAt", "updatedOn"],
-            ],
+            ]
         });
         if (!mainCategoriesData) {
             res.status(404).send({ success: false, message: "No main-categories are there in the database" });
         } else {
-            res.status(200).send({ status: 200, message: " Fetched All Main Categories", data: mainCategoriesData });
+            res.status(200).send({ success: true, message: " Fetched all main categories", data: mainCategoriesData });
+        }
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: "Something went wrong", error: error })
+    }
+};
+
+const fetchAllCategories = async (req, res) => {
+    try {
+        const MainCategories = db.MainCategories;
+        // let categoryName = req.query.categoryName;
+        const categoriesData = await db.Categories.findAll({
+            attributes: [
+                "id",
+                "name",
+                "slug",
+                "image",
+                "status",
+                ["createdAt", "createdOn"],
+                ["updatedAt", "updatedOn"],
+            ],
+            include: MainCategories
+        });
+        if (!categoriesData) {
+            res.status(404).send({ success: false, message: "No categories are there in the database" });
+        } else {
+            res.status(200).send({ success: true, message: " Fetched all categories", data: categoriesData });
+        }
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: "Something went wrong", error: error })
+    }
+};
+
+const fetchAllSubCategories = async (req, res) => {
+    try {
+        const MainCategories = db.MainCategories;
+        const Categories = db.Categories;
+        const subCategoriesData = await db.SubCategories.findAll({
+            attributes: [
+                "id",
+                "name",
+                "slug",
+                "image",
+                "status",
+                ["createdAt", "createdOn"],
+                ["updatedAt", "updatedOn"]
+            ],
+            include: [MainCategories, Categories]
+        });
+        if (!subCategoriesData) {
+            res.status(404).send({ success: false, message: "No sub-categories are there in the database" });
+        } else {
+            res.status(200).send({ success: true, message: "Fetched all sub categories", data: subCategoriesData });
         }
     }
     catch (error) {
@@ -239,5 +293,7 @@ module.exports = {
     trendingProducts,
     featuredProducts,
     fetchAllMainCategories,
+    fetchAllCategories,
+    fetchAllSubCategories
     // fetchAllProductsByMainCategories
 }
