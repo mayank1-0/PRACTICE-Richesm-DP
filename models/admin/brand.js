@@ -3,6 +3,7 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 notEmpty: true
             }
@@ -26,6 +27,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
         }
     }
-  );
-  return brandModel;
+    );
+    return brandModel;
 }

@@ -19,4 +19,8 @@ router.get('/main-categories', homePageController.fetchAllMainCategories);
 router.get('/categories', homePageController.fetchAllCategories);
 router.get('/sub-categories', homePageController.fetchAllSubCategories);
 
+// fetch products by brand
+router.get('/fetch-single-product-distinct-brands', homePageController.distinctBrandsSingleProduct);
+router.get('/fetch-all-product-of-brand/:slug', homePageController.brandsAllProductsFetch);
+
 module.exports = router;

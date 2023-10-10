@@ -1,6 +1,5 @@
 const db = require("../../../dbconfig/connection");
 
-// Not Complete
 const fetchAllProducts = async (req, res) => {
     try {
         const MainCategories = db.MainCategories;
@@ -285,6 +284,51 @@ const fetchAllSubCategories = async (req, res) => {
     }
 };
 
+//------------------------------------------------------
+
+const distinctBrandsSingleProduct = async (req, res) => {
+    try {
+        let data = [];
+        let result = await db.Brand.findAll({
+            raw: true,
+            attributes: ['id', 'name', 'slug'],
+        })
+        console.log('Brand data: ', result);
+        for (let i = 0; i < result.length; i++) {
+            data[i] = await db.Product.findOne({
+                raw: true,
+                attributes: ['product_name', 'thumbnail_images', 'unit_price', 'discount', 'listing_price_inc_tax'],
+                where: { brand_id: result[i].id }
+            });
+            data[i].brand_name = result[i].name;
+            data[i].slug = result[i].slug;
+        }
+        res.status(200).send({ success: true, message: "Testing now", data: data });
+    } catch (error) {
+        console.log('Error message', error);
+        res.status(500).send({ success: false, error, message: 'Something went wrong' });
+    }
+}
+
+const brandsAllProductsFetch = async (req, res) => {
+    try {
+        const Product = db.Product;
+        let slug = req.params.slug;
+        const result = await db.Brand.findAll({
+            raw: true,
+            where: { slug: slug },
+            include: [Product]
+        })
+        console.log('!!!!! ', result);
+        if (result.length == 0) {
+            res.status(200).send({ success: false, message: "No such products exist in the database" });
+        }
+        res.status(200).send({ success: true, message: 'Fetched all branded products', data: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'Something went wrong', });
+    }
+}
+
 module.exports = {
     fetchAllProducts,
     newArrivalProducts,
@@ -294,6 +338,7 @@ module.exports = {
     featuredProducts,
     fetchAllMainCategories,
     fetchAllCategories,
-    fetchAllSubCategories
-    // fetchAllProductsByMainCategories
+    fetchAllSubCategories,
+    distinctBrandsSingleProduct,
+    brandsAllProductsFetch
 }
