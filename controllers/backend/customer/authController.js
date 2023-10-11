@@ -132,19 +132,15 @@ const customerLogout = async (req, res) => {
     }
 };
 
-const customerDetail = async (req, res) => {
+const updateAddress = async (req, res) => {
     try {
-        const user = req.user
-        console.log()
-        res.status(200).json({
-            success: true,
-            user,
-        });
-    } catch (err) {
+        let updateData = req.body;
+        
+    } catch (error) {
         res
-            .status(500)
-            .send({ error: err, message: "error" });
+                .status(500)
+                .send({ status: 500, data: error, message: "Something went wrong" });
     }
 };
 
-module.exports = { customerSignup, customerLogin, customerLogout, customerDetail };
+module.exports = { customerSignup, customerLogin, customerLogout, updateAddress };

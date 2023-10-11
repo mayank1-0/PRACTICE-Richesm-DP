@@ -32,6 +32,7 @@ const productThumnail = require('./routes/admin/addthumnailmg');
 
 //customer routes
 const customerAuthRoutes = require('./routes/customer/authRoutes');
+const customerCartRoutes = require('./routes/customer/cartRoutes.js');
 
 //home-page routes
 const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
@@ -130,6 +131,8 @@ app.use('/api/seller/product', sellerProductRoutes);
 
 //auth
 app.use('/api/customer', customerAuthRoutes);
+
+app.use('/api/customer/cart', customerCartRoutes);
 
 // Home Page
 
