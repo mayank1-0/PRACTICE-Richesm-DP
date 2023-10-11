@@ -18,6 +18,7 @@ router.get('/featured', homePageController.featuredProducts);
 router.get('/main-categories', homePageController.fetchAllMainCategories);
 router.get('/categories', homePageController.fetchAllCategories);
 router.get('/sub-categories', homePageController.fetchAllSubCategories);
+router.get('/detail/:id', homePageController.productDetailPage);
 
 // fetch products by brand
 router.get('/fetch-single-product-distinct-brands', homePageController.distinctBrandsSingleProduct);

@@ -52,7 +52,6 @@ const product_store = async (req, res) => {
             limit: 1,
             attributes: ['id'],
         });
-        console.log(req.body, '&&&&&&&&');
         const maxProductId = productData === null ? 0 : productData.id;
         tableData.product_code = `PC_${maxProductId + 1}`;
         //saving main_category_id and category_id

@@ -10,6 +10,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         product_name: {
             type: Sequelize.STRING,
+            unique: true,
             defaultValue: null
         },
         seller_id: {
