@@ -49,7 +49,7 @@ const deleteAddressDetails = async (req, res) => {
         if (!result) {
             res.status(404).send({ message: "Unit with the given id does not exist", success: true })
         } else {
-        res.status(200).send({ message: "Data from unit table deleted", success: true })
+            res.status(200).send({ message: "Data from unit table deleted", success: true })
         }
     } catch (error) {
         res.status(500).send({ message: "SOmething went wrong", data: error.message, success: false });

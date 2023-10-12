@@ -1,5 +1,11 @@
 const db = require("../../../dbconfig/connection");
 
+const unit_index = (req, res) => {
+
+    var result = null;
+    res.render('./backend/unit/index', { title: 'Unit List', units: result })
+}
+
 const fetchAllUnits = async (req, res) => {
     try {
         const unitData = await db.Unit.findAll({
@@ -94,7 +100,7 @@ const unit_destroy = async (req, res) => {
 }
 
 module.exports = {
-
+    unit_index,
     unit_create_frm,
     unit_store,
     unit_edit_frm,

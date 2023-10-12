@@ -9,7 +9,7 @@ const unitController = require('../../controllers/backend/admin/unitController')
 const router = express.Router();
 
 //list || render unit ejs file
-// router.get('/', authGuard, unitController.unit_index);
+router.get('/', authGuard, unitController.unit_index);
 
 // fetch units from db
 router.get('/fetchAllUnits', auth, unitController.fetchAllUnits);
