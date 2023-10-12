@@ -5,7 +5,6 @@ const router = Router();
 
 // Customer auth
 router.post('/registration', customerSignup);
-// router.post('/user-details', customerAuth, customerDetail);
 router.post('/login', customerLogin);
 router.get('/logout', customerLogout);
 router.put('/update-customer-address-details', updateAddress)

@@ -307,7 +307,7 @@ const distinctBrandsSingleProduct = async (req, res) => {
         for (let i = 0; i < result.length; i++) {
             data[i] = await db.Product.findOne({
                 raw: true,
-                attributes: ['product_name',"rate_exc_tax", 'thumbnail_images', 'unit_price', 'discount', 'discount_type', 'listing_price_inc_tax'],
+                attributes: ['product_name', "rate_exc_tax", 'thumbnail_images', 'unit_price', 'discount', 'discount_type', 'listing_price_inc_tax'],
                 where: { brand_id: result[i].id }
             });
             if (data[i] !== null) {
@@ -319,7 +319,7 @@ const distinctBrandsSingleProduct = async (req, res) => {
                 console.log(`No product of brand ${result[i].name} exists in the database`);
             }
         }
-        res.status(200).send({ success: true, message: "Testing now", data: finalData });
+        res.status(200).send({ success: true, message: "Distinct products of different brands fetched successful", data: finalData });
     } catch (error) {
         console.log('Error message', error);
         res.status(500).send({ success: false, error, message: 'Something went wrong' });
@@ -335,31 +335,39 @@ const brandsAllProductsFetch = async (req, res) => {
             where: { slug: slug },
             include: [Product]
         })
-        console.log('!!!!! ', result);
         if (result.length == 0) {
-            res.status(200).send({ success: false, message: "No such products exist in the database" });
+            return res.status(200).send({ success: false, message: "No such products exist in the database" });
         }
         res.status(200).send({ success: true, message: 'Fetched all branded products', data: result });
     } catch (error) {
-        res.status(500).send({ success: false, message: 'Something went wrong', });
+        res.status(500).send({ success: false, message: 'Something went wrong', err: error.message });
     }
 }
 
 
-const productDetailPage = async (req, res) => {
+const productDetail = async (req, res) => {
     try {
+        const User = db.User;
+        const MainCategory = db.MainCategories;
+        const Category = db.Categories;
+        const SubCategory = db.SubCategories;
+        const Brand = db.Brand;
+        const Unit = db.Unit;
+        console.log('111111111 ');
         const result = await db.Product.findOne({
-            where:{
-                id:req.params.id
-            }
+            raw: true,
+            where: {
+                id: req.params.id
+            },
+            include: [User, MainCategory, Category, SubCategory, Brand, Unit]
         })
         console.log('!!!!! ', result);
         if (!result) {
             return res.status(200).send({ success: false, message: "No such products exist in the database" });
         }
-        res.status(200).send({ success: true, message: 'Fetched all branded products', data: result });
+        res.status(200).send({ success: true, message: 'Fetched product\'s details', data: result });
     } catch (error) {
-        res.status(500).send({ success: false, message: 'Something went wrong', });
+        res.status(500).send({ success: false, message: 'Something went wrong', data: error.message });
     }
 }
 
@@ -376,5 +384,5 @@ module.exports = {
     fetchAllSubCategories,
     distinctBrandsSingleProduct,
     brandsAllProductsFetch,
-    productDetailPage
+    productDetail
 }

@@ -920,6 +920,7 @@
             sub_category_id: $("#pdt_subcategory").val(),
             brand_id: $("#pdt_brand").val(),
             unit_id: $("#pdt_unit").val(),
+            seller_id: $("#pdt_seller").val(),
             weight_in_kg: $('#pdt_weight').val(),
             min_pur_qty: $("#pdt_min_pur_qty").val(),
             tags: $('#pdt_tags').val(),
@@ -1022,6 +1023,7 @@
                     $("#pdt_subcategory").val(''),
                     $("#pdt_brand").val(''),
                     $("#pdt_unit").val(''),
+                    $("#pdt_seller").val(''),
                     $('#pdt_weight').val(''),
                     $("#pdt_min_pur_qty").val(''),
                     $('#pdt_tags').val(''),
@@ -1110,6 +1112,7 @@
             },
             success: function (result) {
                 result = result.data;
+                console.log('Seller Data: ', result);
                 result.map((i) => {
                     $("#pdt_seller").append(`<option value="${i.id}">${i.first_name} ${i.last_name}</option>`);
                 })

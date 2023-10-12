@@ -95,6 +95,14 @@ SubCategories.belongsTo(MainCategories, {
   foreignKey: "main_category_id",
 });
 
+// P.K - F.K. 8
+Unit.hasMany(Product, {
+  foreignKey: "unit_id",
+});
+Product.belongsTo(Unit, {
+  foreignKey: "unit_id",
+});
+
 db.User = User;
 db.Categories = Categories;
 db.MainCategories = MainCategories;
