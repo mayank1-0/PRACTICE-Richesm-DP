@@ -87,7 +87,7 @@ const bestSellerProducts = async (req, res) => {
             limit: 25
         });
         if (productData.length == 0) {
-            res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
+            res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
             return;
         }
         res.status(200).send({ status: 200, message: " Fetched best seller products", data: productData });
@@ -117,9 +117,8 @@ const todaysDealProducts = async (req, res) => {
             },
             limit: 25
         });
-        console.log(productData)
-        if (!productData) {
-            return res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
+        if (productData.length == 0) {
+            return res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
         }
         res.status(200).send({ status: 200, message: " Fetched todays deal products", data: productData });
     }
@@ -145,9 +144,8 @@ const trendingProducts = async (req, res) => {
             },
             limit: 25
         });
-        if (productData) {
-            res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
-            return;
+        if (productData.length == 0) {
+            return res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
         }
         res.status(200).send({ status: 200, message: " Fetched trending products", data: productData });
     }
@@ -173,9 +171,8 @@ const featuredProducts = async (req, res) => {
             },
             limit: 25
         });
-        if (productData) {
-            res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
-            return;
+        if (productData == 0) {
+            return res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
         }
         res.status(200).send({ status: 200, message: " Fetched featured products", data: productData });
     }
@@ -225,7 +222,7 @@ const fetchAllMainCategories = async (req, res) => {
                 ["updatedAt", "updatedOn"],
             ]
         });
-        if (!mainCategoriesData) {
+        if (mainCategoriesData.length == 0) {
             res.status(404).send({ success: false, message: "No main-categories are there in the database" });
         } else {
             res.status(200).send({ success: true, message: " Fetched all main categories", data: mainCategoriesData });
@@ -252,7 +249,7 @@ const fetchAllCategories = async (req, res) => {
             ],
             include: MainCategories
         });
-        if (!categoriesData) {
+        if (categoriesData.length == 0) {
             res.status(404).send({ success: false, message: "No categories are there in the database" });
         } else {
             res.status(200).send({ success: true, message: " Fetched all categories", data: categoriesData });
@@ -279,7 +276,7 @@ const fetchAllSubCategories = async (req, res) => {
             ],
             include: [MainCategories, Categories]
         });
-        if (!subCategoriesData) {
+        if (subCategoriesData.length == 0) {
             res.status(404).send({ success: false, message: "No sub-categories are there in the database" });
         } else {
             res.status(200).send({ success: true, message: "Fetched all sub categories", data: subCategoriesData });
@@ -353,7 +350,6 @@ const productDetail = async (req, res) => {
         const SubCategory = db.SubCategories;
         const Brand = db.Brand;
         const Unit = db.Unit;
-        console.log('111111111 ');
         const result = await db.Product.findOne({
             raw: true,
             where: {
@@ -361,8 +357,7 @@ const productDetail = async (req, res) => {
             },
             include: [User, MainCategory, Category, SubCategory, Brand, Unit]
         })
-        console.log('!!!!! ', result);
-        if (!result) {
+        if (result.length == 0) {
             return res.status(200).send({ success: false, message: "No such products exist in the database" });
         }
         res.status(200).send({ success: true, message: 'Fetched product\'s details', data: result });
@@ -370,7 +365,6 @@ const productDetail = async (req, res) => {
         res.status(500).send({ success: false, message: 'Something went wrong', data: error.message });
     }
 }
-
 
 module.exports = {
     fetchAllProducts,
