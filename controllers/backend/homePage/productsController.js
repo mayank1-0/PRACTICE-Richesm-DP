@@ -47,7 +47,10 @@ const newArrivalProducts = async (req, res) => {
                 "product_name",
                 "discount",
                 "discount_type",
-                "thumbnail_images"
+                "thumbnail_images",
+                "rate_exc_tax",
+                "unit_price",
+                "listing_price_inc_tax"
             ],
             where: {
                 is_new_arrival: 1,
@@ -103,7 +106,10 @@ const todaysDealProducts = async (req, res) => {
                 "product_name",
                 "discount",
                 "discount_type",
-                "thumbnail_images"
+                "thumbnail_images",
+                "rate_exc_tax",
+                "unit_price",
+
             ],
             where: {
                 is_todays_deal: 1,
@@ -111,9 +117,9 @@ const todaysDealProducts = async (req, res) => {
             },
             limit: 25
         });
+        console.log(productData)
         if (!productData) {
-            res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
-            return;
+            return res.status(404).send({ success: false, messsage: "No products are there in the database", status: 404 });
         }
         res.status(200).send({ status: 200, message: " Fetched todays deal products", data: productData });
     }
@@ -301,7 +307,7 @@ const distinctBrandsSingleProduct = async (req, res) => {
         for (let i = 0; i < result.length; i++) {
             data[i] = await db.Product.findOne({
                 raw: true,
-                attributes: ['product_name', 'thumbnail_images', 'unit_price', 'discount', 'discount_type', 'listing_price_inc_tax', 'rate_exc_tax'],
+                attributes: ['product_name',"rate_exc_tax", 'thumbnail_images', 'unit_price', 'discount', 'discount_type', 'listing_price_inc_tax'],
                 where: { brand_id: result[i].id }
             });
             if (data[i] !== null) {
@@ -339,6 +345,25 @@ const brandsAllProductsFetch = async (req, res) => {
     }
 }
 
+
+const productDetailPage = async (req, res) => {
+    try {
+        const result = await db.Product.findOne({
+            where:{
+                id:req.params.id
+            }
+        })
+        console.log('!!!!! ', result);
+        if (!result) {
+            return res.status(200).send({ success: false, message: "No such products exist in the database" });
+        }
+        res.status(200).send({ success: true, message: 'Fetched all branded products', data: result });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'Something went wrong', });
+    }
+}
+
+
 module.exports = {
     fetchAllProducts,
     newArrivalProducts,
@@ -350,5 +375,6 @@ module.exports = {
     fetchAllCategories,
     fetchAllSubCategories,
     distinctBrandsSingleProduct,
-    brandsAllProductsFetch
+    brandsAllProductsFetch,
+    productDetailPage
 }
