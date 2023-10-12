@@ -34,7 +34,7 @@ const customerSignup = async (req, res) => {
             )
         };
 
-        res.status(201).cookie('token', token, options).send({
+        res.status(201).cookie('customer-token', token, options).send({
             status: 200,
             token: token,
             data: userData,
@@ -65,7 +65,7 @@ const customerLogin = async (req, res) => {
     try {
         let customerData = req.body;
         const User = db.User;
-        if(!customerData.email) return res.status(404).send({success:false,message:"Email is required"})
+        if (!customerData.email) return res.status(404).send({ success: false, message: "Email is required" })
         let customerCredentials = await User.findOne({
             plain: true,
             where: { email: customerData.email },
@@ -101,7 +101,7 @@ const customerLogin = async (req, res) => {
                     )
                 };
 
-                res.status(200).cookie('token', token, options).send({
+                res.status(200).cookie('customer-token', token, options).send({
                     success: true,
                     // email: customerCredentials.email,
                     token: token,
@@ -118,7 +118,7 @@ const customerLogin = async (req, res) => {
 
 const customerLogout = async (req, res) => {
     try {
-        res.cookie("token", null, {
+        res.cookie("customer-token", null, {
             expires: new Date(Date.now()),
         });
         res.status(200).json({
@@ -138,8 +138,8 @@ const updateAddress = async (req, res) => {
         
     } catch (error) {
         res
-                .status(500)
-                .send({ status: 500, data: error, message: "Something went wrong" });
+            .status(500)
+            .send({ status: 500, data: error, message: "Something went wrong" });
     }
 };
 

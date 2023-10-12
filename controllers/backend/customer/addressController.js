@@ -1,33 +1,6 @@
-const db = require("../../../dbconfig/connection");
+const db = require('../../../dbconfig/connection');
 
-const fetchAllUnits = async (req, res) => {
-    try {
-        const unitData = await db.Unit.findAll({
-            attributes: [
-                "id",
-                ["unit_name", "unit"],
-                ["short_char", "short_notation"],
-                "status",
-                ["createdAt", "createdOn"],
-                ["updatedAt", "updatedOn"],
-            ],
-        });
-        if (!unitData) {
-            res.status(404).send({ success: false, message: "No units are there in the database", status: 404 })
-        } else {
-            res.status(200).send({ status: 200, message: " Fetched All Units", data: unitData });
-        }
-    }
-    catch (error) {
-        res.status(500).send({ success: false, message: "Something went wrong", error: error })
-    }
-};
-
-const unit_create_frm = (req, res) => {
-
-    res.render('./backend/unit/create', { title: 'Create a New Unit' });
-}
-const unit_store = async (req, res) => {
+const addAddressDetails = async (req, res) => {
     try {
         let result;
         let tableData = req.body;
@@ -37,18 +10,9 @@ const unit_store = async (req, res) => {
     } catch (error) {
         res.status(500).send({ message: "SOmething went wrong", data: error, success: false });
     }
-}
-const unit_edit_frm = async (req, res) => {
-    const unitId = req.params.id;
-    const unit = await db.Unit.findOne({
-        where: {
-            id: unitId
-        }
-    });
-    res.render('./backend/unit/edit', { title: 'Create a New Unit', unitId, unit });
-}
+};
 
-const unit_edit_update = async (req, res) => {
+const updateAddressDetails = async (req, res) => {
     try {
         let paramId = req.params.id;
         let result;
@@ -71,10 +35,9 @@ const unit_edit_update = async (req, res) => {
     } catch (error) {
         res.status(500).send({ message: "Something went wrong. Please try again", err: error, success: false });
     }
-}
+};
 
-
-const unit_destroy = async (req, res) => {
+const deleteAddressDetails = async (req, res) => {
     try {
         let result;
         const paramId = req.params.id;
@@ -86,19 +49,34 @@ const unit_destroy = async (req, res) => {
         if (!result) {
             res.status(404).send({ message: "Unit with the given id does not exist", success: true })
         } else {
-            res.status(200).send({ message: "Data from unit table deleted", success: true })
+        res.status(200).send({ message: "Data from unit table deleted", success: true })
         }
     } catch (error) {
         res.status(500).send({ message: "SOmething went wrong", data: error.message, success: false });
     }
-}
+};
 
-module.exports = {
+const fetchAllUserAddresses = async (req, res) => {
+    try {
+        const userAddressData = await db.Unit.findAll({
+            attributes: [
+                "id",
+                ["unit_name", "unit"],
+                ["short_char", "short_notation"],
+                "status",
+                ["createdAt", "createdOn"],
+                ["updatedAt", "updatedOn"],
+            ],
+        });
+        if (!unitData) {
+            res.status(404).send({ success: false, message: "No units are there in the database", status: 404 })
+        } else {
+            res.status(200).send({ status: 200, message: " Fetched All Units", data: unitData });
+        }
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: "Something went wrong", error: error })
+    }
+};
 
-    unit_create_frm,
-    unit_store,
-    unit_edit_frm,
-    unit_edit_update,
-    unit_destroy,
-    fetchAllUnits
-}
+module.exports = { addAddressDetails, updateAddressDetails, deleteAddressDetails, fetchAllUserAddresses };

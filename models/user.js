@@ -10,8 +10,8 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
     last_name: {
-        type: Sequelize.STRING,
-      },
+      type: Sequelize.STRING,
+    },
     email: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -29,24 +29,6 @@ module.exports = (sequelize, Sequelize) => {
         notEmpty: true,
         len: 10
       }
-    },
-    address: {
-      type: Sequelize.STRING,
-    },
-    address2: {
-        type: Sequelize.STRING,
-    },
-    city: {
-      type: Sequelize.STRING,
-    },
-    state: {
-      type: Sequelize.STRING,
-    },
-    country: {
-      type: Sequelize.STRING,
-    },
-    zipcode: {
-      type: Sequelize.STRING,
     },
     password: {
       type: Sequelize.STRING,
@@ -95,7 +77,7 @@ module.exports = (sequelize, Sequelize) => {
           //function called before creating a table.
           if (user.toJSON().password) {
             return bcrypt
-              .hash(user.toJSON().password, 10) 
+              .hash(user.toJSON().password, 10)
               .then((hash) => {
                 user.set("password", hash);
               })

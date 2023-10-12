@@ -30,6 +30,9 @@ const Material = require("../models/admin/attributes/material")(sequelize, Seque
 const Product = require("../models/admin/product")(sequelize, Sequelize);
 const Attribute = require("../models/admin/attribute")(sequelize, Sequelize);
 const ProductGallery = require("../models/admin/product_gallery")(sequelize, Sequelize);
+const State = require("../models/state")(sequelize, Sequelize);
+const Country = require("../models/country")(sequelize, Sequelize);
+const UserAddress = require("../models/user_address")(sequelize, Sequelize);
 
 // P.K - F.K. 0. Foreign key vala baad mein i.e Product
 Brand.hasMany(Product, {
@@ -116,5 +119,8 @@ db.Material = Material;
 db.Product = Product;
 db.Attribute = Attribute;
 db.ProductGallery = ProductGallery;
+db.State = State;
+db.Country = Country;
+db.UserAddress = UserAddress;
 
 module.exports = db;

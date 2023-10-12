@@ -7,6 +7,5 @@ const router = Router();
 router.post('/registration', customerSignup);
 router.post('/login', customerLogin);
 router.get('/logout', customerLogout);
-router.put('/update-customer-address-details', updateAddress)
 
 module.exports = router;
