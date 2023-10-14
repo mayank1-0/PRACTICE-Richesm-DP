@@ -59,8 +59,7 @@ const newArrivalProducts = async (req, res) => {
             limit: 25
         });
         if (productData.length == 0) {
-            res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
-            return;
+            return res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
         }
         res.status(200).send({ status: 200, message: " Fetched new arrival products", data: productData });
     }
@@ -87,8 +86,8 @@ const bestSellerProducts = async (req, res) => {
             limit: 25
         });
         if (productData.length == 0) {
-            res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
-            return;
+            return res.status(404).send({ success: false, messsage: "No such products are there in the database", status: 404 });
+
         }
         res.status(200).send({ status: 200, message: " Fetched best seller products", data: productData });
     }
@@ -312,13 +311,13 @@ const distinctBrandsSingleProduct = async (req, res) => {
                 finalData[i].brand_name = result[i].name;
                 finalData[i].slug = result[i].slug;
             }
-            else {
-                console.log(`No product of brand ${result[i].name} exists in the database`);
+            if (finalData.length == 0) {
+                return res.status(404).send({ message: `No product of any brand exists in the database`, status: 404 });
             }
         }
         res.status(200).send({ success: true, message: "Distinct products of different brands fetched successful", data: finalData });
     } catch (error) {
-        console.log('Error message', error);
+        console.log('Error message', error.message);
         res.status(500).send({ success: false, error, message: 'Something went wrong' });
     }
 }
@@ -328,19 +327,18 @@ const brandsAllProductsFetch = async (req, res) => {
         const Product = db.Product;
         let slug = req.params.slug;
         const result = await db.Brand.findAll({
-            raw: true,
+
             where: { slug: slug },
             include: [Product]
         })
-        if (result.length == 0) {
-            return res.status(200).send({ success: false, message: "No such products exist in the database" });
+        if (result[0].products.length == 0) {
+            return res.status(404).send({ success: false, message: "No such products exist in the database" });
         }
         res.status(200).send({ success: true, message: 'Fetched all branded products', data: result });
     } catch (error) {
         res.status(500).send({ success: false, message: 'Something went wrong', err: error.message });
     }
 }
-
 
 const productDetail = async (req, res) => {
     try {
@@ -357,12 +355,66 @@ const productDetail = async (req, res) => {
             },
             include: [User, MainCategory, Category, SubCategory, Brand, Unit]
         })
-        if (result.length == 0) {
+        if (!result) {
             return res.status(200).send({ success: false, message: "No such products exist in the database" });
         }
         res.status(200).send({ success: true, message: 'Fetched product\'s details', data: result });
     } catch (error) {
         res.status(500).send({ success: false, message: 'Something went wrong', data: error.message });
+    }
+}
+
+// ------------------------------------------------------
+
+const fetchAllConnectedCategories = async (req, res) => {
+    try {
+        const MainCategories = db.MainCategories;
+        const Categories = db.Categories;
+        let mainCategoryNames = [];
+        let categoryNames = [];
+        const subCategoryData = await db.SubCategories.findAll({
+            raw: true,
+            attributes: [
+                "id",
+                ["name", "sub_category_name"],
+                "status"
+            ],
+            include: [{
+                model: MainCategories,
+                attributes: ['id', 'name']
+            },
+            {
+                model: Categories,
+                attributes: ['id', 'name']
+            }
+            ],
+            limit: 15
+        });
+        if (!subCategoryData) {
+            res.status(404).send({ success: false, messsage: "No sub-categories are there in the database", status: 404 });
+        } else {
+            // for (let i = 0; i < subCategoryData.length; i++) {
+            //     mainCategoryNames[i] = await db.MainCategories.findAll({
+            //         raw: true,
+            //         attributes: ["name"],
+            //         where: { id: subCategoryData[i].main_category_id }
+            //     });
+            //     console.log('checking main category names', mainCategoryNames[i][i].name);
+            //     categoryNames[i] = await db.Categories.findAll({
+            //         raw: true,
+            //         attributes: ["name"],
+            //         where: { id: subCategoryData[i].category_id }
+            //     });
+            //     console.log('checking category names', categoryNames[i][i].name);
+            //     subCategoryData[i].mainCategoryName = mainCategoryNames[i][i].name;
+            //     subCategoryData[i].categoryName = categoryNames[i][i].name;
+            // }
+            console.log('11111 ', subCategoryData);
+            res.status(200).send({ status: 200, message: " Fetched All Sub-Categories with their associated Categories' and MainCategories' names", data: subCategoryData });
+        }
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: "Something went wrong", error: error.message })
     }
 }
 
@@ -378,5 +430,6 @@ module.exports = {
     fetchAllSubCategories,
     distinctBrandsSingleProduct,
     brandsAllProductsFetch,
-    productDetail
+    productDetail,
+    fetchAllConnectedCategories
 }

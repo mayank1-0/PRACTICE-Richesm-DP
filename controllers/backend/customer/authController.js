@@ -18,7 +18,7 @@ const customerSignup = async (req, res) => {
             postData.role = 3;
         }
         const userData = await db.User.create(postData);
-        const token = await jwt.sign(
+        const customerToken = await jwt.sign(
             { userId: userData.userID, isActive: true },
             config.jwtSecret,
             { expiresIn: "24h" }
@@ -34,9 +34,9 @@ const customerSignup = async (req, res) => {
             )
         };
 
-        res.status(201).cookie('customer-token', token, options).send({
-            status: 200,
-            token: token,
+        res.status(201).cookie('customer-token', customerToken, options).send({
+            status: 201,
+            token: customerToken,
             data: userData,
             message: "Customer created successfully",
         })
@@ -85,7 +85,7 @@ const customerLogin = async (req, res) => {
                     message: "Invalid Credentials",
                 });
             } else {
-                const token = await jwt.sign(
+                const customerToken = await jwt.sign(
                     { userId: customerCredentials.userID, isActive: true },
                     config.jwtSecret,
                     { expiresIn: "24h" }
@@ -101,10 +101,10 @@ const customerLogin = async (req, res) => {
                     )
                 };
 
-                res.status(200).cookie('customer-token', token, options).send({
+                res.status(200).cookie('customer-token', customerToken, options).send({
                     success: true,
                     // email: customerCredentials.email,
-                    token: token,
+                    token: customerToken,
                     message: "Login Successfull",
                 });
             }
@@ -135,7 +135,7 @@ const customerLogout = async (req, res) => {
 const updateAddress = async (req, res) => {
     try {
         let updateData = req.body;
-        
+
     } catch (error) {
         res
             .status(500)

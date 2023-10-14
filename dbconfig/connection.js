@@ -106,6 +106,14 @@ Product.belongsTo(Unit, {
   foreignKey: "unit_id",
 });
 
+// P.K - F.K. 9
+User.hasMany(UserAddress, {
+  foreignKey: "user_id",
+});
+UserAddress.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 db.User = User;
 db.Categories = Categories;
 db.MainCategories = MainCategories;

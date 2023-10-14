@@ -4,8 +4,8 @@ const { addAddressDetails, updateAddressDetails, deleteAddressDetails, fetchAllU
 const router = Router();
 
 router.post('/create-address-details', addAddressDetails);
-router.put('/update-address-details', updateAddressDetails);
-router.delete('/delete-address-details', deleteAddressDetails);
+router.put('/update-address-details/:id', updateAddressDetails);
+router.delete('/delete-address-details/:id', deleteAddressDetails);
 router.get('/fetch-all-addresses', fetchAllUserAddresses);
 
 module.exports = router;
