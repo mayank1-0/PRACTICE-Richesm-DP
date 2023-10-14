@@ -38,6 +38,9 @@ const customerCartRoutes = require('./routes/customer/cartRoutes.js');
 //home-page routes
 const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
 
+//salman website route
+const UiWebsiteRoutes = require('./routes/website/UiWebsiteRoutes.js');
+
 const app = express();
 app.use(cookieParser());
 app.use(cors({
@@ -55,13 +58,17 @@ app.use(
   })
 );
 
-app.listen(process.env.PORT, (err) => {
+app.listen({ port: process.env.PORT }, (err, address) => {
   if (err) {
-    console.log("OOPS, Server Error!");
+     console.log("OOPS, Server Error!");
+     console.error(err);
+     process.exit(1)
   } else {
-    console.log("Server Strated...");
+    console.log('server listening on ' + process.env.PORT);
   }
 });
+
+
 
 app.use("/public", express.static('public'));
 app.use("/product", express.static('public/uploads/product'));
@@ -78,8 +85,18 @@ app.use(function (req, res, next) {
   next();
 });
 
-db.sequelize.sync();
 
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
+
+  // db.sequelize.sync({ force: true }).then(() => {
+  //   console.log("Drop and re-sync db.");
+  // });
 // -----------------------------------------------------------------------------------------------
 
 // Admin
@@ -147,3 +164,7 @@ app.use('/api/home-page', homePageRoutes);
 // app.use(function (req, res, next) {
 //     next(createError(404));
 // });
+
+
+//salman website route
+app.use('/api/website/uidata', UiWebsiteRoutes);

@@ -286,6 +286,9 @@ const fetchAllSubCategories = async (req, res) => {
     }
 };
 
+
+
+
 //------------------------------------------------------
 
 const distinctBrandsSingleProduct = async (req, res) => {
@@ -327,7 +330,6 @@ const brandsAllProductsFetch = async (req, res) => {
         const Product = db.Product;
         let slug = req.params.slug;
         const result = await db.Brand.findAll({
-
             where: { slug: slug },
             include: [Product]
         })
@@ -418,6 +420,8 @@ const fetchAllConnectedCategories = async (req, res) => {
     }
 }
 
+
+
 module.exports = {
     fetchAllProducts,
     newArrivalProducts,
@@ -431,5 +435,6 @@ module.exports = {
     distinctBrandsSingleProduct,
     brandsAllProductsFetch,
     productDetail,
-    fetchAllConnectedCategories
+    fetchAllConnectedCategories,
+    
 }

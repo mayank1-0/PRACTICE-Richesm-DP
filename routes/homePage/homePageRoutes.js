@@ -27,4 +27,6 @@ router.get('/fetch-all-product-of-brand/:slug', homePageController.brandsAllProd
 // fetch all interdependent categories e.x Under in product creation (admin panel)
 router.get('/fetchAllConnectedCategories', homePageController.fetchAllConnectedCategories);
 
+
+
 module.exports = router;
