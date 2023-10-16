@@ -41,6 +41,9 @@ const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
 //salman website route
 const UiWebsiteRoutes = require('./routes/website/UiWebsiteRoutes.js');
 
+//order routes
+const orderRoutes = require('./routes/order/orderRoutes.js');
+
 const app = express();
 app.use(cookieParser());
 app.use(cors({
@@ -168,3 +171,6 @@ app.use('/api/home-page', homePageRoutes);
 
 //salman website route
 app.use('/api/website/uidata', UiWebsiteRoutes);
+
+// order route
+app.use('/api/order', orderRoutes);

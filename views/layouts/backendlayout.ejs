@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,9 @@
         rel="stylesheet" />
     <link href="/public/admin-assets/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
         rel="stylesheet" />
-    <link href="/public/admin-assets/assets/libs/bootstrap-tags-input/bootstrap-tagsinput.css"
-        rel="stylesheet" />
-    <!-- Responsive datatable examples -->  
-    <link
-        href="/public/admin-assets/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+    <link href="/public/admin-assets/assets/libs/bootstrap-tags-input/bootstrap-tagsinput.css" rel="stylesheet" />
+    <!-- Responsive datatable examples -->
+    <link href="/public/admin-assets/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
         rel="stylesheet" />
     <!-- Bootstrap Css -->
     <link href="/public/admin-assets/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
@@ -25,8 +24,7 @@
     <!-- App Css-->
     <link href="/public/admin-assets/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.1.95/css/materialdesignicons.min.css">
-    <link href="/public/admin-assets/assets/css/ssestylesheet.css" id="app-style" rel="stylesheet"
-        type="text/css" />
+    <link href="/public/admin-assets/assets/css/ssestylesheet.css" id="app-style" rel="stylesheet" type="text/css" />
     @yield('style')
     <style>
         .uil-search:before {
@@ -40,8 +38,9 @@
         } */
     </style>
 </head>
+
 <body>
-    
+
     <!-- <body data-layout="horizontal" data-topbar="colored"> -->
     <!-- Begin page -->
     <div id="layout-wrapper">
@@ -55,7 +54,7 @@
                                 <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" height="45">
                             </span>
                             <span class="logo-lg">
-                               
+
                                 <img src="/public/admin-assets/assets/images/logo/brand-logo.png" alt="" width="200">
                             </span>
                         </a>
@@ -118,7 +117,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
 
                     <div class="dropdown d-none d-lg-inline-block ms-1">
@@ -127,7 +126,7 @@
                             <i class="uil-minus-path"></i>
                         </button>
                     </div>
-                    
+
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item noti-icon waves-effect"
@@ -149,27 +148,27 @@
                                 </div>
                             </div>
                             <div data-simplebar style="max-height: 230px;">
-                              
-                                    <a href="#" class="text-reset notification-item">
-                                        <div class="d-flex align-items-start">
-                                            <div class="flex-shrink-0 me-3">
-                                                <div class="avatar-xs">
-                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                        <i class="mdi mdi-account-circle m-0"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">Enquiry From Prabhat</h6>
-                                                <div class="font-size-12 text-muted">
-                                                    <p class="mb-1">Test Subject</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
-                                                        Aug 24, 2023</p>
-                                                </div>
+
+                                <a href="#" class="text-reset notification-item">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar-xs">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="mdi mdi-account-circle m-0"></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </a>
-                               
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Enquiry From Prabhat</h6>
+                                            <div class="font-size-12 text-muted">
+                                                <p class="mb-1">Test Subject</p>
+                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
+                                                    Aug 24, 2023</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
                                 <!-- <a href="#" class="text-reset notification-item">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-shrink-0 me-3">
@@ -234,15 +233,14 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          
-                                <div class="avatar-xs d-inline-block me-2">
-                                    <div class="avatar-title bg-soft-warning rounded-circle text-warning">
-                                        <i class="mdi mdi-account-circle m-0"></i>
-                                    </div>
+
+                            <div class="avatar-xs d-inline-block me-2">
+                                <div class="avatar-title bg-soft-warning rounded-circle text-warning">
+                                    <i class="mdi mdi-account-circle m-0"></i>
                                 </div>
-                         
-                            <span
-                                class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Richesm</span>
+                            </div>
+
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Richesm</span>
                             <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -263,8 +261,7 @@
                             <a class="dropdown-item" href="/admin-logout">
                                 <!-- onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">  -->
-                                                     <i
-                                    class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
+                                <i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span
                                     class="align-middle">Sign out</span></a>
                             <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 
@@ -297,11 +294,11 @@
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title">Menu</li>
                         <li>
-                            <a href="/public/admin/dashboard">
+                            <a href="/admin/dashboard">
                                 <i class="uil-home-alt"></i>
                                 <span>Dashboard</span>
                             </a>
-                        </li>                       
+                        </li>
                         <li class="menu-title">Master</li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -381,9 +378,9 @@
                                 <span>Manage Attribute</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="/size">Size List</a></li> 
+                                <li><a href="/size">Size List</a></li>
                                 <li><a href="/color">Color List</a></li>
-                                <li><a href="/material">Material List</a></li>                                                              
+                                <li><a href="/material">Material List</a></li>
                             </ul>
                         </li>
                         <li class="menu-title">Shop</li>
@@ -417,7 +414,7 @@
                                 <li><a href="{{ route('admin.getSalesList') }}">Orders List</a></li>
                             </ul>
                         </li>
-                       <li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-chart"></i>
                                 <span>Offers & Promotions</span>
@@ -444,7 +441,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.getSalesList') }}">Sales List</a></li>
-                                 <li><a href="#">Sellers</a></li> 
+                                <li><a href="#">Sellers</a></li>
                             </ul>
                         </li>
                         <li>
@@ -478,13 +475,13 @@
                             </ul>
                         </li>
                         <li class="menu-title">Website</li>
-                      	<li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-chart"></i>
                                 <span>Manage Career</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.jobApplicationList') }}">Job Application</a></li>                                 
+                                <li><a href="{{ route('admin.jobApplicationList') }}">Job Application</a></li>
                             </ul>
                         </li>
                         <li>
@@ -504,7 +501,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.getReviewList') }}">Review List</a></li>
-                                
+
                             </ul>
                         </li>
                         <li>
@@ -514,7 +511,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.getEnquiryList') }}">Enquiry List</a></li>
-                                
+
                             </ul>
                         </li>
                         <li>
@@ -524,9 +521,9 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.ShowTestimonialList') }}">Testimonials List</a></li>
-                                
+
                             </ul>
-                        </li>                        
+                        </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-chart"></i>
@@ -534,7 +531,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.ShowbannerList') }}">Banner List</a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="menu-title">Other</li>
@@ -573,7 +570,7 @@
         <%- body %>
 
 
-        <%- include('../partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
     </div>
     <!-- END layout-wrapper -->
     <!--Scripts-------------------->
@@ -592,11 +589,11 @@
     <script src="/public/admin-assets/assets/js/pages/dashboard.init.js"></script>
     <!-- <script src="/public/admin-assets/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script> -->
 
-        <!--tinymce js-->
-         <script src="/public/admin-assets/assets/libs/tinymce/tinymce.min.js"></script> 
+    <!--tinymce js-->
+    <script src="/public/admin-assets/assets/libs/tinymce/tinymce.min.js"></script>
 
-        <!-- init js -->
-        <script src="/public/admin-assets/assets/js/pages/form-editor.init.js"></script>
+    <!-- init js -->
+    <script src="/public/admin-assets/assets/js/pages/form-editor.init.js"></script>
     <!-- Required datatable js -->
     <script src="/public/admin-assets/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="/public/admin-assets/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -641,7 +638,7 @@
     </script> -->
 
     <%- script %>
-   
+
 </body>
 
 </html>

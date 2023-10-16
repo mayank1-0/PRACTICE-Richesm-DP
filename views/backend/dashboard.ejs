@@ -5,10 +5,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-0"><%= process.env.APP_NAME %></h4>   
+                        <h4 class="mb-0">
+                            <%= process.env.APP_NAME %>
+                        </h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>                                
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
                             </ol>
                         </div>
                     </div>
@@ -26,7 +28,8 @@
                                 <h4 class="mb-1 mt-1">₹<span data-plugin="counterup">5000</span></h4>
                                 <p class="text-muted mb-0">Total Revenue</p>
                             </div>
-                            <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class="mdi mdi-arrow-up-bold me-1"></i>2.65%</span> since last week
+                            <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
+                                        class="mdi mdi-arrow-up-bold me-1"></i>2.65%</span> since last week
                             </p>
                         </div>
                     </div>
@@ -41,7 +44,8 @@
                                 <h4 class="mb-1 mt-1"><span data-plugin="counterup">10</span></h4>
                                 <p class="text-muted mb-0">Orders</p>
                             </div>
-                            <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i>0.82%</span> since last week
+                            <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
+                                        class="mdi mdi-arrow-down-bold me-1"></i>0.82%</span> since last week
                             </p>
                         </div>
                     </div>
@@ -56,7 +60,8 @@
                                 <h4 class="mb-1 mt-1"><span data-plugin="counterup">5</span></h4>
                                 <p class="text-muted mb-0">Customers</p>
                             </div>
-                            <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i class="mdi mdi-arrow-down-bold me-1"></i>6.24%</span> since last week
+                            <p class="text-muted mt-3 mb-0"><span class="text-danger me-1"><i
+                                        class="mdi mdi-arrow-down-bold me-1"></i>6.24%</span> since last week
                             </p>
                         </div>
                     </div>
@@ -71,7 +76,8 @@
                                 <h4 class="mb-1 mt-1">+ <span data-plugin="counterup">100</span></h4>
                                 <p class="text-muted mb-0">Products</p>
                             </div>
-                            <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i class="mdi mdi-arrow-up-bold me-1"></i>10.51%</span> since last week
+                            <p class="text-muted mt-3 mb-0"><span class="text-success me-1"><i
+                                        class="mdi mdi-arrow-up-bold me-1"></i>10.51%</span> since last week
                             </p>
                         </div>
                     </div>
@@ -101,8 +107,9 @@
                                             <th>View Details</th>
                                         </tr>
                                     </thead>
-                                    <tbody>                                         
-                                        <tr>
+                                    <tbody id="tbody">
+                                        <tr role="row" class="odd" id="tr">
+                                            <!-- <tr>
                                             <td>
                                                 <div class="form-check font-size-16">
                                                     <input type="checkbox" class="form-check-input" id="customCheck2">
@@ -129,7 +136,8 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                                                            
+                                                                             -->
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -142,3 +150,79 @@
         </div>
     </div>
 </div>
+
+<!-- end main content -->
+
+<script>
+    $(() => {
+        fetchOrders();
+    });
+    const token = window.localStorage.getItem('token');
+
+    // fetch 
+    function fetchOrder() {
+        $.ajax({
+            type: "GET",
+            url: "/order/fetchAllOrders",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function success(result) {
+                result = result.data;
+                // console.log('result datas ', result);
+                var tr = '';
+                result.map((i, index) => {
+                    tr +=
+                        `<tr>
+                                            <td>
+                                                <div class="form-check font-size-16">
+                                                    <input type="checkbox" class="form-check-input" id="customCheck2">
+                                                    <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                                </div>
+                                            </td>
+                                            <td><a href="javascript: void(0);" class="text-body fw-bold">${i.order_id}</a> </td>
+                                            <td>${i.billing_customer_name} ${i.billing_last_name}</td>
+                                            <td>
+                                                ${i.order_date}
+                                            </td>
+                                            <td>
+                                                ${i.total}
+                                            </td>
+                                            <td>                                                
+                                                <span class="badge rounded-pill bg-soft-success font-size-12">${i.payment_status ? 'complete' : 'pending'}</span>                                                
+                                            </td>
+                                            <td>                                               
+                                                <i class="fab fa-cc-mastercard me-1"></i>${i.payment_method ? 'Prepaid' : 'COD'}                                                
+                                            </td>
+                                            <td>
+                                                <a href="javascript:viewOrderDetails(${i.id})" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                    View Details
+                                                </a>
+                                            </td>
+                                        </tr>`
+                });
+                $("#tbody").html(tr);
+            },
+            error: function error(error) {
+                console.log('1', error);
+            }
+        })
+    }
+
+    // delete product functionality
+    function viewOrderDetails(id) {
+        $.ajax({
+            type: "get",
+            url: `/order/${id}`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.location.reload(true);
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    }
+</script>
