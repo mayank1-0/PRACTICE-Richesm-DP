@@ -10,14 +10,14 @@
                         </h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard / Orders</a></li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
             <!--End start page title -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-body">
@@ -33,7 +33,7 @@
                             </p>
                         </div>
                     </div>
-                </div> <!-- end col-->
+                </div> 
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-body">
@@ -49,7 +49,7 @@
                             </p>
                         </div>
                     </div>
-                </div> <!-- end col-->
+                </div> 
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-body">
@@ -65,7 +65,7 @@
                             </p>
                         </div>
                     </div>
-                </div> <!-- end col-->
+                </div> 
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-body">
@@ -81,8 +81,9 @@
                             </p>
                         </div>
                     </div>
-                </div> <!-- end col-->
-            </div> <!-- end row-->
+                </div> 
+            </div> 
+             -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -160,10 +161,10 @@
     const token = window.localStorage.getItem('token');
 
     // fetch 
-    function fetchOrder() {
+    function fetchOrders() {
         $.ajax({
             type: "GET",
-            url: "/order/fetchAllOrders",
+            url: "/api/order/fetchAllOrders",
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
