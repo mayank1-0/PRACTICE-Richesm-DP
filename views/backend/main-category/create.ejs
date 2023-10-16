@@ -124,6 +124,7 @@
     function getSlug() {
         $('#name').on('input change', function () {
             let slug = $('#name').val().toLowerCase();
+            slug = slug.replace(/\s/g, "-");
             $('#slug').val(slug);
         })
     };

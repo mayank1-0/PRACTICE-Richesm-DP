@@ -17,6 +17,8 @@ const fetchAllOrders = async (req, res) => {
                 "order_id",
                 "billing_customer_name",
                 "billing_last_name",
+                "billing_email",
+                "billing_phone",
                 "order_date",
                 "total",
                 "payment_status",
@@ -74,7 +76,7 @@ const order_store = async (req, res) => {
     } catch (error) {
         res.status(500).send({ message: error.message, data: error, success: false });
     }
-}
+};
 
 // const brand_edit_frm = async (req, res) => {
 //     const brandId = req.params.id;

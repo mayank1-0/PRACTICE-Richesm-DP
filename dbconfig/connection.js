@@ -36,6 +36,7 @@ const UserAddress = require("../models/user_address")(sequelize, Sequelize);
 const Wishlist = require("../models/wishlist")(sequelize, Sequelize);
 const Order = require("../models/order")(sequelize, Sequelize);
 const OrderDetails = require("../models/order_details")(sequelize, Sequelize);
+const Cart = require("../models/cart")(sequelize, Sequelize);
 
 // P.K - F.K. 0. Foreign key vala baad mein i.e Product
 Brand.hasMany(Product, {
@@ -133,6 +134,14 @@ UserAddress.belongsTo(User, {
 //   foreignKey: "created_by",
 // });
 
+// P.K - F.K. 12
+Product.hasMany(Cart, {
+  foreignKey: "product_id",
+});
+Cart.belongsTo(Product, {
+  foreignKey: "product_id",
+});
+
 db.User = User;
 db.Categories = Categories;
 db.MainCategories = MainCategories;
@@ -152,5 +161,6 @@ db.UserAddress = UserAddress;
 db.Wishlist = Wishlist;
 db.Order = Order;
 db.OrderDetails = OrderDetails;
+db.Cart = Cart;
 
 module.exports = db;

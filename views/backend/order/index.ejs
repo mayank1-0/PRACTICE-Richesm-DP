@@ -1,0 +1,2397 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">Manage Sales</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="https://whitelines.co.in/admin/dashboard">Admin</a>
+                                </li>
+                                <li class="breadcrumb-item active"> Sales List</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="table-responsive mb-4">
+                                <table id="datatable-buttons"
+                                    class="table table-centered table-nowrap dt-responsive mb-0" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sn.</th>
+                                            <th scope="col">Order Deatil</th>
+                                            <th scope="col">Customer Detail</th>
+                                            <th scope="col">Payment</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col" style="width: 200px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <!-- 
+                                        <tr>
+                                            <td>2</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-02<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688297969
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                insaf khan <br>
+                                                <strong>Email :</strong>
+                                                shoppking2020@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9928308877
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688297969"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688297969"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688297969')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-02<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688298646
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                insaf khan <br>
+                                                <strong>Email :</strong>
+                                                shoppking2020@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                7823015050
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688298646"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688298646"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688298646')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-03<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688362069
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Completed
+                                                <br>
+                                                <strong>Courier Name :</strong> Nitesh <br />
+                                                <strong> Shippment Id :</strong> 101827182 <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688362069"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688362069"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688362069')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-03<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688369565
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3618.82 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688369565"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688369565"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688369565')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-03<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688381598
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3618.82 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688381598"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688381598"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688381598')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-03<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688382238
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3618.82 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688382238"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688382238"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688382238')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-06<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688650476
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3295.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688650476"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688650476"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688650476')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-06<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688650977
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1749.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688650977"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688650977"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688650977')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-06<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688655295
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                7860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                5044.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688655295"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688655295"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688655295')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-06<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688668514
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                10088.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688668514"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688668514"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688668514')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-07<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688710294
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Sakib Siddique <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                36717.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688710294"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688710294"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688710294')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-07<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688720589
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1749.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688720589"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688720589"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688720589')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-07<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688720670
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Muhammad Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3295.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688720670"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688720670"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688720670')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-07<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688721123
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Mohd Sakib <br>
+                                                <strong>Email :</strong>
+                                                contactmemdsakib@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                07860544535
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                14686.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688721123"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688721123"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688721123')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-10<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688971549
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                8327.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688971549"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688971549"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688971549')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-10<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688971683
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2199.50 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688971683"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688971683"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688971683')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-10<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688972869
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2249.50 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688972869"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688972869"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688972869')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-10<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1688973945
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1688973945"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1688973945"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1688973945')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-11<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689060586
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1749.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689060586"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689060586"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689060586')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-12<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689146177
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Whitelines Admin <br>
+                                                <strong>Email :</strong>
+                                                admin@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                1122334455
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2249.50 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689146177"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689146177"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689146177')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>22</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-19<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689766471
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689766471"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689766471"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689766471')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>23</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-20<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689829805
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                4498.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689829805"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689829805"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689829805')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>24</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-20<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689830155
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2249.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689830155"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689830155"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689830155')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>25</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-20<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1689838169
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3648.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1689838169"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1689838169"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1689838169')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>26</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-22<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1690009350
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                4399.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1690009350"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1690009350"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1690009350')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>27</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-24<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1690177131
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1599.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1690177131"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1690177131"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1690177131')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>28</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-24<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1690177403
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                11085.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Approved
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1690177403"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1690177403"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1690177403')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>29</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-26<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1690376308
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1690376308"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1690376308"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1690376308')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>30</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-07-27<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_07_1690438047
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                6748.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_07_1690438047"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_07_1690438047"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_07_1690438047')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>31</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-02<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1690953905
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2199.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1690953905"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1690953905"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1690953905')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>32</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-07<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1691389640
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2199.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Paid
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1691389640"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1691389640"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1691389640')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>33</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-09<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1691556953
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1691556953"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1691556953"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1691556953')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>34</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-09<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1691578158
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1691578158"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1691578158"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1691578158')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>35</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-11<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1691732903
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1499.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1691732903"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1691732903"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1691732903')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>36</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-14<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1691989847
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2199.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1691989847"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1691989847"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1691989847')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>37</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-14<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1692003684
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Nitesh Mishrsa <br>
+                                                <strong>Email :</strong>
+                                                bulkvyapar@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9582833794
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                2199.50 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1692003684"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1692003684"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1692003684')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>38</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-16<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1692171677
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3695.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1692171677"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1692171677"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1692171677')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>39</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-17<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1692255414
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                6078.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1692255414"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1692255414"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1692255414')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>40</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-08-23<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_08_1692790429
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                farhan khan <br>
+                                                <strong>Email :</strong>
+                                                f.khan88028md@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9540203621
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                1499.50 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_08_1692790429"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_08_1692790429"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_08_1692790429')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>41</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-09-15<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_09_1694755932
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Hafiz Hamza <br>
+                                                <strong>Email :</strong>
+                                                hamzahamza4361@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9828067002
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_09_1694755932"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_09_1694755932"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_09_1694755932')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>42</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-09-15<br />
+                                                <strong>Order ID :</strong><br>
+                                                #6503fcbb6994c
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Whitelines Admin <br>
+                                                <strong>Email :</strong>
+                                                admin@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                1122334455
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Invalid
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/6503fcbb6994c"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/6503fcbb6994c"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;" onclick="deleteRow('6503fcbb6994c')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>43</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-09-19<br />
+                                                <strong>Order ID :</strong><br>
+                                                #650993d8a753a
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Whitelines Admin <br>
+                                                <strong>Email :</strong>
+                                                admin@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                1122334455
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                3079.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Invalid
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/650993d8a753a"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/650993d8a753a"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;" onclick="deleteRow('650993d8a753a')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>44</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-09-23<br />
+                                                <strong>Order ID :</strong><br>
+                                                #650eca62c4dfe
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                efefef efefef <br>
+                                                <strong>Email :</strong>
+                                                monstertech6@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                9898989898
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                9773.00 <br>
+                                                <strong>Mode :</strong>
+                                                Prepaid <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Invalid
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/650eca62c4dfe"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/650eca62c4dfe"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;" onclick="deleteRow('650eca62c4dfe')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>45</td>
+                                            <td><strong>Order Date :</strong>
+                                                2023-10-16<br />
+                                                <strong>Order ID :</strong><br>
+                                                #ODR_2023_10_1697447922
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                Whitelines Admin <br>
+                                                <strong>Email :</strong>
+                                                admin11@gmail.com <br>
+                                                <strong>Contact :</strong>
+                                                1122334455
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                8997.00 <br>
+                                                <strong>Mode :</strong>
+                                                COD <br>
+                                                <strong>Pmt. Status :</strong>
+                                                Pending
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                Created
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/invoice/ODR_2023_10_1697447922"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://whitelines.co.in/admin/manage-sales/orders/edit-order/ODR_2023_10_1697447922"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_10_1697447922')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container fluid -->
+    </div>
+    <!-- end main content -->
+</div>
+
+<script>
+    $(() => {
+        fetchOrders();
+    });
+    const token = window.localStorage.getItem('token');
+
+    // fetch 
+    function fetchOrders() {
+        $.ajax({
+            type: "GET",
+            url: "/api/order/fetchAllOrders",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function success(result) {
+                result = result.data;
+                // console.log('result datas ', result);
+                var tr = '';
+                result.map((i, index) => {
+                    tr +=
+                        `<tr>
+                                            <td>${i.id}</td>
+                                            <td><strong>Order Date :</strong>
+                                                ${i.order_date}<br />
+                                                <strong>Order ID :</strong><br>
+                                                ${i.order_id}
+                                            </td>
+                                            <td><strong>Name :</strong>
+                                                ${i.billing_customer_name} ${i.billing_last_name}<br>
+                                                <strong>Email :</strong>
+                                                ${i.billing_email} <br>
+                                                <strong>Contact :</strong>
+                                                ${i.billing_phone}
+                                            </td>
+                                            <td><strong>Amount :</strong>
+                                                ${i.total} <br>
+                                                <strong>Mode :</strong>
+                                                ${i.payment_method ? 'Prepaid' : 'COD'} <br>
+                                                <strong>Pmt. Status :</strong>
+                                                ${i.payment_status ? 'Complete' : 'Pending'}
+
+                                            </td>
+                                            <td>
+                                                <span style="font-weight: bolder">Status :</span>
+                                                ${i.order_status ? 'Approved' : 'Pending'}
+                                                <br>
+                                                <strong>Courier Name :</strong> NA <br />
+                                                <strong> Shippment Id :</strong> NA <br />
+                                                <strong>AWB Code :</strong> NA
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="#"
+                                                            class="px-2 text-primary" title="Show Invoice"><i
+                                                                class="uil uil-eye font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="#"
+                                                            class="px-2 text-warning" title="Edit Order"><i
+                                                                class="uil uil-pen font-size-18"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:;"
+                                                            onclick="deleteRow('ODR_2023_06_1688117644')"
+                                                            class="px-2 text-danger"><i
+                                                                class="uil uil-trash-alt font-size-18"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>`
+                });
+                $("#tbody").html(tr);
+            },
+            error: function error(error) {
+                console.log('1', error);
+            }
+        })
+    }
+
+    // delete product functionality
+    function viewOrderDetails(id) {
+        $.ajax({
+            type: "get",
+            url: `/order/${id}`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (result) {
+                window.location.reload(true);
+            },
+            error: function error(error) {
+                window.alert("Something went wrong");
+            }
+        });
+    }
+</script>

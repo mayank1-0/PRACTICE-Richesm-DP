@@ -33,16 +33,18 @@ const productThumnail = require('./routes/admin/addthumnailmg');
 //customer routes
 const customerAuthRoutes = require('./routes/customer/authRoutes');
 const customerAddressRoutes = require('./routes/customer/addressRoutes');
-const customerCartRoutes = require('./routes/customer/cartRoutes.js');
 
 //home-page routes
-const homePageRoutes = require('./routes/homePage/homePageRoutes.js');
+const homePageRoutes = require('./routes/homePage/homePageRoutes');
 
 //salman website route
-const UiWebsiteRoutes = require('./routes/website/UiWebsiteRoutes.js');
+const UiWebsiteRoutes = require('./routes/website/UiWebsiteRoutes');
 
 //order routes
-const orderRoutes = require('./routes/order/orderRoutes.js');
+const orderRoutes = require('./routes/order/orderRoutes');
+
+//cart routes
+const cartRoutes = require('./routes/cart/cartRoutes');
 
 const app = express();
 app.use(cookieParser());
@@ -63,9 +65,9 @@ app.use(
 
 app.listen({ port: process.env.PORT }, (err, address) => {
   if (err) {
-     console.log("OOPS, Server Error!");
-     console.error(err);
-     process.exit(1)
+    console.log("OOPS, Server Error!");
+    console.error(err);
+    process.exit(1)
   } else {
     console.log('server listening on ' + process.env.PORT);
   }
@@ -97,9 +99,9 @@ db.sequelize.sync()
     console.log("Failed to sync db: " + err.message);
   });
 
-  // db.sequelize.sync({ force: true }).then(() => {
-  //   console.log("Drop and re-sync db.");
-  // });
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.");
+// });
 // -----------------------------------------------------------------------------------------------
 
 // Admin
@@ -156,9 +158,6 @@ app.use('/api/customer', customerAuthRoutes);
 //address
 app.use('/api/customer/address', customerAddressRoutes);
 
-//cart
-app.use('/api/customer/cart', customerCartRoutes);
-
 // Home Page
 
 //fetch products
@@ -174,3 +173,7 @@ app.use('/api/website/uidata', UiWebsiteRoutes);
 
 // order route
 app.use('/api/order', orderRoutes);
+
+//cart
+app.use('/api/cart', cartRoutes);
+

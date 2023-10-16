@@ -11,7 +11,8 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add Product Materials</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Add Product Materials</a>
+                                </li>
                             </ol>
                         </div>
                     </div>
@@ -143,9 +144,10 @@
     })
 
     //function to get slug
-    function getSlug(){
-        $('#name').on('input change', function(){
+    function getSlug() {
+        $('#name').on('input change', function () {
             let slug = $('#name').val().toLowerCase();
+            slug = slug.replace(/\s/g, "-");
             $('#slug').val(slug);
         })
     }
