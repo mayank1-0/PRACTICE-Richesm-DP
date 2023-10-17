@@ -5,7 +5,7 @@ exports.addImages = async(req,res)=>{
             return res.status(500).send({success:false,message:"atleast minimun select 2 images"})
         }
         req.files.map((img)=>{
-            images.push(`${process.env.IMAGES_PATH}/${img.path}`)
+            images.push(`/${img.path}`)
         })
         res.send({success:true,message:"Images Added ",images:images})
     } catch (error) {

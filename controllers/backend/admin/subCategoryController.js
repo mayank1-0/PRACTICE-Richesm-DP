@@ -59,7 +59,7 @@ const sub_category_store = async (req, res) => {
             page_content,
             status,
         } = req.body;
-        const image =await req.file.path?`${process.env.IMAGE_URL}/${req.file.path}`:`${process.env.IMAGE_URL}/img.jpg`
+        const image =await req.file.path?`/${req.file.path}`:`/img.jpg`
         const result = await db.SubCategories.create({
             name,
             slug,

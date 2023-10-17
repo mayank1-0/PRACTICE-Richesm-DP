@@ -43,7 +43,7 @@ const main_category_store = async (req, res) => {
         let image;
         console.log('2222 ', req.file);
         if (req.file) {
-            image = `${process.env.IMAGE_URL}/${req.file.path}`
+            image = `/${req.file.path}`
         }
 
 

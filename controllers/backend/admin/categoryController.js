@@ -54,8 +54,8 @@ const category_store = async (req, res) => {
             other_meta_tags,
             page_content,
         } = req.body;
-        const uploadImage = `${process.env.IMAGE_URL}/${req.file.path}`
-        const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
+        const uploadImage = `/${req.file.path}`
+        const defaultImage = `/img.jpg`
         const image =await req.file.path?uploadImage:defaultImage
 
         

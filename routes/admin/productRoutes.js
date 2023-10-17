@@ -28,7 +28,7 @@ router.get('/edit/:id', authGuard, productController.product_edit_frm);
 router.get('/fetchProduct/:id', auth, productController.fetchProductDetailsById);
 
 //edit-product
-router.post('/update/:id', auth, productController.product_edit_update);
+// router.post('/update/:id', auth, productController.product_edit_update);
 
 //delete
 router.delete('/:id', auth, productController.product_destroy);

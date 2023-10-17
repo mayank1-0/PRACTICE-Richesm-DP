@@ -113,6 +113,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             defaultValue: null
         },
+        product_highlight: {
+            type: Sequelize.STRING,
+            defaultValue: null
+        },
         product_specification: {
             type: Sequelize.STRING,
             defaultValue: null

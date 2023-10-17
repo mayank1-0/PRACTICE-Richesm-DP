@@ -73,7 +73,6 @@ const product_store = async (req, res) => {
         result = await db.Product.create(tableData);
         res.status(200).send({ message: "Filled data in product table", data: result, success: true });
     } catch (error) {
-        console.log(error, '+++++++++++++++');
         res.status(500).send({ message: "Something went wrong", data: error, success: false });
     }
 };
@@ -141,13 +140,14 @@ const fetchProductDetailsById = async (req, res) => {
     }
 }
 
+//INCOMPLETE
 const product_edit_update = async (req, res) => {
     try {
         let paramId = req.params.id;
         let result;
         let updateData = req.body;
         result = await db.Product.update({
-            name: updateData.name,
+            product_name: updateData.product_name,
             slug: updateData.slug,
             status: updateData.status,
             image: updateData.image
@@ -166,7 +166,6 @@ const product_edit_update = async (req, res) => {
         res.status(500).send({ message: "Something went wrong. Please try again", err: error, success: false });
     }
 }
-
 
 const product_destroy = async (req, res) => {
     try {

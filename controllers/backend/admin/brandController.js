@@ -41,8 +41,8 @@ const brand_store = async (req, res) => {
     try {
 
         const { name, slug, status } = req.body;
-        const uploadImage = `${process.env.IMAGE_URL}/${req?.file?.path}`
-        const defaultImage = `${process.env.IMAGE_URL}/img.jpg`
+        const uploadImage = `/${req?.file?.path}`
+        const defaultImage = `/img.jpg`
         const image = req.file.path ? uploadImage : defaultImage
         const result = await db.Brand.create({
             name,

@@ -48,11 +48,25 @@ const cartRoutes = require('./routes/cart/cartRoutes');
 
 const app = express();
 app.use(cookieParser());
+
+
 app.use(cors({
   origin: process.env.FRONTEND,
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true
 }))
+
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
+
+app.use(cors());
+app.options("*", cors());
 
 app.use(
   session({
@@ -168,7 +182,7 @@ app.use('/api/home-page', homePageRoutes);
 // });
 
 
-//salman website route
+//salman sir website route
 app.use('/api/website/uidata', UiWebsiteRoutes);
 
 // order route

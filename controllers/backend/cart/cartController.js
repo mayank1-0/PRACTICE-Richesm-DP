@@ -4,7 +4,7 @@ const fetchAllCarts = async (req, res) => {
     try {
         const Product = db.Product;
         const cartData = await db.Cart.findAll({
-            include: [Product]
+            include: Product
         });
         if (!cartData) {
             res.status(404).send({ success: false, message: "No carts are there in the database", status: 404 })
