@@ -23,6 +23,7 @@ const cart_store = async (req, res) => {
         let tableData = req.body;
         if (!tableData.user_id) return res.status(404).send({ success: false, message: 'Invalid user id' });
         if (!tableData.quantity) return res.status(404).send({ success: false, message: 'Invalid quantity' });
+        if (!tableData.product_id) return res.status(404).send({ success: false, message: 'Invalid product id' });
         result = await db.Cart.create(tableData);
         res.status(200).send({ message: "Filled data in cart table", data: result, success: true })
     } catch (error) {
